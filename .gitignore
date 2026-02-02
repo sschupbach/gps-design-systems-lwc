@@ -59,6 +59,7 @@ sfGpsDsAuNswSFull/*
 sfGpsDsAuQldFull/*
 sfGpsDsAuVic1Full/*
 sfGpsDsAuVic2Full/*
+sfGpsDsCaOnFull/*
 sfGpsDsFrGovFull/*
 sfGpsDsUkGovFull/*
 
@@ -72,3 +73,7 @@ sfGpsDsUkGovFull/*
 **/aura/**/*.gen.scss
 **/staticresources/**/*.gen.css
 **/staticresources/**/*.gen.scss
+
+# CSS source maps (generated during build)
+**/lwc/**/*.css.map
+**/lwc/**/*.gen.css.map

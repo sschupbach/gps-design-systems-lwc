@@ -4,14 +4,19 @@
   "version": "3.0.1",
   "description": "LWC implementations of a collection of Public Sector Design Systems",
   "scripts": {
-    "build-caon": "npx tsc --project sfGpsDsCaOn/main/default/lwc",
+    "build-caon": "npx tsc --project sfGpsDs/main/default/lwc; npx tsc --project sfGpsDsCaOn/main/default/lwc",
     "build": "npx tsc --project sfGpsDs/main/default/lwc; npx tsc --project sfGpsDsAuNsw/main/default/lwc; npx tsc --project sfGpsDsAuQld/main/default/lwc; npx tsc --project sfGpsDsAuVic2/main/default/lwc; npx tsc --project sfGpsDsAuVic2Showcase/main/default/lwc",
     "lint": "eslint **/{aura,lwc}/**",
+    "lint-caon": "eslint sfGpsDsCaOn/**/{aura,lwc}/**",
     "test": "npm run test:unit",
     "test:unit": "npm run osfilegen;sfdx-lwc-jest --skipApiVersionCheck --verbose",
     "test:unit:watch": "npm run osfilegen;sfdx-lwc-jest --watch --skipApiVersionCheck",
     "test:unit:debug": "npm run osfilegen;sfdx-lwc-jest --debug --skipApiVersionCheck",
     "test:unit:coverage": "npm run osfilegen;sfdx-lwc-jest --coverage --skipApiVersionCheck",
+    "test-caon": "npm run osfilegen && sfdx-lwc-jest --skipApiVersionCheck --verbose -- --testPathPattern='sfGpsDsCaOn/__tests__/.*\\.test\\.js$'",
+    "test-caon:watch": "npm run osfilegen && sfdx-lwc-jest --skipApiVersionCheck --watch -- --testPathPattern='sfGpsDsCaOn/__tests__/.*\\.test\\.js$'",
+    "test-caon:coverage": "npm run osfilegen && sfdx-lwc-jest --skipApiVersionCheck --coverage -- --testPathPattern='sfGpsDsCaOn/__tests__/.*\\.test\\.js$' --collectCoverageFrom='sfGpsDsCaOn/**/*.js'",
+    "test-caon:a11y": "npm run osfilegen && sfdx-lwc-jest --skipApiVersionCheck --verbose -- --testPathPattern='sfGpsDsCaOn/__tests__/accessibility/.*\\.test\\.js$'",
     "prettier": "prettier --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
     "prettier:verify": "prettier --check \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
     "prepare": "husky || true",
@@ -25,7 +30,7 @@
     "prep-frgov": "mkdir -p sfGpsDsFrGovFull",
     "prep-ukgov": "mkdir -p sfGpsDsUkGovFull",
     "prep-sggov": "cp -a node_modules/@govtechsg/sgds/css/sgds.css sfGpsDsSgGov/main/default/staticresources/sfGpsDsSgGov; mkdir -p sfGpsDsSgGov/main/default/staticresources/sfGpsDsSgGov; cp -a node_modules/bootstrap-icons/font/bootstrap-icons.css sfGpsDsSgGov/main/default/staticresources/sfGpsDsSgGov; mkdir -p sfGpsDsSgGov/main/default/staticresources/sfGpsDsSgGov/fonts; cp -a node_modules/bootstrap-icons/font/fonts/* sfGpsDsSgGov/main/default/staticresources/sfGpsDsSgGov/fonts; mkdir -p sfGpsDsSgGovFull",
-    "prep-caon": "rm -rf sfGpsDsCaOn/main/default/staticresources/sfGpsDsCaOnComponents/dist; mkdir -p sfGpsDsCaOn/main/default/staticresources/sfGpsDsCaOnComponents/dist; cp -a node_modules/@ongov/ontario-design-system-component-library/dist/ontario-design-system-components sfGpsDsCaOn/main/default/staticresources/sfGpsDsCaOnComponents/dist; rm -rf sfGpsDsCaOn/main/default/staticresources/sfGpsDsCaOnComponents/dist/ontario-design-system-components/fonts; rm -rf sfGpsDsCaOn/main/default/staticresources/sfGpsDsCaOnGlobalStyles/dist; cp -a node_modules/@ongov/ontario-design-system-global-styles/dist sfGpsDsCaOn/main/default/staticresources/sfGpsDsCaOnGlobalStyles; mkdir -p sfGpsDsCaOnFull",
+    "prep-caon": "rm -rf sfGpsDsCaOn/main/default/staticresources/sfGpsDsCaOnComponents/dist; mkdir -p sfGpsDsCaOn/main/default/staticresources/sfGpsDsCaOnComponents/dist; cp -a node_modules/@ongov/ontario-design-system-component-library/dist/ontario-design-system-components sfGpsDsCaOn/main/default/staticresources/sfGpsDsCaOnComponents/dist; rm -rf sfGpsDsCaOn/main/default/staticresources/sfGpsDsCaOnComponents/dist/ontario-design-system-components/fonts; rm -rf sfGpsDsCaOn/main/default/staticresources/sfGpsDsCaOnGlobalStyles/dist; cp -a node_modules/@ongov/ontario-design-system-global-styles/dist sfGpsDsCaOn/main/default/staticresources/sfGpsDsCaOnGlobalStyles; rm -rf sfGpsDsCaOn/main/default/staticresources/sfGpsDsCaOnGlobalStyles/dist/fonts; mkdir -p sfGpsDsCaOnFull",
     "prep": "npm run prep-nsw; npm run prep-nsws; npm run prep-qld; npm run prep-vic2; npm run prep-frgov; npm run prep-ukgov;npm run prep-sggov; npm run prep-caon",
     "aunsw-copy": "rm -rf sfGpsDsAuNswFull;mkdir -p sfGpsDsAuNswFull;cp -a sfGpsDs/. sfGpsDsAuNswFull;cp -a sfGpsDsAuNsw/. sfGpsDsAuNswFull",
     "aunsws-copy": "rm -rf sfGpsDsAuNswSFull;mkdir -p sfGpsDsAuNswSFull;cp -a sfGpsDs/. sfGpsDsAuNswSFull;cp -a sfGpsDsAuNswS/. sfGpsDsAuNswSFull",
@@ -33,7 +38,7 @@
     "auvic2-copy": "rm -rf sfGpsDsAuVic2Full;mkdir -p sfGpsDsAuVic2Full;cp -a sfGpsDs/. sfGpsDsAuVic2Full;cp -a sfGpsDsAuVic2/. sfGpsDsAuVic2Full",
     "frgov-copy": "rm -rf sfGpsDsFrGovFull;mkdir -p sfGpsDsFrGovFull;cp -a sfGpsDs/. sfGpsDsFrGovFull;cp -a sfGpsDsFrGov/. sfGpsDsFrGovFull",
     "ukgov-copy": "rm -rf sfGpsDsUkGovFull;mkdir -p sfGpsDsUkGovFull;cp -a sfGpsDs/. sfGpsDsUkGovFull;cp -a sfGpsDsUkGov/. sfGpsDsUkGovFull",
-    "copy-caon": "rm -rf sfGpsDsOnCaFull;mkdir -p sfGpsDsOnCaFull;cp -a sfGpsDs/. sfGpsDsOnCaFull;cp -a sfGpsDsOnCa/. sfGpsDsOnCaFull",
+    "copy-caon": "rm -rf sfGpsDsCaOnFull;mkdir -p sfGpsDsCaOnFull;cp -a sfGpsDs/. sfGpsDsCaOnFull;cp -a sfGpsDsCaOn/. sfGpsDsCaOnFull",
     "synclabs": "export SDIR=../gps-design-systems-lwc;export TDIR=../gps-design-systems-lwcx;rm -rf $TDIR;cp -a . $TDIR;cp -a $SDIR/.git $TDIR;rm -rf $TDIR/.github"
   },
   "lint-staged": {
@@ -54,8 +59,6 @@
     "url": "git+https://github.com/eschweitzer78/gps-design-systems-lwc"
   },
   "devDependencies": {
-    "@dpc-sdp/ripple-ui-core": "2.29.0",
-    "@dpc-sdp/ripple-ui-forms": "2.29.0",
     "@gouvfr/dsfr": "^1.13.0",
     "@govtechsg/sgds": "^2.3.6",
     "@lwc/eslint-plugin-lwc": "^3.3.0",
@@ -71,6 +74,7 @@
     "@salesforce/sfdx-lwc-jest": "^7.5.1",
     "@testing-library/user-event": "^14.6.1",
     "@types/jest": "^29.5.14",
+    "axe-core": "^4.11.1",
     "bootstrap-icons": "1.9.1",
     "csstype": "^3.1.3",
     "eslint": "9.39.1",
@@ -82,6 +86,7 @@
     "jest-canvas-mock": "^2.5.2",
     "jest-extended": "^4.0.2",
     "lint-staged": "^16.2.7",
+    "lwc": "8.25.1",
     "node-sass-magic-importer": "^5.3.3",
     "nsw-design-system": "3.24.0",
     "postcss": "^8.4.38",
@@ -91,8 +96,7 @@
     "resize-observer-polyfill": "^1.5.1",
     "sass": "^1.86.3",
     "ts-jest": "^29.4.0",
-    "typescript": "^5.8.3",
-    "lwc": "8.25.1"
+    "typescript": "^5.8.3"
   },
   "engines": {
     "node": "^20"

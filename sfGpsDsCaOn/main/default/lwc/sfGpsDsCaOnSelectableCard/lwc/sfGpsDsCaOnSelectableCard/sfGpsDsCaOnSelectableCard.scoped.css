@@ -1,0 +1,345 @@
+/**
+ * Ontario Design System - Selectable Card Styles
+ * 
+ * Card with checkbox, title, description, and expandable content.
+ */
+
+/* Card Container */
+.sfgpsdscaon-selectable-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--ontario-greyscale-20, #cccccc);
+  background-color: var(--ontario-colour-white, #ffffff);
+  transition: background-color 0.15s ease-in-out;
+}
+
+.sfgpsdscaon-selectable-card:first-child {
+  border-top: 1px solid var(--ontario-greyscale-20, #cccccc);
+}
+
+.sfgpsdscaon-selectable-card--selected {
+  background-color: var(--ontario-greyscale-5, #f5f5f5);
+}
+
+.sfgpsdscaon-selectable-card--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Header with Checkbox */
+.sfgpsdscaon-selectable-card__header {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0;
+}
+
+/* ============================================================================
+   CHECKBOX STYLING - Self-contained Ontario DS checkbox implementation
+   Does not rely on external theme CSS to avoid broken path issues
+   ============================================================================ */
+
+/* Hide native checkbox but keep accessible */
+.sfgpsdscaon-selectable-card__checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Custom checkbox appearance via label::before */
+.sfgpsdscaon-selectable-card__label {
+  position: relative;
+  padding-left: 2.25rem;
+  cursor: pointer;
+  min-height: 1.75rem;
+}
+
+.sfgpsdscaon-selectable-card__label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.125rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  background-color: #ffffff;
+  border: 2px solid #1a1a1a;
+  border-radius: 4px;
+  transition:
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
+}
+
+/* Checkmark via label::after */
+.sfgpsdscaon-selectable-card__label::after {
+  content: "";
+  position: absolute;
+  left: 0.5rem;
+  top: 0.5rem;
+  width: 0.75rem;
+  height: 0.4375rem;
+  border: solid #ffffff;
+  border-width: 0 0 3px 3px;
+  transform: rotate(-45deg);
+  opacity: 0;
+  transition: opacity 0.15s ease-in-out;
+}
+
+/* Checked state */
+.sfgpsdscaon-selectable-card__checkbox:checked
+  + .sfgpsdscaon-selectable-card__label::before {
+  background-color: #1a1a1a;
+  border-color: #1a1a1a;
+}
+
+.sfgpsdscaon-selectable-card__checkbox:checked
+  + .sfgpsdscaon-selectable-card__label::after {
+  opacity: 1;
+}
+
+/* Focus state - Ontario focus ring */
+.sfgpsdscaon-selectable-card__checkbox:focus
+  + .sfgpsdscaon-selectable-card__label::before {
+  box-shadow: 0 0 0 4px #009adb;
+  outline: 4px solid transparent;
+}
+
+/* Hover state */
+.sfgpsdscaon-selectable-card__label:hover::before {
+  border-color: #0066cc;
+}
+
+/* Disabled state */
+.sfgpsdscaon-selectable-card__checkbox:disabled
+  + .sfgpsdscaon-selectable-card__label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.sfgpsdscaon-selectable-card__checkbox:disabled
+  + .sfgpsdscaon-selectable-card__label::before {
+  background-color: #f5f5f5;
+  border-color: #cccccc;
+}
+
+/* ============================================================================ */
+
+/* Label */
+.sfgpsdscaon-selectable-card__label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 400;
+}
+
+/* Title Wrapper - for inline badge display */
+.sfgpsdscaon-selectable-card__title-wrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Title */
+.sfgpsdscaon-selectable-card__title {
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--ontario-colour-black, #1a1a1a);
+}
+
+/* Badge - Status indicator next to title */
+.sfgpsdscaon-selectable-card__badge {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  border-radius: 0.25rem;
+  white-space: nowrap;
+}
+
+/* Badge Variants */
+.sfgpsdscaon-selectable-card__badge--success {
+  background-color: var(--ontario-colour-success, #118847);
+  color: var(--ontario-colour-white, #ffffff);
+}
+
+.sfgpsdscaon-selectable-card__badge--info {
+  background-color: var(--ontario-colour-link, #0066cc);
+  color: var(--ontario-colour-white, #ffffff);
+}
+
+.sfgpsdscaon-selectable-card__badge--warning {
+  background-color: var(--ontario-colour-warning, #ffc107);
+  color: var(--ontario-colour-black, #1a1a1a);
+}
+
+.sfgpsdscaon-selectable-card__badge--error {
+  background-color: var(--ontario-colour-error, #cd0000);
+  color: var(--ontario-colour-white, #ffffff);
+}
+
+/* Description - supports multi-line text with \n */
+.sfgpsdscaon-selectable-card__description {
+  margin-top: 0.5rem;
+  margin-left: 2.25rem; /* Align with label text */
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--ontario-colour-grey-7, #4d4d4d);
+  white-space: pre-line; /* Preserve line breaks from \n */
+}
+
+/* Link */
+.sfgpsdscaon-selectable-card__link {
+  display: inline-block;
+  margin-top: 0.25rem;
+  margin-left: 2.25rem; /* Align with label text */
+  font-size: 1rem;
+  color: var(--ontario-colour-link, #0066cc);
+  text-decoration: underline;
+}
+
+.sfgpsdscaon-selectable-card__link:hover {
+  color: var(--ontario-colour-link-hover, #00478f);
+}
+
+.sfgpsdscaon-selectable-card__link:focus {
+  box-shadow: 0 0 0 4px var(--ontario-colour-focus, #009adb);
+  outline: 4px solid transparent;
+}
+
+/* Expand Button */
+.sfgpsdscaon-selectable-card__expand-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 0.5rem;
+  margin-left: 2.25rem; /* Align with label text */
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--ontario-colour-link, #0066cc);
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.sfgpsdscaon-selectable-card__expand-btn:hover {
+  color: var(--ontario-colour-link-hover, #00478f);
+  text-decoration: underline;
+}
+
+.sfgpsdscaon-selectable-card__expand-btn:focus {
+  box-shadow: 0 0 0 4px var(--ontario-colour-focus, #009adb);
+  outline: 4px solid transparent;
+}
+
+/* Expand Icon */
+.sfgpsdscaon-selectable-card__expand-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: currentColor;
+}
+
+/* Expanded Content */
+.sfgpsdscaon-selectable-card__expanded-content {
+  margin-top: 0.75rem;
+  margin-left: 2.25rem; /* Align with label text */
+  padding: 1rem;
+  background-color: var(--ontario-greyscale-5, #f5f5f5);
+  border-left: 4px solid var(--ontario-colour-link, #0066cc);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--ontario-colour-black, #1a1a1a);
+}
+
+/* ==========================================================================
+   HIGH CONTRAST MODE SUPPORT
+   WCAG 1.4.11: Non-text Contrast
+   Ensures focus indicators and UI boundaries are visible in high contrast mode
+   ========================================================================== */
+@media (prefers-contrast: high) {
+  .sfgpsdscaon-selectable-card {
+    border-color: CanvasText;
+    background-color: Canvas;
+    color: CanvasText;
+  }
+
+  .sfgpsdscaon-selectable-card--selected {
+    background-color: Canvas;
+    border-left: 4px solid Highlight;
+  }
+
+  .sfgpsdscaon-selectable-card__title {
+    color: CanvasText;
+  }
+
+  .sfgpsdscaon-selectable-card__description {
+    color: CanvasText;
+  }
+
+  .sfgpsdscaon-selectable-card__badge {
+    background-color: CanvasText;
+    color: Canvas;
+  }
+
+  .sfgpsdscaon-selectable-card__link {
+    color: LinkText;
+  }
+
+  .sfgpsdscaon-selectable-card__link:focus {
+    outline: 3px solid Highlight;
+    outline-offset: 2px;
+    box-shadow: none;
+  }
+
+  .sfgpsdscaon-selectable-card__expand-btn {
+    color: LinkText;
+  }
+
+  .sfgpsdscaon-selectable-card__expand-btn:focus {
+    outline: 3px solid Highlight;
+    outline-offset: 2px;
+    box-shadow: none;
+  }
+
+  .sfgpsdscaon-selectable-card__expanded-content {
+    background-color: Canvas;
+    border-color: Highlight;
+    color: CanvasText;
+  }
+}
+
+/* Forced colors mode (Windows High Contrast) */
+@media (forced-colors: active) {
+  .sfgpsdscaon-selectable-card {
+    border-color: ButtonText;
+    forced-color-adjust: none;
+  }
+
+  .sfgpsdscaon-selectable-card--selected {
+    border-left: 4px solid Highlight;
+  }
+
+  .sfgpsdscaon-selectable-card__link:focus,
+  .sfgpsdscaon-selectable-card__expand-btn:focus {
+    outline: 3px solid Highlight;
+    outline-offset: 2px;
+  }
+
+  .sfgpsdscaon-selectable-card__badge {
+    forced-color-adjust: none;
+  }
+
+  .sfgpsdscaon-selectable-card__expanded-content {
+    border-color: Highlight;
+  }
+}
