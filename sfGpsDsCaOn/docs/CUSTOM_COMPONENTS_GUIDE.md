@@ -111,7 +111,7 @@ A card component with a colored header bar, icon, heading, description, primary 
 #### Example
 
 ```html
-<c-sf-gps-ds-ca-on-action-card-comm
+<c-sf-gps-ds-ca-on-action-card-lwr
   heading="Apply for a permit"
   description="Start your environmental permit application"
   icon="document"
@@ -120,7 +120,7 @@ A card component with a colored header bar, icon, heading, description, primary 
   button-url="/apply"
   link-label="Learn more"
   link-url="/about-permits"
-></c-sf-gps-ds-ca-on-action-card-comm>
+></c-sf-gps-ds-ca-on-action-card-lwr>
 ```
 
 ---
@@ -359,8 +359,8 @@ export default class SfGpsDsCaOnMyCustomComponent extends SfGpsDsLwc {
 3. **Create Experience Builder wrapper:**
 
 ```typescript
-// sfGpsDsCaOnMyCustomComponentComm.ts
-export default class SfGpsDsCaOnMyCustomComponentComm extends SfGpsDsLwc {
+// sfGpsDsCaOnMyCustomComponentLwr.ts
+export default class SfGpsDsCaOnMyCustomComponentLwr extends SfGpsDsLwc {
   // Accept JSON strings for complex properties
   @api propertiesJson?: string;
 
@@ -443,7 +443,7 @@ Both systems share utility classes:
 2. **Document custom components**: Add JSDoc comments to all public APIs
 3. **Test accessibility**: Custom components must meet AODA requirements
 4. **Follow naming conventions**: Use consistent `sfgpsdscaon-` prefix
-5. **Provide Experience Builder support**: Create `*Comm` wrapper components
+5. **Provide Experience Builder support**: Create `*Lwr` wrapper components
 
 ### Don't
 

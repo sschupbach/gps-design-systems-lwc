@@ -1,3 +1,5 @@
 {
-  "sfGpsDsCaOnSearch/ontario-search": []
+  "sfGpsDsCaOnSearch/ontario-search*": [
+    { "target": "sfGpsDsCaOnSearch/sfGpsDsCaOnSearch.scoped" }
+  ]
 }

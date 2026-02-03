@@ -1,3 +1,5 @@
 {
-  "sfGpsDsCaOnDropdown/ontario-dropdown": []
+  "sfGpsDsCaOnDropdown/ontario-dropdown*": [
+    { "target": "sfGpsDsCaOnDropdown/sfGpsDsCaOnDropdown.scoped" }
+  ]
 }

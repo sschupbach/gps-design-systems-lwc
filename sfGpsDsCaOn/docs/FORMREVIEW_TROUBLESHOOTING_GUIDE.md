@@ -5,7 +5,7 @@ This guide helps administrators and developers troubleshoot issues with the `sfG
 ## Table of Contents
 
 1. [Enabling Debug Mode](#enabling-debug-mode)
-2. [Common Issues](#common-issues)
+2. [Lwron Issues](#common-issues)
 3. [Debug Panel Usage](#debug-panel-usage)
 4. [Reading Console Output](#reading-console-output)
 5. [Schema Compatibility](#schema-compatibility)
@@ -43,7 +43,7 @@ Add `?formReviewDebug=true` to the page URL to enable the diagnostic panel witho
 
 ---
 
-## Common Issues
+## Lwron Issues
 
 ### Issue: "No Sections Displayed"
 

@@ -1,6 +1,9 @@
 {
-  "sfGpsDsCaOnCard/ontario-card": [],
-  "sfGpsDsCaOnCardCollectionLwr/ontario-card-collection": [
+  "sfGpsDsCaOnCard/ontario-card*": [
+    { "target": "sfGpsDsCaOnCard/sfGpsDsCaOnCard.scoped" }
+  ],
+  "sfGpsDsCaOnCardCollectionLwr/ontario-card-collection*": [
+    { "target": "sfGpsDsCaOnCardCollectionLwr/sfGpsDsCaOnCardCollectionLwr.scoped" },
     {
       "from": "::slotted\\(ontario-card\\)",
       "to": ".ontario-card"

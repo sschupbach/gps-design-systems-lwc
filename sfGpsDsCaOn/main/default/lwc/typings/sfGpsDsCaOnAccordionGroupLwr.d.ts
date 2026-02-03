@@ -2,8 +2,9 @@ declare module "c/sfGpsDsCaOnAccordionGroupLwr" {
   import type SfGpsDsLwc from "c/sfGpsDsLwc";
 
   export default class SfGpsDsCaOnAccordionGroupLwr extends SfGpsDsLwc {
-    static renderMode: string;
     name?: string;
+    accordionData?: string;
+    content?: string;
     showExpandCollapse?: boolean;
     expandLabel?: string;
     collapseLabel?: string;

@@ -20,12 +20,12 @@ The "Apply or Register" page allows users to select which environmental permissi
 
 | Section      | Component                             | Experience Builder Name           |
 | ------------ | ------------------------------------- | --------------------------------- |
-| Header       | `sfGpsDsCaOnHeaderComm`               | Ontario DS Header                 |
-| Page Title   | `sfGpsDsCaOnCalloutComm`              | Ontario DS Callout                |
-| Action Cards | `sfGpsDsCaOnActionCardCollectionComm` | Ontario DS Action Card Collection |
-| Each Card    | `sfGpsDsCaOnActionCardComm`           | Ontario DS Action Card            |
-| Back to Top  | `sfGpsDsCaOnBackToTopComm`            | Ontario DS Back To Top            |
-| Footer       | `sfGpsDsCaOnFooterExpandedComm`       | Ontario DS Footer Expanded        |
+| Header       | `sfGpsDsCaOnHeaderLwr`               | Ontario DS Header                 |
+| Page Title   | `sfGpsDsCaOnCalloutLwr`              | Ontario DS Callout                |
+| Action Cards | `sfGpsDsCaOnActionCardCollectionLwr` | Ontario DS Action Card Collection |
+| Each Card    | `sfGpsDsCaOnActionCardLwr`           | Ontario DS Action Card            |
+| Back to Top  | `sfGpsDsCaOnBackToTopLwr`            | Ontario DS Back To Top            |
+| Footer       | `sfGpsDsCaOnFooterExpandedLwr`       | Ontario DS Footer Expanded        |
 
 ---
 

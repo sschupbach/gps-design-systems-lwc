@@ -152,24 +152,24 @@ The Stormwater Management Works activity is a multi-step registration process wi
 | UI Element                    | Component                                 | Status     |
 | ----------------------------- | ----------------------------------------- | ---------- |
 | Page Title                    | HTML/Callout                              | **Exists** |
-| Task List (Getting started)   | `sfGpsDsCaOnTaskListComm`                 | **Exists** |
-| Task List (Before you submit) | `sfGpsDsCaOnTaskListComm`                 | **Exists** |
-| Add site(s) button            | `sfGpsDsCaOnButtonComm` (icon: add)       | **Exists** |
-| Save draft button             | `sfGpsDsCaOnButtonComm` (type: secondary) | **Exists** |
-| Footer                        | `sfGpsDsCaOnFooterExpandedComm`           | **Exists** |
+| Task List (Getting started)   | `sfGpsDsCaOnTaskListLwr`                 | **Exists** |
+| Task List (Before you submit) | `sfGpsDsCaOnTaskListLwr`                 | **Exists** |
+| Add site(s) button            | `sfGpsDsCaOnButtonLwr` (icon: add)       | **Exists** |
+| Save draft button             | `sfGpsDsCaOnButtonLwr` (type: secondary) | **Exists** |
+| Footer                        | `sfGpsDsCaOnFooterExpandedLwr`           | **Exists** |
 
 ### Operation Information OmniScript
 
 | UI Element                 | Component                        | Status         |
 | -------------------------- | -------------------------------- | -------------- |
-| Step Indicator             | `sfGpsDsCaOnStepIndicatorComm`   | **Exists**     |
-| Back link                  | `sfGpsDsCaOnBackButtonComm`      | **Exists**     |
+| Step Indicator             | `sfGpsDsCaOnStepIndicatorLwr`   | **Exists**     |
+| Back link                  | `sfGpsDsCaOnBackButtonLwr`      | **Exists**     |
 | Text Input                 | `sfGpsDsCaOnFormText`            | **Exists**     |
 | Dropdown (Select)          | `sfGpsDsCaOnFormSelect`          | **Exists**     |
 | **Cascading NAICS Picker** | `sfGpsDsCaOnFormNaicsCodePicker` | ✅ **Created** |
-| Summary List               | `sfGpsDsCaOnSummaryListComm`     | **Exists**     |
+| Summary List               | `sfGpsDsCaOnSummaryListLwr`     | **Exists**     |
 | Checkbox                   | `sfGpsDsCaOnFormCheckbox`        | **Exists**     |
-| Back to Top                | `sfGpsDsCaOnBackToTopComm`       | **Exists**     |
+| Back to Top                | `sfGpsDsCaOnBackToTopLwr`       | **Exists**     |
 | Primary Button             | OmniScript Step navigation       | **Exists**     |
 | Secondary Button           | OmniScript Save for Later        | **Exists**     |
 
@@ -632,8 +632,8 @@ The `sfGpsDsCaOnFormEditBlock` component already provides Ontario DS styling for
 
 | Component       | Configuration                                                   |
 | --------------- | --------------------------------------------------------------- |
-| **Header**      | `sfGpsDsCaOnHeaderComm` (type: application)                     |
-| **Back Button** | `sfGpsDsCaOnBackButtonComm`                                     |
+| **Header**      | `sfGpsDsCaOnHeaderLwr` (type: application)                     |
+| **Back Button** | `sfGpsDsCaOnBackButtonLwr`                                     |
 | **Page Title**  | HTML: `<h1 class="ontario-h1">Stormwater management works</h1>` |
 
 ### Getting Started Task List
@@ -905,12 +905,12 @@ Options can be loaded dynamically via:
 
 | UI Element                       | Component                                                      | Status          |
 | -------------------------------- | -------------------------------------------------------------- | --------------- |
-| Info Callout                     | `sfGpsDsCaOnCalloutComm`                                       | ✅ **Exists**   |
+| Info Callout                     | `sfGpsDsCaOnCalloutLwr`                                       | ✅ **Exists**   |
 | Site Checkbox Cards              | `sfGpsDsCaOnSelectableCard` / `sfGpsDsCaOnFormSelectableCards` | ✅ **Enhanced** |
 | Status badges (NEW, IN PROGRESS) | `badge` / `badgeVariant` properties                            | ✅ **Added**    |
 | "More details" link              | `linkLabel` / `linkUrl` properties                             | ✅ **Added**    |
-| "Create a new site" button       | `sfGpsDsCaOnButtonComm` (icon: add)                            | ✅ **Exists**   |
-| "Add selected site(s)" button    | `sfGpsDsCaOnButtonComm`                                        | ✅ **Exists**   |
+| "Create a new site" button       | `sfGpsDsCaOnButtonLwr` (icon: add)                            | ✅ **Exists**   |
+| "Add selected site(s)" button    | `sfGpsDsCaOnButtonLwr`                                        | ✅ **Exists**   |
 
 ### Selectable Card Link Support
 
@@ -979,13 +979,13 @@ The `sfGpsDsCaOnSelectableCard` component supports status badges displayed next 
 
 | UI Element                | Component                    | Status        |
 | ------------------------- | ---------------------------- | ------------- |
-| Section with Edit link    | `sfGpsDsCaOnSummaryListComm` | ✅ **Exists** |
+| Section with Edit link    | `sfGpsDsCaOnSummaryListLwr` | ✅ **Exists** |
 | Field display (key-value) | Summary List items           | ✅ **Exists** |
-| Continue button           | `sfGpsDsCaOnButtonComm`      | ✅ **Exists** |
+| Continue button           | `sfGpsDsCaOnButtonLwr`      | ✅ **Exists** |
 
 ### Summary List Configuration
 
-Each section on the Site Details page uses `sfGpsDsCaOnSummaryListComm`:
+Each section on the Site Details page uses `sfGpsDsCaOnSummaryListLwr`:
 
 ```json
 {
@@ -1014,7 +1014,7 @@ Each section on the Site Details page uses `sfGpsDsCaOnSummaryListComm`:
 
 ## Site Task Card Component
 
-### Component: `sfGpsDsCaOnSiteTaskCardComm`
+### Component: `sfGpsDsCaOnSiteTaskCardLwr`
 
 A card displaying a registration site with its associated tasks and progress summary.
 
@@ -1115,7 +1115,7 @@ The guide covers:
 - **Discharge Point Selector** - Coordinate entry (UTM, DMS, Decimal) with map visualization
 - **MECP District Lookup** - Geographic boundary-based data lookup
 - **CSP Configuration** - Required security settings for ESRI integration
-- **Troubleshooting** - Common issues and solutions
+- **Troubleshooting** - Lwron issues and solutions
 
 ### Quick Component Reference
 
@@ -1133,7 +1133,7 @@ The guide covers:
 ### Phase 4: Add Sites
 
 - [ ] Create Add Sites Experience Builder page
-- [ ] Configure `sfGpsDsCaOnCalloutComm` for info message
+- [ ] Configure `sfGpsDsCaOnCalloutLwr` for info message
 - [ ] Configure `sfGpsDsCaOnFormSelectableCards` for site selection
 - [ ] Set up site options with `linkLabel` and `linkUrl`
 - [x] Add badge support (`badge`, `badgeVariant`) for "NEW"/"IN PROGRESS" status
@@ -1143,7 +1143,7 @@ The guide covers:
 ### Phase 5: Site Details
 
 - [ ] Create Site Details Experience Builder page
-- [ ] Configure multiple `sfGpsDsCaOnSummaryListComm` sections
+- [ ] Configure multiple `sfGpsDsCaOnSummaryListLwr` sections
 - [ ] Set up Edit links for each section
 - [ ] Add Continue button
 

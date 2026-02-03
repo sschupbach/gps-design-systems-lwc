@@ -1,3 +1,5 @@
 {
-  "sfGpsDsCaOnBreadcrumbs/ontario-breadcrumbs": []
+  "sfGpsDsCaOnBreadcrumbs/ontario-breadcrumbs*": [
+    { "target": "sfGpsDsCaOnBreadcrumbs/sfGpsDsCaOnBreadcrumbs.scoped" }
+  ]
 }

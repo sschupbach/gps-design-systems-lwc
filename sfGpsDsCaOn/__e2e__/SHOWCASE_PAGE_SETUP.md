@@ -30,14 +30,14 @@ Tests ESRI map integration, address search, and coordinate input.
 ```
 
 2. **Add the Site Selector Tool component**:
-   - Drag `c-sf-gps-ds-ca-on-site-selector-tool-comm` onto the page
+   - Drag `c-sf-gps-ds-ca-on-site-selector-tool-lwr` onto the page
    - Configure properties:
      - `vfDomain`: Your Visualforce domain (e.g., `dfn00000c2gpmeaf--c.vf.force.com`)
      - `coordinateFormat`: `decimal`
    - Wrap or place inside a div with `data-testid="map-selector-section"`
 
 3. **Add the Discharge Point Selector** (optional):
-   - Drag `c-sf-gps-ds-ca-on-discharge-point-selector-comm` onto the page
+   - Drag `c-sf-gps-ds-ca-on-discharge-point-selector-lwr` onto the page
 
 ### Expected HTML Structure
 
@@ -45,9 +45,9 @@ Tests ESRI map integration, address search, and coordinate input.
 <div data-testid="map-selector-showcase" class="showcase-container">
   <h1>Map Selector Showcase</h1>
   <section data-testid="map-selector-section">
-    <c-sf-gps-ds-ca-on-site-selector-tool-comm>
+    <c-sf-gps-ds-ca-on-site-selector-tool-lwr>
       <!-- Contains iframe with visualforce -->
-    </c-sf-gps-ds-ca-on-site-selector-tool-comm>
+    </c-sf-gps-ds-ca-on-site-selector-tool-lwr>
   </section>
 </div>
 ```
@@ -81,8 +81,8 @@ Tests search autocomplete, debouncing, and keyboard navigation.
 ```
 
 2. **Add Search components**:
-   - `c-sf-gps-ds-ca-on-search-comm` inside `basic-search` section
-   - `c-sf-gps-ds-ca-on-search-einstein-comm` inside `community-search` section (if available)
+   - `c-sf-gps-ds-ca-on-search-lwr` inside `basic-search` section
+   - `c-sf-gps-ds-ca-on-search-einstein-lwr` inside `community-search` section (if available)
 
 ### Component Properties
 
@@ -117,7 +117,7 @@ Tests accordion expand/collapse behavior and ARIA states.
 ```
 
 2. **Add Accordion component**:
-   - `c-sf-gps-ds-ca-on-accordion-comm`
+   - `c-sf-gps-ds-ca-on-accordion-lwr`
    - Configure with sections JSON:
 
 ```json
@@ -187,7 +187,7 @@ Tests modal focus trap, keyboard navigation, and scroll lock.
 ```
 
 2. **Add Modal components**:
-   - `c-sf-gps-ds-ca-on-modal-comm` with `data-testid="basic-modal"`
+   - `c-sf-gps-ds-ca-on-modal-lwr` with `data-testid="basic-modal"`
    - Configure with heading, content, and action buttons
 
 ### Modal Component Properties
@@ -224,7 +224,7 @@ Tests 5-level cascading dropdown for industry codes.
 ```
 
 2. **Add NAICS Picker component**:
-   - `c-sf-gps-ds-ca-on-naics-code-picker-comm`
+   - `c-sf-gps-ds-ca-on-naics-code-picker-lwr`
    - Place inside the `naics-cascade-demo` section
 
 ### Component Properties

@@ -195,7 +195,7 @@ The following areas are now covered by automated tests and require **minimal man
 
 ---
 
-## 7. Test Execution Commands
+## 7. Test Execution Lwrands
 
 ```bash
 # Run all sfGpsDsCaOn tests

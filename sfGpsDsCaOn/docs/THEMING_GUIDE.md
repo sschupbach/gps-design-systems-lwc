@@ -152,10 +152,10 @@ For page-specific theming, wrap content in a container:
 
 ```html
 <div class="custom-theme-section">
-  <c-sf-gps-ds-ca-on-button-comm
+  <c-sf-gps-ds-ca-on-button-lwr
     label="Custom Button"
     type="primary"
-  ></c-sf-gps-ds-ca-on-button-comm>
+  ></c-sf-gps-ds-ca-on-button-lwr>
 </div>
 ```
 

@@ -1,0 +1,14 @@
+{
+  "sfGpsDsCaOnBackToTop/ontario-back-to-top*": [
+    { "target": "sfGpsDsCaOnBackToTop/sfGpsDsCaOnBackToTop.scoped" }
+  ],
+  "sfGpsDsCaOnBackButton/ontario-back-button*": [
+    { "target": "sfGpsDsCaOnBackButton/sfGpsDsCaOnBackButton.scoped" }
+  ],
+  "sfGpsDsCaOnCharacterCount/ontario-character-count*": [
+    { "target": "sfGpsDsCaOnCharacterCount/sfGpsDsCaOnCharacterCount.scoped" }
+  ],
+  "sfGpsDsCaOnLoadingIndicator/ontario-loading-indicator*": [
+    { "target": "sfGpsDsCaOnLoadingIndicator/sfGpsDsCaOnLoadingIndicator.scoped" }
+  ]
+}

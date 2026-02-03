@@ -327,10 +327,10 @@ See [COMPONENT_TEST_CHECKLIST.md](./COMPONENT_TEST_CHECKLIST.md) for detailed te
 
 ---
 
-### 4.4 Comm Variant Pattern
+### 4.4 Lwr Variant Pattern
 
-**Representative**: CardComm
-**Components Validated**: All 30+ Comm variants
+**Representative**: CardLwr
+**Components Validated**: All 30+ Lwr variants
 
 | Test Area   | Test Cases                    |
 | ----------- | ----------------------------- |

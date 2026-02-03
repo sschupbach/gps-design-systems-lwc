@@ -838,7 +838,7 @@ LIMIT 50 // Don't return thousands of options
 
 ```bash
 # Order matters
-sf project deploy start -d sfGpsDsBaseComms
+sf project deploy start -d sfGpsDsBaseLwrs
 sf project deploy start -d sfGpsDsCaOn
 ```
 
@@ -861,8 +861,8 @@ sf project deploy start -d sfGpsDsCaOn
 
 ```xml
 <targets>
-  <target>lightningCommunity__Page</target>
-  <target>lightningCommunity__Default</target>
+  <target>lightningLwrunity__Page</target>
+  <target>lightningLwrunity__Default</target>
 </targets>
 ```
 
@@ -918,7 +918,7 @@ System.debug(LoggingLevel.DEBUG, 'Your debug message');
 
 - GitHub Issues: Report bugs and feature requests
 - Developer Documentation: See `/docs` folder
-- Salesforce Trailblazer Community: Search for similar issues
+- Salesforce Trailblazer Lwrunity: Search for similar issues
 
 ---
 

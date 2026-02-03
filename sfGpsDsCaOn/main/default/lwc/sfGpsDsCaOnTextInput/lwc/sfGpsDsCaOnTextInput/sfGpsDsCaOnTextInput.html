@@ -30,30 +30,43 @@
       <span class="ontario-error-messaging__content">{errorMessage}</span>
     </div>
 
-    <!-- Input field -->
+    <!-- Input field with optional prefix/suffix -->
     <!-- AODA: Added aria-required for screen reader announcement -->
-    <input
-      type={type}
-      id={_inputId}
-      name={name}
-      class={computedInputClassName}
-      value={value}
-      placeholder={placeholder}
-      disabled={disabled}
-      readonly={readonly}
-      required={required}
-      aria-required={required}
-      minlength={minLength}
-      maxlength={maxLength}
-      pattern={pattern}
-      autocomplete={autocomplete}
-      aria-describedby={computedAriaDescribedBy}
-      aria-invalid={computedAriaInvalid}
-      oninput={handleInput}
-      onchange={handleChange}
-      onblur={handleBlur}
-      onfocus={handleFocus}
-    />
+    <div class={computedInputWrapperClassName}>
+      <!-- Optional prefix (e.g., currency symbol) -->
+      <span lwc:if={hasPrefix} class="ontario-input__prefix" aria-hidden="true">
+        <slot name="prefix"></slot>
+      </span>
+
+      <input
+        type={type}
+        id={_inputId}
+        name={name}
+        class={computedInputClassName}
+        value={value}
+        placeholder={placeholder}
+        disabled={disabled}
+        readonly={readonly}
+        required={required}
+        aria-required={required}
+        minlength={minLength}
+        maxlength={maxLength}
+        pattern={pattern}
+        autocomplete={autocomplete}
+        inputmode={inputmode}
+        aria-describedby={computedAriaDescribedBy}
+        aria-invalid={computedAriaInvalid}
+        oninput={handleInput}
+        onchange={handleChange}
+        onblur={handleBlur}
+        onfocus={handleFocus}
+      />
+
+      <!-- Optional suffix (e.g., unit indicator) -->
+      <span lwc:if={hasSuffix} class="ontario-input__suffix" aria-hidden="true">
+        <slot name="suffix"></slot>
+      </span>
+    </div>
 
     <!-- Character count -->
     <c-sf-gps-ds-ca-on-character-count

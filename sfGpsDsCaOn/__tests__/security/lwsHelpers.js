@@ -59,7 +59,7 @@ const LWSTests = {
    */
   hasNoEval(sourceCode) {
     // Strip comments before checking for eval
-    const codeWithoutComments = sourceCode
+    const codeWithoutLwrents = sourceCode
       // Remove single-line comments
       .replace(/\/\/.*$/gm, '')
       // Remove block comments (including JSDoc style)
@@ -69,7 +69,7 @@ const LWSTests = {
       .replace(/'(?:[^'\\]|\\.)*'/g, "''")
       .replace(/`(?:[^`\\]|\\.)*`/g, '``');
     
-    const match = codeWithoutComments.match(LWS_ANTIPATTERNS.EVAL);
+    const match = codeWithoutLwrents.match(LWS_ANTIPATTERNS.EVAL);
     
     return {
       pass: !match,

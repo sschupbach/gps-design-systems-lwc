@@ -20,12 +20,12 @@ The EASR Registration page is the entry point for users to add EASR activities t
 
 | Section            | Component                                    | Experience Builder Name    |
 | ------------------ | -------------------------------------------- | -------------------------- |
-| Ontario Header     | `sfGpsDsCaOnHeaderComm` (type="ontario")     | Ontario DS Header          |
-| Application Header | `sfGpsDsCaOnHeaderComm` (type="application") | Ontario DS Header          |
-| Back Link          | `sfGpsDsCaOnBackButtonComm`                  | Ontario DS Back Button     |
-| Primary Button     | `sfGpsDsCaOnButtonComm` (with icon)          | Ontario DS Button          |
-| Secondary Button   | `sfGpsDsCaOnButtonComm`                      | Ontario DS Button          |
-| Footer             | `sfGpsDsCaOnFooterExpandedComm`              | Ontario DS Footer Expanded |
+| Ontario Header     | `sfGpsDsCaOnHeaderLwr` (type="ontario")     | Ontario DS Header          |
+| Application Header | `sfGpsDsCaOnHeaderLwr` (type="application") | Ontario DS Header          |
+| Back Link          | `sfGpsDsCaOnBackButtonLwr`                  | Ontario DS Back Button     |
+| Primary Button     | `sfGpsDsCaOnButtonLwr` (with icon)          | Ontario DS Button          |
+| Secondary Button   | `sfGpsDsCaOnButtonLwr`                      | Ontario DS Button          |
+| Footer             | `sfGpsDsCaOnFooterExpandedLwr`              | Ontario DS Footer Expanded |
 
 ---
 
@@ -514,7 +514,7 @@ Add the following JSON array as the value of `optionsJson` in the element's `pro
     "value": "air-emissions",
     "label": "Air emissions",
     "description": "If your business engages in activities that discharge or may discharge contaminants into the air, you may be required to register in the Environmental Activity and Sector Registry.",
-    "expandedContent": "Air emissions registrations apply to facilities with industrial processes, fuel burning equipment, or other sources that emit air contaminants. Common activities include manufacturing, painting, printing, and fuel storage."
+    "expandedContent": "Air emissions registrations apply to facilities with industrial processes, fuel burning equipment, or other sources that emit air contaminants. Lwron activities include manufacturing, painting, printing, and fuel storage."
   },
   {
     "value": "automotive-refurbishing",

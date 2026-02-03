@@ -26,7 +26,7 @@ const COMPONENT_PATHS = {
   Search: 'main/default/lwc/sfGpsDsCaOnSearch/lwc/sfGpsDsCaOnSearch/sfGpsDsCaOnSearch.ts',
   DebugUtils: 'main/default/lwc/sfGpsDsCaOnDebugUtils/sfGpsDsCaOnDebugUtils.js',
   FormReview: 'main/default/lwc/sfGpsDsCaOnFormReview/lwc/sfGpsDsCaOnFormReview/sfGpsDsCaOnFormReview.ts',
-  FormReviewComm: 'main/default/lwc/sfGpsDsCaOnFormReview/lwc/sfGpsDsCaOnFormReviewComm/sfGpsDsCaOnFormReviewComm.ts'
+  FormReviewLwr: 'main/default/lwc/sfGpsDsCaOnFormReview/lwc/sfGpsDsCaOnFormReviewLwr/sfGpsDsCaOnFormReviewLwr.ts'
 };
 
 // Read source file helper
@@ -308,9 +308,9 @@ describe('postMessage Security', () => {
 });
 
 describe('LWR Navigation Security', () => {
-  const SEARCH_COMM_PATH = 'main/default/lwc/sfGpsDsCaOnSearch/lwc/sfGpsDsCaOnSearchComm/sfGpsDsCaOnSearchComm.ts';
+  const SEARCH_COMM_PATH = 'main/default/lwc/sfGpsDsCaOnSearch/lwc/sfGpsDsCaOnSearchLwr/sfGpsDsCaOnSearchLwr.ts';
 
-  it('SearchComm should include objectApiName in record navigation', () => {
+  it('SearchLwr should include objectApiName in record navigation', () => {
     const source = readSourceFile(SEARCH_COMM_PATH);
     if (!source) return;
     
@@ -319,7 +319,7 @@ describe('LWR Navigation Security', () => {
     expect(source).toMatch(/standard__recordPage[\s\S]*objectApiName/);
   });
 
-  it('SearchComm should have fallback objectApiName derivation', () => {
+  it('SearchLwr should have fallback objectApiName derivation', () => {
     const source = readSourceFile(SEARCH_COMM_PATH);
     if (!source) return;
     
@@ -327,7 +327,7 @@ describe('LWR Navigation Security', () => {
     expect(source).toContain('deriveObjectApiName');
   });
 
-  it('SearchComm navigateToRecord should accept objectApiName parameter', () => {
+  it('SearchLwr navigateToRecord should accept objectApiName parameter', () => {
     const source = readSourceFile(SEARCH_COMM_PATH);
     if (!source) return;
     

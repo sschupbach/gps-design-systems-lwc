@@ -20,12 +20,12 @@ The EASR home page consists of 5 main sections:
 
 | Section        | Component                         | Experience Builder Name      |
 | -------------- | --------------------------------- | ---------------------------- |
-| Header         | `sfGpsDsCaOnHeaderComm`           | Ontario DS Header            |
-| Services       | `sfGpsDsCaOnFeatureCardComm`      | Ontario DS Feature Card      |
-| Manage Account | `sfGpsDsCaOnFeatureCardComm`      | Ontario DS Feature Card      |
-| Notifications  | `sfGpsDsCaOnNotificationCardComm` | Ontario DS Notification Card |
-| Related Links  | `sfGpsDsCaOnLinkCardComm`         | Ontario DS Link Card         |
-| Back to Top    | `sfGpsDsCaOnBackToTopComm`        | Ontario DS Back To Top       |
+| Header         | `sfGpsDsCaOnHeaderLwr`           | Ontario DS Header            |
+| Services       | `sfGpsDsCaOnFeatureCardLwr`      | Ontario DS Feature Card      |
+| Manage Account | `sfGpsDsCaOnFeatureCardLwr`      | Ontario DS Feature Card      |
+| Notifications  | `sfGpsDsCaOnNotificationCardLwr` | Ontario DS Notification Card |
+| Related Links  | `sfGpsDsCaOnLinkCardLwr`         | Ontario DS Link Card         |
+| Back to Top    | `sfGpsDsCaOnBackToTopLwr`        | Ontario DS Back To Top       |
 
 ---
 

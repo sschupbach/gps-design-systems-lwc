@@ -1,3 +1,5 @@
 {
-  "sfGpsDsCaOnDateInput/ontario-date-input": []
+  "sfGpsDsCaOnDateInput/ontario-date-input*": [
+    { "target": "sfGpsDsCaOnDateInput/sfGpsDsCaOnDateInput.scoped" }
+  ]
 }

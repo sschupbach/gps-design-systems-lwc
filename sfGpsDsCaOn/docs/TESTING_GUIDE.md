@@ -705,7 +705,7 @@ For components with dynamic updates (Site Selector, Discharge Point Selector):
 - [ ] Constructor with default values
 - [ ] Constructor with URL parameters
 - [ ] Constructor with partial URL parameters
-- [ ] fetchCommunityURL returns valid URL
+- [ ] fetchLwrunityURL returns valid URL
 - [ ] fetchVFDomainURL returns VF domain
 - [ ] Missing custom metadata handled gracefully
 - [ ] Empty URL parameters handled

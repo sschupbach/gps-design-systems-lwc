@@ -83,7 +83,7 @@ UI-only component (no Apex). Use when you need custom search logic.
 @AuraEnabled(cacheable=true)
 public static List<SearchResult> getSearchSuggestions(
     String searchTerm,    // Search query
-    String objectTypes,   // Comma-separated objects
+    String objectTypes,   // Lwra-separated objects
     Integer maxResults    // Max results per object
 )
 ```

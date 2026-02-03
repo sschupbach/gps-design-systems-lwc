@@ -432,7 +432,7 @@ npm run build-caon
 sf project deploy start --source-dir sfGpsDs --source-dir sfGpsDsCaOn --wait 60
 ```
 
-### All-in-One Command
+### All-in-One Lwrand
 
 ```bash
 npm run prep-caon && npm run build-caon && sf project deploy start --source-dir sfGpsDs --source-dir sfGpsDsCaOn --wait 60
@@ -492,11 +492,11 @@ The Ontario Design System Component Library includes these web components:
 
 | Web Component              | LWC Wrapper                    | Description           |
 | -------------------------- | ------------------------------ | --------------------- |
-| `<ontario-button>`         | `sfGpsDsCaOnButtonComm`        | Interactive button    |
-| `<ontario-badge>`          | `sfGpsDsCaOnBadgeComm`         | Status badge          |
-| `<ontario-blockquote>`     | `sfGpsDsCaOnBlockquoteComm`    | Styled blockquote     |
-| `<ontario-page-alert>`     | `sfGpsDsCaOnPageAlertComm`     | Page-level alert      |
-| `<ontario-critical-alert>` | `sfGpsDsCaOnCriticalAlertComm` | Critical alert banner |
+| `<ontario-button>`         | `sfGpsDsCaOnButtonLwr`        | Interactive button    |
+| `<ontario-badge>`          | `sfGpsDsCaOnBadgeLwr`         | Status badge          |
+| `<ontario-blockquote>`     | `sfGpsDsCaOnBlockquoteLwr`    | Styled blockquote     |
+| `<ontario-page-alert>`     | `sfGpsDsCaOnPageAlertLwr`     | Page-level alert      |
+| `<ontario-critical-alert>` | `sfGpsDsCaOnCriticalAlertLwr` | Critical alert banner |
 
 ---
 

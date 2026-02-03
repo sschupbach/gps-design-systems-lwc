@@ -1,3 +1,5 @@
 {
-  "sfGpsDsCaOnAside/ontario-aside": []
+  "sfGpsDsCaOnAside/ontario-aside*": [
+    { "target": "sfGpsDsCaOnAside/sfGpsDsCaOnAside.scoped" }
+  ]
 }

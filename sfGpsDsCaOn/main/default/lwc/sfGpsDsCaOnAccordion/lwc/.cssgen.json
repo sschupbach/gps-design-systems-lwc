@@ -1,3 +1,5 @@
 {
-  "sfGpsDsCaOnAccordion/ontario-accordion": []
+  "sfGpsDsCaOnAccordion/ontario-accordion*": [
+    { "target": "sfGpsDsCaOnAccordion/sfGpsDsCaOnAccordion.scoped" }
+  ]
 }

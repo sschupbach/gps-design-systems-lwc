@@ -60,6 +60,24 @@ export default class SfGpsDsCaOnTextInput extends SfGpsDsLwc {
    */
   // @ts-ignore
   @api autocomplete?: string;
+  /**
+   * HTML5 inputmode attribute for mobile keyboard optimization.
+   * Values: "text", "decimal", "numeric", "tel", "email", "url", "search"
+   */
+  // @ts-ignore
+  @api inputmode?: string;
+  /**
+   * Whether to show a prefix before the input (e.g., currency symbol).
+   * Content is provided via the "prefix" slot.
+   */
+  // @ts-ignore
+  @api hasPrefix?: boolean = false;
+  /**
+   * Whether to show a suffix after the input (e.g., unit indicator).
+   * Content is provided via the "suffix" slot.
+   */
+  // @ts-ignore
+  @api hasSuffix?: boolean = false;
   // @ts-ignore
   @api showCharacterCount?: boolean;
   _showCharacterCount = this.defineBooleanProperty("showCharacterCount", {
@@ -80,6 +98,17 @@ export default class SfGpsDsCaOnTextInput extends SfGpsDsLwc {
   _charCountId = `char-count-${Math.random().toString(36).substring(2, 11)}`;
   _isInvalid = false;
 
+  get computedInputWrapperClassName(): string {
+    let classes = "ontario-input__wrapper";
+    if (this.hasPrefix) {
+      classes += " ontario-input__wrapper--has-prefix";
+    }
+    if (this.hasSuffix) {
+      classes += " ontario-input__wrapper--has-suffix";
+    }
+    return classes;
+  }
+
   get computedInputClassName(): string {
     let classes = "ontario-input";
     
@@ -89,6 +118,14 @@ export default class SfGpsDsCaOnTextInput extends SfGpsDsLwc {
     
     if (this._isInvalid || this.errorMessage) {
       classes += " ontario-input__error";
+    }
+
+    if (this.hasPrefix) {
+      classes += " ontario-input--has-prefix";
+    }
+
+    if (this.hasSuffix) {
+      classes += " ontario-input--has-suffix";
     }
     
     if (this.className) {

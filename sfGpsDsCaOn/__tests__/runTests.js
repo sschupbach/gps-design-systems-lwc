@@ -54,7 +54,7 @@ function logSection(title) {
   console.log('');
 }
 
-function runCommand(command, description) {
+function runLwrand(command, description) {
   log(`> ${description}`, colors.yellow);
   log(`  $ ${command}`, colors.reset);
   console.log('');
@@ -92,7 +92,7 @@ async function main() {
     if (options.watch) cmd += ' --watch';
     if (options.coverage) cmd += ' --coverage --collectCoverageFrom="sfGpsDsCaOn/**/*.js"';
     
-    results.unit = runCommand(cmd, 'Running unit tests');
+    results.unit = runLwrand(cmd, 'Running unit tests');
   }
   
   // Run accessibility tests
@@ -104,7 +104,7 @@ async function main() {
     
     if (options.verbose) cmd += ' --verbose';
     
-    results.a11y = runCommand(cmd, 'Running accessibility tests');
+    results.a11y = runLwrand(cmd, 'Running accessibility tests');
   }
   
   // Generate summary

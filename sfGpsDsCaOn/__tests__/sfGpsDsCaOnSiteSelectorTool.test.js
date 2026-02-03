@@ -364,7 +364,7 @@ describe("c-sf-gps-ds-ca-on-site-selector-tool", () => {
   // POSTMESSAGE TESTS
   // ============================================
 
-  describe("postMessage Communication", () => {
+  describe("postMessage Lwrunication", () => {
     it("should validate origin on incoming messages", () => {
       const element = createElement("c-sf-gps-ds-ca-on-site-selector-tool", {
         is: SfGpsDsCaOnSiteSelectorTool

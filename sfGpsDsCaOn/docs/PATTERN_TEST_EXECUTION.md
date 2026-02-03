@@ -25,12 +25,12 @@ This approach:
 
 | Component       | Variations                       |
 | --------------- | -------------------------------- |
-| TextInput       | TextInput, TextInputComm         |
-| TextArea        | TextArea, TextAreaComm           |
-| DateInput       | DateInput, DateInputComm         |
-| Dropdown        | Dropdown, DropdownComm           |
-| CheckboxGroup   | CheckboxGroup, CheckboxGroupComm |
-| RadioGroup      | RadioGroup, RadioGroupComm       |
+| TextInput       | TextInput, TextInputLwr         |
+| TextArea        | TextArea, TextAreaLwr           |
+| DateInput       | DateInput, DateInputLwr         |
+| Dropdown        | Dropdown, DropdownLwr           |
+| CheckboxGroup   | CheckboxGroup, CheckboxGroupLwr |
+| RadioGroup      | RadioGroup, RadioGroupLwr       |
 | CoordinateInput | CoordinateInput (standalone)     |
 | NaicsCodePicker | NaicsCodePicker (standalone)     |
 
@@ -152,36 +152,36 @@ Execute these tests on TextInput. If all pass, the pattern is validated for all 
 
 ---
 
-## Pattern B: Comm Variant Components
+## Pattern B: Lwr Variant Components
 
-### Representative: sfGpsDsCaOnCardComm
+### Representative: sfGpsDsCaOnCardLwr
 
 ### Components Covered by This Pattern (30+)
 
-All components ending in `Comm`:
+All components ending in `Lwr`:
 
-- AccordionComm, AccordionGroupComm
-- ActionCardCollectionComm
-- AsideComm
-- BackButtonComm, BackToTopComm
-- BadgeComm, BlockquoteComm, ButtonComm
-- BreadcrumbsComm
-- CalloutComm, CardComm
-- CheckboxGroupComm, CriticalAlertComm
-- DateInputComm, DecisionExplainerComm, DropdownComm
-- FeatureCardComm, FieldsetComm
-- FooterExpandedComm, FooterSimpleComm
-- FormReviewComm
-- HeaderComm
-- InPageNavComm
-- LinkCardComm, LoadingIndicatorComm
-- ModalComm
-- NotificationCardComm
-- PageAlertComm
-- RadioGroupComm
-- SearchComm, SiteTaskCardComm, StepIndicatorComm, SummaryListComm
-- TableComm, TaskListComm, TaskListSalesforceComm
-- TextAreaComm, TextInputComm
+- AccordionLwr, AccordionGroupLwr
+- ActionCardCollectionLwr
+- AsideLwr
+- BackButtonLwr, BackToTopLwr
+- BadgeLwr, BlockquoteLwr, ButtonLwr
+- BreadcrumbsLwr
+- CalloutLwr, CardLwr
+- CheckboxGroupLwr, CriticalAlertLwr
+- DateInputLwr, DecisionExplainerLwr, DropdownLwr
+- FeatureCardLwr, FieldsetLwr
+- FooterExpandedLwr, FooterSimpleLwr
+- FormReviewLwr
+- HeaderLwr
+- InPageNavLwr
+- LinkCardLwr, LoadingIndicatorLwr
+- ModalLwr
+- NotificationCardLwr
+- PageAlertLwr
+- RadioGroupLwr
+- SearchLwr, SiteTaskCardLwr, StepIndicatorLwr, SummaryListLwr
+- TableLwr, TaskListLwr, TaskListSalesforceLwr
+- TextAreaLwr, TextInputLwr
 
 ### Shared Pattern Elements
 
@@ -304,14 +304,14 @@ All components in `omnistudio-standard-runtime-forms/lwc/`:
 
 ### Components Covered by This Pattern (8)
 
-- Card, CardComm, CardCollectionLwr
-- ActionCard, ActionCardCollectionComm
-- FeatureCard, FeatureCardComm
-- LinkCard, LinkCardComm
+- Card, CardLwr, CardCollectionLwr
+- ActionCard, ActionCardCollectionLwr
+- FeatureCard, FeatureCardLwr
+- LinkCard, LinkCardLwr
 - SelectableCard, SelectableCardGroup
 - ActivityStatusCard, ActivityStatusCardCollection
-- SiteTaskCard, SiteTaskCardCollection, SiteTaskCardComm
-- NotificationCard, NotificationCardComm, NotificationCardData
+- SiteTaskCard, SiteTaskCardCollection, SiteTaskCardLwr
+- NotificationCard, NotificationCardLwr, NotificationCardData
 
 ### Shared Pattern Elements
 
@@ -368,11 +368,11 @@ All components in `omnistudio-standard-runtime-forms/lwc/`:
 
 ### Components Covered by This Pattern (5)
 
-- Breadcrumbs, BreadcrumbsComm
-- InPageNav, InPageNavComm
-- StepIndicator, StepIndicatorComm
-- BackButton, BackButtonComm
-- BackToTop, BackToTopComm
+- Breadcrumbs, BreadcrumbsLwr
+- InPageNav, InPageNavLwr
+- StepIndicator, StepIndicatorLwr
+- BackButton, BackButtonLwr
+- BackToTop, BackToTopLwr
 
 ### Shared Pattern Elements
 
@@ -422,7 +422,7 @@ All components in `omnistudio-standard-runtime-forms/lwc/`:
 | Pattern             | Representative | Components | Tests | Status |
 | ------------------- | -------------- | ---------- | ----- | ------ |
 | A: Form Inputs      | TextInput      | 14         | 32    | [ ]    |
-| B: Comm Variants    | CardComm       | 30+        | 7     | [ ]    |
+| B: Lwr Variants    | CardLwr       | 30+        | 7     | [ ]    |
 | C: OmniStudio Forms | FormText       | 40+        | 8     | [ ]    |
 | D: Cards            | Card           | 8          | 9     | [ ]    |
 | E: Navigation       | Breadcrumbs    | 5          | 7     | [ ]    |

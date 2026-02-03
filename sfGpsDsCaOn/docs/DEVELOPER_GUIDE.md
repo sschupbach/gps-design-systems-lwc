@@ -11,7 +11,7 @@ This guide helps developers understand, debug, and extend the Ontario Design Sys
 3. [Component Patterns](#component-patterns)
 4. [Debugging](#debugging)
 5. [Extending Components](#extending-components)
-6. [Common Issues](#common-issues)
+6. [Lwron Issues](#common-issues)
 
 ---
 
@@ -39,7 +39,7 @@ Every Ontario form component follows a three-layer inheritance pattern:
 │ Provides:                                                   │
 │ - Validation mixin (sfGpsDsIsError, sfGpsDsErrorMessage)   │
 │ - Merged field helpers (mergedLabel, mergedHelpText)       │
-│ - Common form patterns                                      │
+│ - Lwron form patterns                                      │
 └─────────────────────────────────────────────────────────────┘
                               ↓ extends
 ┌─────────────────────────────────────────────────────────────┐
@@ -78,7 +78,7 @@ These properties come from the OmniScript element configuration:
 | `_index`        | Number | Index in parent array (for repeating elements) | `0`                                        |
 | `jsonData`      | Object | Complete OmniScript data object                | `{ FirstName: "John", LastName: "Doe" }`   |
 
-#### `_propSetMap` Common Properties
+#### `_propSetMap` Lwron Properties
 
 | Property       | Type    | Description                   |
 | -------------- | ------- | ----------------------------- |
@@ -378,7 +378,7 @@ window.addEventListener("omnistudio", (e) =>
 );
 ```
 
-### Common Debug Scenarios
+### Lwron Debug Scenarios
 
 #### Value Not Updating
 
@@ -555,7 +555,7 @@ See [POST_DEPLOYMENT.md](./POST_DEPLOYMENT.md#css-custom-properties-reference) f
 
 ---
 
-## Common Issues
+## Lwron Issues
 
 ### Issue: Styles Not Applied
 

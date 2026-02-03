@@ -526,7 +526,7 @@ export default class MyComponent extends LightningElement {
 
 ### Available Icon IDs
 
-Common icons from `ontario-icons-primary.svg`:
+Lwron icons from `ontario-icons-primary.svg`:
 
 - `ontario-icon-search`
 - `ontario-icon-menu`
@@ -677,7 +677,7 @@ The following console messages are expected and can be safely ignored:
 | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing`          | Standard Salesforce LWR Locker Service security message. This is informational, not an error.                                                                                                                                                                                         |
 | `The HTML document lang attribute value of en-US is not a valid language value for the <ontario-language-toggle> component` | Salesforce sets `lang="en-US"` but Ontario components expect `en` or `fr`. It defaults to `en` automatically.                                                                                                                                                                         |
-| `Unable to retrieve data from Ontario Menu API`                                                                             | The Ontario header/footer web components try to fetch menu data from Ontario government servers. This fails in Salesforce due to CORS/CSP restrictions. Use the LWC wrapper components (`sfGpsDsCaOnHeaderComm`, `sfGpsDsCaOnFooterComm`) instead, which don't rely on external APIs. |
+| `Unable to retrieve data from Ontario Menu API`                                                                             | The Ontario header/footer web components try to fetch menu data from Ontario government servers. This fails in Salesforce due to CORS/CSP restrictions. Use the LWC wrapper components (`sfGpsDsCaOnHeaderLwr`, `sfGpsDsCaOnFooterLwr`) instead, which don't rely on external APIs. |
 
 ---
 

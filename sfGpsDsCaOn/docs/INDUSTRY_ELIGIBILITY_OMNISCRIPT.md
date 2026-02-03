@@ -451,14 +451,14 @@ Block: Q9_HelpContent
     "group": "Entertainment"
   },
   {
-    "label": "Commercial/Business parks",
+    "label": "Lwrercial/Business parks",
     "value": "BusinessParks",
-    "group": "Commercial"
+    "group": "Lwrercial"
   },
   {
     "label": "Convention/Conference centres",
     "value": "ConventionCentres",
-    "group": "Commercial"
+    "group": "Lwrercial"
   },
   {
     "label": "Distribution facilities",
@@ -475,8 +475,8 @@ Block: Q9_HelpContent
     "group": "Hospitality"
   },
   {
-    "label": "Commercial warehouses",
-    "value": "CommercialWarehouses",
+    "label": "Lwrercial warehouses",
+    "value": "LwrercialWarehouses",
     "group": "Industrial"
   },
   {
@@ -492,14 +492,14 @@ Block: Q9_HelpContent
   {
     "label": "Office building(s)",
     "value": "OfficeBuildings",
-    "group": "Commercial"
+    "group": "Lwrercial"
   },
   {
     "label": "Malls, plazas and shopping centres",
     "value": "Malls",
     "group": "Retail"
   },
-  { "label": "Parking lot(s)", "value": "ParkingLots", "group": "Commercial" },
+  { "label": "Parking lot(s)", "value": "ParkingLots", "group": "Lwrercial" },
   {
     "label": "Self-storage mini warehouses",
     "value": "SelfStorage",
@@ -510,7 +510,7 @@ Block: Q9_HelpContent
     "value": "RecreationalCentre",
     "group": "Entertainment"
   },
-  { "label": "Community hall", "value": "CommunityHall", "group": "Civic" },
+  { "label": "Lwrunity hall", "value": "LwrunityHall", "group": "Civic" },
   {
     "label": "Sport complexes",
     "value": "SportComplexes",
@@ -901,7 +901,7 @@ Block: Q9_HelpContent
 
 ### Licensed Engineering Practitioner Display
 
-Use `sfGpsDsCaOnSummaryListComm` component to display practitioner information.
+Use `sfGpsDsCaOnSummaryListLwr` component to display practitioner information.
 
 **Block**: `LicensedPractitioners`
 

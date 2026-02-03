@@ -17,7 +17,7 @@ The sfGpsDsCaOn library implements the **Ontario Design System** within Salesfor
 | Total Components           | 134                  |
 | Core Components            | 60                   |
 | OmniStudio Form Components | 40+                  |
-| Community (Comm) Variants  | 30+                  |
+| Lwrunity (Lwr) Variants  | 30+                  |
 | Current Test Coverage      | ~23% (14 components) |
 
 ---
@@ -129,7 +129,7 @@ Testing one representative component validates patterns shared across many:
 | Pattern Group    | Representative | Components Covered |
 | ---------------- | -------------- | ------------------ |
 | Form Inputs      | TextInput      | 14 components      |
-| Comm Variants    | CardComm       | 30+ components     |
+| Lwr Variants    | CardLwr       | 30+ components     |
 | OmniStudio Forms | FormText       | 40+ components     |
 | Cards            | Card           | 8 components       |
 | Navigation       | Breadcrumbs    | 5 components       |

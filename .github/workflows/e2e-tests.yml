@@ -21,7 +21,7 @@ on:
         type: boolean
 
 env:
-  SFDX_AUTH_URL: ${{ secrets.SFDX_AUTH_URL }}
+  DEVHUB_SFDX_URL: ${{ secrets.DEVHUB_SFDX_URL }}
   ESRI_API_KEY: ${{ secrets.ESRI_API_KEY }}
   GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
 
@@ -57,7 +57,7 @@ jobs:
 
       - name: Authenticate to DevHub
         run: |
-          echo "${{ secrets.SFDX_AUTH_URL }}" > authfile.txt
+          echo "${{ secrets.DEVHUB_SFDX_URL }}" > authfile.txt
           sf org login sfdx-url --sfdx-url-file authfile.txt --set-default-dev-hub --alias devhub
           rm authfile.txt
 

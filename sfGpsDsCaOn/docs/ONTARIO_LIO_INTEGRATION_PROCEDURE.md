@@ -540,7 +540,7 @@ The Integration Procedure returns the full ArcGIS response for each HTTP Action:
 
 ## Error Handling
 
-### Common Errors
+### Lwron Errors
 
 | Error                | Cause                   | Solution                                             |
 | -------------------- | ----------------------- | ---------------------------------------------------- |

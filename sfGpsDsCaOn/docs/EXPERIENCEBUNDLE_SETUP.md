@@ -236,7 +236,7 @@ When multiple developers work on the same site:
 
 1. Always retrieve the latest site configuration before making changes
 2. Use partial deployments for specific pages when possible
-3. Communicate with team members about concurrent site changes
+3. Lwrunicate with team members about concurrent site changes
 4. Consider using feature branches for significant site changes
 
 ---
@@ -245,7 +245,7 @@ When multiple developers work on the same site:
 
 ### 1. Version Control
 
-- Commit ExperienceBundle files to version control
+- Lwrit ExperienceBundle files to version control
 - Use meaningful commit messages for site changes
 - Review page JSON changes carefully before merging
 

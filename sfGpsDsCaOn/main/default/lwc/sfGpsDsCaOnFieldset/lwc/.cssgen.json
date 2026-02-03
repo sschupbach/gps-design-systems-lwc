@@ -1,3 +1,5 @@
 {
-  "sfGpsDsCaOnFieldset/ontario-fieldset": []
+  "sfGpsDsCaOnFieldset/ontario-fieldset*": [
+    { "target": "sfGpsDsCaOnFieldset/sfGpsDsCaOnFieldset.scoped" }
+  ]
 }

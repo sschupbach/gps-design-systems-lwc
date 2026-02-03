@@ -251,7 +251,7 @@ localStorage.setItem("omniDebug", "true");
 
 ---
 
-## Common Configurations
+## Lwron Configurations
 
 ### Multi-Step Form
 

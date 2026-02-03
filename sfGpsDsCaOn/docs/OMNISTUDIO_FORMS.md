@@ -220,7 +220,7 @@ The `sfGpsDsCaOnFormMessaging` component displays alert messages using Ontario D
 | **Requirement** | `error`         | Red/Pink | Hard stops, eligibility failures |
 | Success         | `success`       | Green    | Confirmation messages            |
 | Warning         | `warning`       | Yellow   | Non-blocking warnings            |
-| Comment         | `informational` | Blue     | General information              |
+| Lwrent         | `informational` | Blue     | General information              |
 
 ### Markdown Support
 

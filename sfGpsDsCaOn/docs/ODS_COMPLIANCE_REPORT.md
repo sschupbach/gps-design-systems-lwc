@@ -31,14 +31,14 @@ The `sfGpsDsCaOn` component library is a Salesforce LWC (Lightning Web Component
 | ODS Component      | Implementation                                           | Status    |
 | ------------------ | -------------------------------------------------------- | --------- |
 | Accordion          | `sfGpsDsCaOnAccordion`, `sfGpsDsCaOnAccordionGroup`      | Compliant |
-| Alerts/Callouts    | `sfGpsDsCaOnCallout`, `sfGpsDsCaOnPageAlertComm`         | Compliant |
+| Alerts/Callouts    | `sfGpsDsCaOnCallout`, `sfGpsDsCaOnPageAlertLwr`         | Compliant |
 | Back Button        | `sfGpsDsCaOnBackButton`                                  | Compliant |
 | Back to Top        | `sfGpsDsCaOnBackToTop`                                   | Compliant |
-| Badges             | `sfGpsDsCaOnBadgeComm`                                   | Compliant |
-| Blockquote         | `sfGpsDsCaOnBlockquoteComm`                              | Compliant |
+| Badges             | `sfGpsDsCaOnBadgeLwr`                                   | Compliant |
+| Blockquote         | `sfGpsDsCaOnBlockquoteLwr`                              | Compliant |
 | Breadcrumbs        | `sfGpsDsCaOnBreadcrumbs`                                 | Compliant |
-| Buttons            | `sfGpsDsCaOnButtonComm`                                  | Compliant |
-| Cards              | `sfGpsDsCaOnCard`, `sfGpsDsCaOnCardComm`                 | Compliant |
+| Buttons            | `sfGpsDsCaOnButtonLwr`                                  | Compliant |
+| Cards              | `sfGpsDsCaOnCard`, `sfGpsDsCaOnCardLwr`                 | Compliant |
 | Checkboxes         | `sfGpsDsCaOnCheckboxGroup`                               | Compliant |
 | Date Input         | `sfGpsDsCaOnDateInput`                                   | Compliant |
 | Dropdown           | `sfGpsDsCaOnDropdown`                                    | Compliant |
@@ -290,10 +290,10 @@ sfGpsDsCaOn/main/default/lwc/
 ├── sfGpsDsCaOnActionCard/
 ├── sfGpsDsCaOnBackButton/
 ├── sfGpsDsCaOnBackToTop/
-├── sfGpsDsCaOnBadgeComm/
-├── sfGpsDsCaOnBlockquoteComm/
+├── sfGpsDsCaOnBadgeLwr/
+├── sfGpsDsCaOnBlockquoteLwr/
 ├── sfGpsDsCaOnBreadcrumbs/
-├── sfGpsDsCaOnButtonComm/
+├── sfGpsDsCaOnButtonLwr/
 ├── sfGpsDsCaOnCallout/
 ├── sfGpsDsCaOnCard/
 ├── sfGpsDsCaOnCheckboxGroup/

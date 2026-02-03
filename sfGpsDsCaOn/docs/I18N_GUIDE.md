@@ -41,11 +41,11 @@ import { LABELS } from "c/sfGpsDsCaOnLabels";
 export default class MyComponent extends LightningElement {
   // Create getters for labels used in the template
   get searchButtonLabel() {
-    return LABELS.Common.Search;
+    return LABELS.Lwron.Search;
   }
 
   get saveButtonLabel() {
-    return LABELS.Common.Save;
+    return LABELS.Lwron.Save;
   }
 }
 ```
@@ -87,7 +87,7 @@ const announcement = formatLabel(LABELS.A11y.StepOf, 2, 5);
 
 ## Label Categories
 
-### Common (`LABELS.Common.*`)
+### Lwron (`LABELS.Lwron.*`)
 
 General UI labels used across components:
 
@@ -234,7 +234,7 @@ Labels follow this pattern: `sfGpsDsCaOn_[Category]_[Name]`
 
 | Category         | Description              |
 | ---------------- | ------------------------ |
-| `Common`         | Shared UI elements       |
+| `Lwron`         | Shared UI elements       |
 | `Error`          | Error messages           |
 | `SiteSelector`   | Site Selector Tool       |
 | `DischargePoint` | Discharge Point Selector |
@@ -361,14 +361,14 @@ Create a new file `sfGpsDsCaOn/main/default/translations/[locale].translation-me
 <?xml version="1.0" encoding="UTF-8" ?>
 <Translations xmlns="http://soap.sforce.com/2006/04/metadata">
     <customLabels>
-        <label>sfGpsDsCaOn_Common_Search</label>
+        <label>sfGpsDsCaOn_Lwron_Search</label>
         <translation>[Translated text]</translation>
     </customLabels>
     <!-- Add all other labels -->
 </Translations>
 ```
 
-Common locale codes:
+Lwron locale codes:
 
 - `fr_CA` - French (Canada)
 - `es` - Spanish
@@ -397,7 +397,7 @@ Language is determined by the user's personal settings:
 2. Set **Language** to desired language
 3. Refresh the page
 
-### Experience Cloud (Community) Users
+### Experience Cloud (Lwrunity) Users
 
 Language can be set by:
 
@@ -427,7 +427,7 @@ Located in `labels/CustomLabels.labels-meta.xml`:
 
 ```xml
 <labels>
-    <fullName>sfGpsDsCaOn_Common_Search</fullName>
+    <fullName>sfGpsDsCaOn_Lwron_Search</fullName>
     <language>en_US</language>
     <protected>false</protected>
     <shortDescription>Search button label</shortDescription>
@@ -449,7 +449,7 @@ Located in `translations/fr_CA.translation-meta.xml`:
 
 ```xml
 <customLabels>
-    <label>sfGpsDsCaOn_Common_Search</label>
+    <label>sfGpsDsCaOn_Lwron_Search</label>
     <translation>Rechercher</translation>
 </customLabels>
 ```
@@ -470,7 +470,7 @@ Follow the Ontario Government's French language guidelines:
 3. **Match formality** - Ontario uses formal "vous" not informal "tu"
 4. **Keep it concise** - French text is often longer; ensure UI accommodates
 
-### Common Translations Reference
+### Lwron Translations Reference
 
 | English    | French (Ontario) | Notes              |
 | ---------- | ---------------- | ------------------ |

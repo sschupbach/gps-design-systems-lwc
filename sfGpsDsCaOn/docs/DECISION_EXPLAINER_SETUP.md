@@ -283,7 +283,7 @@ sf project deploy start -d sfGpsDsCaOn
 sf project deploy start -m ApexClass:SfGpsDsCaOnDecisionExplainerController
 sf project deploy start -m ApexClass:SfGpsDsCaOnDecisionExplainerControllerTest
 sf project deploy start -m LightningComponentBundle:sfGpsDsCaOnDecisionExplainer
-sf project deploy start -m LightningComponentBundle:sfGpsDsCaOnDecisionExplainerComm
+sf project deploy start -m LightningComponentBundle:sfGpsDsCaOnDecisionExplainerLwr
 ```
 
 ### Step 2: Verify Deployment
@@ -315,7 +315,7 @@ sf apex run test -n SfGpsDsCaOnDecisionExplainerControllerTest -r human
 
 ## Troubleshooting
 
-### Common Issues and Solutions
+### Lwron Issues and Solutions
 
 #### "Expression set evaluation failed" Error
 

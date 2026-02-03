@@ -1,3 +1,5 @@
 {
-  "sfGpsDsCaOnTextArea/ontario-textarea": []
+  "sfGpsDsCaOnTextArea/ontario-textarea*": [
+    { "target": "sfGpsDsCaOnTextArea/sfGpsDsCaOnTextArea.scoped" }
+  ]
 }

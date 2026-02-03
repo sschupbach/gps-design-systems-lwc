@@ -8,7 +8,7 @@ This document covers Lightning Web Runtime (LWR) compatibility analysis and best
 
 | Category          | Status        | Notes                                                             |
 | ----------------- | ------------- | ----------------------------------------------------------------- |
-| Component Targets | ✅ Compatible | Uses `lightningCommunity__Page` and `lightningCommunity__Default` |
+| Component Targets | ✅ Compatible | Uses `lightningLwrunity__Page` and `lightningLwrunity__Default` |
 | Render Mode       | ✅ Compatible | Uses Light DOM (`renderMode = "light"`) where needed              |
 | Navigation        | ✅ Compatible | Uses `NavigationMixin` correctly                                  |
 | Web Components    | ✅ Compatible | Uses `lwc:external` for Ontario DS web components                 |
@@ -101,7 +101,7 @@ All `for:each` iterations include unique `key` attributes:
 ```typescript
 import { NavigationMixin } from "lightning/navigation";
 
-export default class SfGpsDsCaOnButtonComm extends NavigationMixin<SfGpsDsLwc>(
+export default class SfGpsDsCaOnButtonLwr extends NavigationMixin<SfGpsDsLwc>(
   SfGpsDsLwc
 ) {
   handleClick(_event: MouseEvent): void {
@@ -167,17 +167,17 @@ The package uses Ontario Design System web components via `lwc:external`:
 
 **Components Using External Web Components:**
 
-- `sfGpsDsCaOnButtonComm` → `<ontario-button>`
-- `sfGpsDsCaOnBadgeComm` → `<ontario-badge>`
-- `sfGpsDsCaOnBlockquoteComm` → `<ontario-blockquote>`
-- `sfGpsDsCaOnPageAlertComm` → `<ontario-page-alert>`
-- `sfGpsDsCaOnCriticalAlertComm` → `<ontario-critical-alert>`
+- `sfGpsDsCaOnButtonLwr` → `<ontario-button>`
+- `sfGpsDsCaOnBadgeLwr` → `<ontario-badge>`
+- `sfGpsDsCaOnBlockquoteLwr` → `<ontario-blockquote>`
+- `sfGpsDsCaOnPageAlertLwr` → `<ontario-page-alert>`
+- `sfGpsDsCaOnCriticalAlertLwr` → `<ontario-critical-alert>`
 
 **LWR Requirement:** The Ontario Design System component library must be loaded (see [POST_DEPLOYMENT.md](./POST_DEPLOYMENT.md)).
 
 ---
 
-## LWR/LWS Common Patterns
+## LWR/LWS Lwron Patterns
 
 ### Avoiding Template Negation
 
@@ -259,7 +259,7 @@ export default class MyComponent extends LightningElement {
 }
 ```
 
-### postMessage Communication
+### postMessage Lwrunication
 
 For Visualforce iframe integration, use `postMessage` with explicit origin validation.
 
@@ -440,8 +440,8 @@ When your Experience Cloud site has SSR enabled, add this target to static compo
 
 ```xml
 <targets>
-  <target>lightningCommunity__Page</target>
-  <target>lightningCommunity__Default</target>
+  <target>lightningLwrunity__Page</target>
+  <target>lightningLwrunity__Default</target>
   <target>lightning__ServerRenderableWithHydration</target>
 </targets>
 ```
@@ -497,7 +497,7 @@ Components avoid:
 
 ## Decision Explainer - LWR Guest User Considerations
 
-The `sfGpsDsCaOnDecisionExplainerComm` component calls Salesforce APIs via Apex. For LWR sites, special configuration is required:
+The `sfGpsDsCaOnDecisionExplainerLwr` component calls Salesforce APIs via Apex. For LWR sites, special configuration is required:
 
 | Scenario                  | Session ID  | Named Credential | Status      |
 | ------------------------- | ----------- | ---------------- | ----------- |
@@ -518,8 +518,8 @@ All exposed components use appropriate targets for Experience Cloud sites:
 
 ```xml
 <targets>
-  <target>lightningCommunity__Page</target>
-  <target>lightningCommunity__Default</target>
+  <target>lightningLwrunity__Page</target>
+  <target>lightningLwrunity__Default</target>
 </targets>
 ```
 
@@ -527,21 +527,21 @@ All exposed components use appropriate targets for Experience Cloud sites:
 
 | Component                           | API Version | Targets              |
 | ----------------------------------- | ----------- | -------------------- |
-| sfGpsDsCaOnAsideComm                | 65.0        | ✅ Community targets |
-| sfGpsDsCaOnBadgeComm                | 65.0        | ✅ Community targets |
-| sfGpsDsCaOnBlockquoteComm           | 65.0        | ✅ Community targets |
-| sfGpsDsCaOnButtonComm               | 65.0        | ✅ Community targets |
-| sfGpsDsCaOnCalloutComm              | 65.0        | ✅ Community targets |
-| sfGpsDsCaOnCardComm                 | 64.0        | ✅ Community targets |
-| sfGpsDsCaOnCardCollectionLwr        | 65.0        | ✅ Community targets |
-| sfGpsDsCaOnCriticalAlertComm        | 65.0        | ✅ Community targets |
-| sfGpsDsCaOnPageAlertComm            | 65.0        | ✅ Community targets |
-| sfGpsDsCaOnActionCardCollectionComm | 65.0        | ✅ Community targets |
-| sfGpsDsCaOnModalComm                | 65.0        | ✅ Community targets |
-| sfGpsDsCaOnSiteSelectorTool         | 65.0        | ✅ Community targets |
-| sfGpsDsCaOnDischargePointSelector   | 65.0        | ✅ Community targets |
-| sfGpsDsCaOnActivityStatusCardComm   | 65.0        | ✅ Community targets |
-| sfGpsDsCaOnSiteTaskCardComm         | 65.0        | ✅ Community targets |
+| sfGpsDsCaOnAsideLwr                | 65.0        | ✅ Lwrunity targets |
+| sfGpsDsCaOnBadgeLwr                | 65.0        | ✅ Lwrunity targets |
+| sfGpsDsCaOnBlockquoteLwr           | 65.0        | ✅ Lwrunity targets |
+| sfGpsDsCaOnButtonLwr               | 65.0        | ✅ Lwrunity targets |
+| sfGpsDsCaOnCalloutLwr              | 65.0        | ✅ Lwrunity targets |
+| sfGpsDsCaOnCardLwr                 | 64.0        | ✅ Lwrunity targets |
+| sfGpsDsCaOnCardCollectionLwr        | 65.0        | ✅ Lwrunity targets |
+| sfGpsDsCaOnCriticalAlertLwr        | 65.0        | ✅ Lwrunity targets |
+| sfGpsDsCaOnPageAlertLwr            | 65.0        | ✅ Lwrunity targets |
+| sfGpsDsCaOnActionCardCollectionLwr | 65.0        | ✅ Lwrunity targets |
+| sfGpsDsCaOnModalLwr                | 65.0        | ✅ Lwrunity targets |
+| sfGpsDsCaOnSiteSelectorTool         | 65.0        | ✅ Lwrunity targets |
+| sfGpsDsCaOnDischargePointSelector   | 65.0        | ✅ Lwrunity targets |
+| sfGpsDsCaOnActivityStatusCardLwr   | 65.0        | ✅ Lwrunity targets |
+| sfGpsDsCaOnSiteTaskCardLwr         | 65.0        | ✅ Lwrunity targets |
 
 ---
 
@@ -549,10 +549,10 @@ All exposed components use appropriate targets for Experience Cloud sites:
 
 | Component                    | Slots                                | Notes                      |
 | ---------------------------- | ------------------------------------ | -------------------------- |
-| sfGpsDsCaOnCardComm          | `Card-Description`                   | Named slot                 |
+| sfGpsDsCaOnCardLwr          | `Card-Description`                   | Named slot                 |
 | sfGpsDsCaOnCardCollectionLwr | `Cards`                              | Named slot for child cards |
-| sfGpsDsCaOnCalloutComm       | `Callout-Heading`, `Callout-Content` | Multiple named slots       |
-| sfGpsDsCaOnAsideComm         | `Aside-Heading`, `Aside-Content`     | Multiple named slots       |
+| sfGpsDsCaOnCalloutLwr       | `Callout-Heading`, `Callout-Content` | Multiple named slots       |
+| sfGpsDsCaOnAsideLwr         | `Aside-Heading`, `Aside-Content`     | Multiple named slots       |
 
 **LWR Slot Compatibility:**
 
@@ -587,17 +587,17 @@ color: var(--ontario-colour-link);
 
 The following components depend on the Ontario Design System web component library:
 
-- `sfGpsDsCaOnButtonComm`
-- `sfGpsDsCaOnBadgeComm`
-- `sfGpsDsCaOnBlockquoteComm`
-- `sfGpsDsCaOnPageAlertComm`
-- `sfGpsDsCaOnCriticalAlertComm`
+- `sfGpsDsCaOnButtonLwr`
+- `sfGpsDsCaOnBadgeLwr`
+- `sfGpsDsCaOnBlockquoteLwr`
+- `sfGpsDsCaOnPageAlertLwr`
+- `sfGpsDsCaOnCriticalAlertLwr`
 
 **Action Required:** Load the Ontario Design System component library JavaScript via Experience Builder head markup.
 
 ### 2. No Page Layout Components
 
-Unlike `sfGpsDsAuVic2`, this package does not include LWR page layout components (`lightningCommunity__Page_Layout` target).
+Unlike `sfGpsDsAuVic2`, this package does not include LWR page layout components (`lightningLwrunity__Page_Layout` target).
 
 **Recommendation:** Consider adding page layout components for full theme support.
 

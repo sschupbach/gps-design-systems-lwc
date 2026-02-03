@@ -226,6 +226,26 @@ export default class SfGpsDsCaOnFormStep extends SfGpsDsFormStep {
     }
   }
 
+  /**
+   * Handles skip link click - moves focus to navigation.
+   * Shadow DOM doesn't support anchor navigation, so we handle it in JS.
+   * @param {Event} event - Click event
+   */
+  handleSkipLinkClick(event) {
+    event.preventDefault();
+    const nav = this.template.querySelector("#step-navigation");
+    if (nav) {
+      // Make the nav focusable temporarily and focus it
+      nav.setAttribute("tabindex", "-1");
+      nav.focus();
+      // Find the first focusable button and focus it
+      const firstButton = nav.querySelector("button:not([disabled])");
+      if (firstButton) {
+        firstButton.focus();
+      }
+    }
+  }
+
   /* ========================================
    * PUBLIC METHODS
    * ======================================== */

@@ -42,7 +42,7 @@ This document provides the API reference for all Ontario Design System UI compon
 
 ## UI Components
 
-### sfGpsDsCaOnHeaderComm
+### sfGpsDsCaOnHeaderLwr
 
 The Ontario Design System header component for Experience Builder sites. Supports Ontario Government branding, application headers, menu items, and language toggle.
 
@@ -91,19 +91,19 @@ The Ontario Design System header component for Experience Builder sites. Support
 #### Usage Example
 
 ```html
-<c-sf-gps-ds-ca-on-header-comm
+<c-sf-gps-ds-ca-on-header-lwr
   type="application"
   language="en"
   application-header-info-json='{"title": "EASR Portal", "href": "/"}'
   menu-items-json='[{"title": "Home", "href": "/home"}, {"title": "Register", "href": "/register"}]'
   language-toggle-options-json='{"englishLink": "/en", "frenchLink": "/fr"}'
   disable-dynamic-menu
-></c-sf-gps-ds-ca-on-header-comm>
+></c-sf-gps-ds-ca-on-header-lwr>
 ```
 
 ---
 
-### sfGpsDsCaOnFooterComm
+### sfGpsDsCaOnFooterLwr
 
 The Ontario Design System footer component for Experience Builder sites. Supports Ontario Government branding and language toggle.
 
@@ -118,10 +118,10 @@ The Ontario Design System footer component for Experience Builder sites. Support
 #### Usage Example
 
 ```html
-<c-sf-gps-ds-ca-on-footer-comm
+<c-sf-gps-ds-ca-on-footer-lwr
   language="en"
   language-toggle-options-json='{"englishLink": "/en", "frenchLink": "/fr"}'
-></c-sf-gps-ds-ca-on-footer-comm>
+></c-sf-gps-ds-ca-on-footer-lwr>
 ```
 
 ---
@@ -388,7 +388,7 @@ A date input with Ontario Design System styling.
 
 ---
 
-### sfGpsDsCaOnButtonComm
+### sfGpsDsCaOnButtonLwr
 
 An Ontario Design System button for Experience Builder.
 
@@ -406,17 +406,17 @@ An Ontario Design System button for Experience Builder.
 #### Usage Example
 
 ```html
-<c-sf-gps-ds-ca-on-button-comm
+<c-sf-gps-ds-ca-on-button-lwr
   label="Submit Application"
   type="primary"
   onclick="{handleSubmit}"
 >
-</c-sf-gps-ds-ca-on-button-comm>
+</c-sf-gps-ds-ca-on-button-lwr>
 ```
 
 ---
 
-### sfGpsDsCaOnBadgeComm
+### sfGpsDsCaOnBadgeLwr
 
 An Ontario Design System badge for Experience Builder.
 
@@ -430,13 +430,13 @@ An Ontario Design System badge for Experience Builder.
 #### Usage Example
 
 ```html
-<c-sf-gps-ds-ca-on-badge-comm label="New" type="information">
-</c-sf-gps-ds-ca-on-badge-comm>
+<c-sf-gps-ds-ca-on-badge-lwr label="New" type="information">
+</c-sf-gps-ds-ca-on-badge-lwr>
 ```
 
 ---
 
-### sfGpsDsCaOnCalloutComm
+### sfGpsDsCaOnCalloutLwr
 
 An Ontario Design System callout for Experience Builder. Supports both standard callouts with border colors and alert-style callouts with background colors and icons.
 
@@ -466,39 +466,39 @@ An Ontario Design System callout for Experience Builder. Supports both standard 
 **Standard Callout (border only):**
 
 ```html
-<c-sf-gps-ds-ca-on-callout-comm
+<c-sf-gps-ds-ca-on-callout-lwr
   heading="Existing site information"
   content="The sites listed are sites previously created and stored in your profile."
   highlight-colour="sky"
 >
-</c-sf-gps-ds-ca-on-callout-comm>
+</c-sf-gps-ds-ca-on-callout-lwr>
 ```
 
 **Warning Callout (yellow background with icon):**
 
 ```html
-<c-sf-gps-ds-ca-on-callout-comm
+<c-sf-gps-ds-ca-on-callout-lwr
   heading="Important regulatory notice"
   content="The person certifying must have authority to bind the registrant as per Ontario Regulation 245/11."
   type="warning"
 >
-</c-sf-gps-ds-ca-on-callout-comm>
+</c-sf-gps-ds-ca-on-callout-lwr>
 ```
 
 **Error Callout (red background with icon):**
 
 ```html
-<c-sf-gps-ds-ca-on-callout-comm
+<c-sf-gps-ds-ca-on-callout-lwr
   heading="You do not meet the requirements"
   content="Based on your answer, you may need to apply for an Environmental Compliance Approval (ECA)."
   type="error"
 >
-</c-sf-gps-ds-ca-on-callout-comm>
+</c-sf-gps-ds-ca-on-callout-lwr>
 ```
 
 ---
 
-### sfGpsDsCaOnCardComm
+### sfGpsDsCaOnCardLwr
 
 An Ontario Design System card for Experience Builder.
 
@@ -516,12 +516,12 @@ An Ontario Design System card for Experience Builder.
 #### Usage Example
 
 ```html
-<c-sf-gps-ds-ca-on-card-comm
+<c-sf-gps-ds-ca-on-card-lwr
   title="Apply for Benefits"
   description="Learn about available benefits and how to apply."
   url="/benefits"
 >
-</c-sf-gps-ds-ca-on-card-comm>
+</c-sf-gps-ds-ca-on-card-lwr>
 ```
 
 ---
@@ -631,7 +631,7 @@ items = [
 #### Usage Example
 
 ```html
-<c-sf-gps-ds-ca-on-summary-list-comm
+<c-sf-gps-ds-ca-on-summary-list-lwr
   heading="Contact Information"
   heading-action-label="Change all"
   heading-action-url="/edit/contact"
@@ -640,7 +640,7 @@ items = [
     {"key": "Phone", "value": "(416) 555-1234", "changeLabel": "Change", "changeUrl": "/edit/phone"}
   ]'
   ratio="1-2"
-></c-sf-gps-ds-ca-on-summary-list-comm>
+></c-sf-gps-ds-ca-on-summary-list-lwr>
 ```
 
 #### Accessibility
@@ -716,13 +716,13 @@ tasks = [
 #### Usage Example
 
 ```html
-<c-sf-gps-ds-ca-on-task-list-comm
+<c-sf-gps-ds-ca-on-task-list-lwr
   tasks-json='[
     {"label": "Contact info", "status": "complete", "url": "/contact"},
     {"label": "Project details", "status": "in-progress", "url": "/project"},
     {"label": "Review", "status": "not-started", "url": "/review"}
   ]'
-></c-sf-gps-ds-ca-on-task-list-comm>
+></c-sf-gps-ds-ca-on-task-list-lwr>
 ```
 
 #### Accessibility
@@ -807,7 +807,7 @@ sections = [
 #### Usage Example
 
 ```html
-<c-sf-gps-ds-ca-on-form-review-comm
+<c-sf-gps-ds-ca-on-form-review-lwr
   heading="Review your answers"
   subheading="Please review your answers before submitting."
   sections-json='[
@@ -833,7 +833,7 @@ sections = [
   cancel-url="/dashboard"
   show-submit-warning="true"
   submit-warning-message="Once you submit, you cannot make changes to your application."
-></c-sf-gps-ds-ca-on-form-review-comm>
+></c-sf-gps-ds-ca-on-form-review-lwr>
 ```
 
 #### Form Review Pattern
@@ -875,8 +875,8 @@ An OmniStudio-integrated Form Review component that automatically generates a su
 | `showSubmitWarning`    | Boolean | `false`                               | Show warning callout before submit                |
 | `submitWarningMessage` | String  | `"You cannot change your answers..."` | Warning message text                              |
 | `autoGenerate`         | Boolean | `true`                                | Auto-generate sections from OmniScript data       |
-| `excludeSteps`         | String  | -                                     | Comma-separated list of step names to exclude     |
-| `excludeFields`        | String  | -                                     | Comma-separated list of field paths to exclude    |
+| `excludeSteps`         | String  | -                                     | Lwra-separated list of step names to exclude     |
+| `excludeFields`        | String  | -                                     | Lwra-separated list of field paths to exclude    |
 | `fieldMapping`         | String  | -                                     | JSON object mapping field paths to display labels |
 | `labelSchema`          | String  | -                                     | JSON object mapping raw values to display labels  |
 | `sectionsJson`         | String  | -                                     | Manual sections JSON (overrides auto-generate)    |
@@ -1084,7 +1084,7 @@ component.clearLogs();
 
 See [FORMREVIEW_TROUBLESHOOTING_GUIDE.md](./FORMREVIEW_TROUBLESHOOTING_GUIDE.md) for comprehensive troubleshooting documentation including:
 
-- Common issues and solutions
+- Lwron issues and solutions
 - Debug panel usage
 - Schema compatibility across OmniStudio versions
 - Performance optimization
@@ -1111,13 +1111,13 @@ A horizontal card with image, heading, and description for service navigation on
 #### Usage Example
 
 ```html
-<c-sf-gps-ds-ca-on-feature-card-comm
+<c-sf-gps-ds-ca-on-feature-card-lwr
   heading="Pre-screening"
   description="Find out what environmental permissions you or your business requires."
   image="/resource/sfGpsDsCaOnGlobalStyles/images/pre-screening.jpg"
   url="/pre-screening"
   heading-level="h2"
-></c-sf-gps-ds-ca-on-feature-card-comm>
+></c-sf-gps-ds-ca-on-feature-card-lwr>
 ```
 
 ---
@@ -1148,13 +1148,13 @@ A card for displaying notification categories with colored headers and unread co
 #### Usage Example
 
 ```html
-<c-sf-gps-ds-ca-on-notification-card-comm
+<c-sf-gps-ds-ca-on-notification-card-lwr
   heading="Action required"
   description="Check messages that need your attention."
   notification-type="action"
   unread-count="2"
   url="/notifications/action"
-></c-sf-gps-ds-ca-on-notification-card-comm>
+></c-sf-gps-ds-ca-on-notification-card-lwr>
 ```
 
 ---
@@ -1176,12 +1176,12 @@ A simple card with heading and description for external links (Related Links sec
 #### Usage Example
 
 ```html
-<c-sf-gps-ds-ca-on-link-card-comm
+<c-sf-gps-ds-ca-on-link-card-lwr
   heading="Access environment"
   description="Search and view detailed information about environmental permissions across Ontario."
   url="https://access.environment.ontario.ca"
   is-external="true"
-></c-sf-gps-ds-ca-on-link-card-comm>
+></c-sf-gps-ds-ca-on-link-card-lwr>
 ```
 
 ---
@@ -1195,7 +1195,7 @@ An action card component for displaying service/action options with icon, title,
 | Property      | Type   | Default | Description                                          |
 | ------------- | ------ | ------- | ---------------------------------------------------- |
 | `heading`     | String | -       | The card heading/title                               |
-| `description` | String | -       | Description text (supports Markdown in Comm version) |
+| `description` | String | -       | Description text (supports Markdown in Lwr version) |
 | `url`         | String | `"#"`   | URL to navigate to when clicked                      |
 | `icon`        | String | -       | Icon identifier (e.g., "document", "calendar")       |
 | `className`   | String | -       | Additional CSS classes                               |
@@ -1203,17 +1203,17 @@ An action card component for displaying service/action options with icon, title,
 #### Usage Example
 
 ```html
-<c-sf-gps-ds-ca-on-action-card-comm
+<c-sf-gps-ds-ca-on-action-card-lwr
   heading="Apply for a new activity"
   description="Start a new EASR registration for your business."
   url="/apply"
   icon="document"
-></c-sf-gps-ds-ca-on-action-card-comm>
+></c-sf-gps-ds-ca-on-action-card-lwr>
 ```
 
 ---
 
-### sfGpsDsCaOnActionCardCollectionComm
+### sfGpsDsCaOnActionCardCollectionLwr
 
 A responsive grid collection of action cards for Experience Builder.
 
@@ -1370,7 +1370,7 @@ A card displaying an activity's status, progress, and action options.
 #### Usage Example
 
 ```html
-<c-sf-gps-ds-ca-on-activity-status-card-comm
+<c-sf-gps-ds-ca-on-activity-status-card-lwr
   activity-id="ACT-001"
   activity-name="Stormwater Management"
   activity-type="Industrial"
@@ -1380,7 +1380,7 @@ A card displaying an activity's status, progress, and action options.
   url="/activities/ACT-001"
   allow-remove
   onremove="{handleRemove}"
-></c-sf-gps-ds-ca-on-activity-status-card-comm>
+></c-sf-gps-ds-ca-on-activity-status-card-lwr>
 ```
 
 ---
@@ -1546,7 +1546,7 @@ A reusable input component for geographic coordinates supporting multiple format
 
 ---
 
-### sfGpsDsCaOnButtonComm (Enhanced)
+### sfGpsDsCaOnButtonLwr (Enhanced)
 
 The Ontario button component now supports icons.
 
@@ -1560,13 +1560,13 @@ The Ontario button component now supports icons.
 #### Usage Example with Icon
 
 ```html
-<c-sf-gps-ds-ca-on-button-comm
+<c-sf-gps-ds-ca-on-button-lwr
   label="Add new site"
   type="secondary"
   icon="add"
   icon-position="left"
   onclick="{handleAddSite}"
-></c-sf-gps-ds-ca-on-button-comm>
+></c-sf-gps-ds-ca-on-button-lwr>
 ```
 
 ---
@@ -1575,7 +1575,7 @@ The Ontario button component now supports icons.
 
 OmniStudio form components inherit their properties from OmniScript configuration. The following properties are available through the OmniScript designer.
 
-### Common Properties (All Form Components)
+### Lwron Properties (All Form Components)
 
 | OmniScript Property | Maps To                | Description         |
 | ------------------- | ---------------------- | ------------------- |
@@ -1716,7 +1716,7 @@ For detailed documentation, see the [MapSelectorMixin README](../main/default/lw
 
 ## Business Rules Components
 
-### sfGpsDsCaOnDecisionExplainerComm
+### sfGpsDsCaOnDecisionExplainerLwr
 
 A component for displaying business rule evaluation results with step-by-step explanations. Integrates with Salesforce Business Rules Engine DecisionExplainer API.
 
@@ -1757,7 +1757,7 @@ A component for displaying business rule evaluation results with step-by-step ex
 #### Usage Example
 
 ```html
-<c-sf-gps-ds-ca-on-decision-explainer-comm
+<c-sf-gps-ds-ca-on-decision-explainer-lwr
   heading="Your Eligibility Results"
   expression-set-api-name="Benefit_Eligibility_Check"
   input-variables-json='{"income": 50000, "dependents": 2, "isVeteran": true}'
@@ -1765,7 +1765,7 @@ A component for displaying business rule evaluation results with step-by-step ex
   show-view-toggle="true"
   auto-evaluate="true"
   show-outputs="true"
-></c-sf-gps-ds-ca-on-decision-explainer-comm>
+></c-sf-gps-ds-ca-on-decision-explainer-lwr>
 ```
 
 #### Programmatic Usage

@@ -77,3 +77,7 @@ sfGpsDsUkGovFull/*
 # CSS source maps (generated during build)
 **/lwc/**/*.css.map
 **/lwc/**/*.gen.css.map
+
+# Generated scoped CSS (from SCSS sources via cssgen)
+# Components with .scss files should generate .scoped.css at build time
+**/lwc/**/*.scoped.css

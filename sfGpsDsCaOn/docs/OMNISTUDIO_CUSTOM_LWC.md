@@ -137,8 +137,8 @@ export default class SfGpsDsCaOnMyComponentOmni extends LightningElement {
   <isExposed>true</isExposed>
   <masterLabel>My Component (OmniStudio)</masterLabel>
   <targets>
-    <target>lightningCommunity__Page</target>
-    <target>lightningCommunity__Default</target>
+    <target>lightningLwrunity__Page</target>
+    <target>lightningLwrunity__Default</target>
   </targets>
 </LightningComponentBundle>
 ```
@@ -171,48 +171,48 @@ export default class SfGpsDsCaOnMyComponentOmni extends LightningElement {
 
 ### Components NOT Compatible with OmniStudio Custom LWC
 
-The following **38 Comm components** extend `SfGpsDsLwc` and use Light DOM - they will NOT work as OmniStudio Custom LWC elements:
+The following **38 Lwr components** extend `SfGpsDsLwc` and use Light DOM - they will NOT work as OmniStudio Custom LWC elements:
 
 | Component                           | Issue                  |
 | ----------------------------------- | ---------------------- |
-| sfGpsDsCaOnAccordionComm            | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnAccordionGroupComm       | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnActionCardCollectionComm | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnActionCardComm           | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnAsideComm                | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnBackButtonComm           | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnBackToTopComm            | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnBadgeComm                | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnBlockquoteComm           | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnBreadcrumbsComm          | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnCalloutComm              | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnCardComm                 | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnCheckboxGroupComm        | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnCriticalAlertComm        | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnDateInputComm            | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnDecisionExplainerComm    | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnDropdownComm             | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnFeatureCardComm          | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnFieldsetComm             | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnFooterExpandedComm       | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnFooterSimpleComm         | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnFormReviewComm           | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnHeaderComm               | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnInPageNavComm            | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnLinkCardComm             | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnLoadingIndicatorComm     | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnNaicsCodePickerComm      | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnNotificationCardComm     | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnPageAlertComm            | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnRadioGroupComm           | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnSiteTaskCardComm         | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnStepIndicatorComm        | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnSummaryListComm          | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnTableComm                | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnTaskListComm             | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnTaskListSalesforceComm   | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnTextAreaComm             | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnTextInputComm            | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnAccordionLwr            | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnAccordionGroupLwr       | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnActionCardCollectionLwr | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnActionCardLwr           | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnAsideLwr                | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnBackButtonLwr           | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnBackToTopLwr            | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnBadgeLwr                | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnBlockquoteLwr           | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnBreadcrumbsLwr          | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnCalloutLwr              | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnCardLwr                 | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnCheckboxGroupLwr        | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnCriticalAlertLwr        | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnDateInputLwr            | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnDecisionExplainerLwr    | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnDropdownLwr             | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnFeatureCardLwr          | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnFieldsetLwr             | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnFooterExpandedLwr       | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnFooterSimpleLwr         | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnFormReviewLwr           | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnHeaderLwr               | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnInPageNavLwr            | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnLinkCardLwr             | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnLoadingIndicatorLwr     | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnNaicsCodePickerLwr      | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnNotificationCardLwr     | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnPageAlertLwr            | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnRadioGroupLwr           | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnSiteTaskCardLwr         | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnStepIndicatorLwr        | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnSummaryListLwr          | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnTableLwr                | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnTaskListLwr             | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnTaskListSalesforceLwr   | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnTextAreaLwr             | Light DOM + SfGpsDsLwc |
+| sfGpsDsCaOnTextInputLwr            | Light DOM + SfGpsDsLwc |
 
 ### OmniStudio-Compatible Components
 

@@ -487,15 +487,15 @@ Use the existing `sfGpsDsCaOnCallout` component to display the MECP district inf
 
 **Alternative: Custom LWC with Callout**
 
-For more control over styling, use the base `sfGpsDsCaOnCalloutComm` component:
+For more control over styling, use the base `sfGpsDsCaOnCalloutLwr` component:
 
 ```html
-<c-sf-gps-ds-ca-on-callout-comm
+<c-sf-gps-ds-ca-on-callout-lwr
   heading="MECP district/Area office"
   type="highlight"
   content="{districtInfo}"
 >
-</c-sf-gps-ds-ca-on-callout-comm>
+</c-sf-gps-ds-ca-on-callout-lwr>
 ```
 
 ### Integration Procedure Design
@@ -873,7 +873,7 @@ The mode is applied when the map is ready, setting cursor style and search widge
   - [x] postMessage communication
 - [x] Create `sfGpsDsCaOnSiteSelectorCtr.cls` Apex controller
   - [x] API key from custom metadata (utils\_\_mdt)
-  - [x] Community URL handling
+  - [x] Lwrunity URL handling
   - [x] VF domain URL for postMessage
 - [x] Create `sfGpsDsCaOnFormSiteSelectorTool` OmniStudio wrapper
   - [x] Uses OmniscriptBaseMixin

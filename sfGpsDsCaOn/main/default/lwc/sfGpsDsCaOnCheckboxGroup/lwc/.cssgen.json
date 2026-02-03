@@ -1,3 +1,5 @@
 {
-  "sfGpsDsCaOnCheckboxGroup/ontario-checkbox": []
+  "sfGpsDsCaOnCheckboxGroup/ontario-checkbox*": [
+    { "target": "sfGpsDsCaOnCheckboxGroup/sfGpsDsCaOnCheckboxGroup.scoped" }
+  ]
 }

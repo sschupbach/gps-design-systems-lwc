@@ -1,3 +1,5 @@
 {
-  "sfGpsDsCaOnCallout/ontario-callout": []
+  "sfGpsDsCaOnCallout/ontario-callout*": [
+    { "target": "sfGpsDsCaOnCallout/sfGpsDsCaOnCallout.scoped" }
+  ]
 }
