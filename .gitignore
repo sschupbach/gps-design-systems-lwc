@@ -85,3 +85,6 @@ sfGpsDsUkGovFull/*
 # Local-only documentation (not tracked in repo)
 sfGpsDsCaOn/docs/EASR_GUIDE.md
 sfGpsDsCaOn/docs/STAKEHOLDER_BRIEFING.md
+
+# Local-only components (not tracked in repo)
+sfGpsDsCaOn/main/default/lwc/sfGpsDsCaOnFeatureCard/
