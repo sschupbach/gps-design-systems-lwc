@@ -69,7 +69,6 @@ These components extend ODS patterns for Salesforce-specific needs:
 | `sfGpsDsCaOnCoordinateInput`        | GIS coordinate input               | Extends Form      |
 | `sfGpsDsCaOnDecisionExplainer`      | Decision explanation               | Custom            |
 | `sfGpsDsCaOnDischargePointSelector` | Environmental selector             | Custom            |
-| `sfGpsDsCaOnFeatureCard`            | Feature highlight cards            | Extends Card      |
 | `sfGpsDsCaOnLinkCard`               | Navigation link cards              | Extends Card      |
 | `sfGpsDsCaOnNaicsCodePicker`        | Industry code selector             | Custom            |
 | `sfGpsDsCaOnNotificationCard`       | Notification display               | Extends Card      |

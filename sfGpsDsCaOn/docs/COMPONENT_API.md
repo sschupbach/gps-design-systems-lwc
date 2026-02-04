@@ -23,7 +23,6 @@ This document provides the API reference for all Ontario Design System UI compon
    - [Summary List](#sfgpsdscaonsummarylist)
    - [Task List](#sfgpsdscaontasklist)
    - [Form Review](#sfgpsdscaonformreview)
-   - [Feature Card](#sfgpsdscaonfeaturecard)
    - [Notification Card](#sfgpsdscaonnotificationcard)
    - [Link Card](#sfgpsdscaonlinkcard)
    - [Action Card](#sfgpsdscaonactioncard)
@@ -445,27 +444,53 @@ An Ontario Design System callout for Experience Builder. Supports both standard 
 
 ### sfGpsDsCaOnCardLwr
 
-An Ontario Design System card for Experience Builder.
+An Ontario Design System card for Experience Builder. Supports both vertical and horizontal layouts with configurable image positioning.
 
 #### Properties
 
-| Property      | Type   | Default | Description      |
-| ------------- | ------ | ------- | ---------------- |
-| `title`       | String | -       | Card title       |
-| `description` | String | -       | Card description |
-| `imageUrl`    | String | -       | Card image URL   |
-| `imageAlt`    | String | -       | Image alt text   |
-| `url`         | String | -       | Card link URL    |
-| `target`      | String | -       | Link target      |
+| Property                  | Type    | Default       | Description                                                                    |
+| ------------------------- | ------- | ------------- | ------------------------------------------------------------------------------ |
+| `heading`                 | String  | -             | Card heading/title                                                             |
+| `url`                     | String  | -             | Card link URL                                                                  |
+| `image`                   | String  | -             | Card image URL                                                                 |
+| `imageAltText`            | String  | -             | Image alt text (defaults to heading if not decorative)                         |
+| `imageIsDecorative`       | Boolean | `false`       | If true, image alt is empty for accessibility                                  |
+| `headingLevel`            | String  | `"h2"`        | Heading level (h2, h3, h4, h5, h6)                                             |
+| `headingColour`           | String  | `"default"`   | Heading background color (default, light-accent, dark-accent, gold, sky, etc.) |
+| `layoutDirection`         | String  | `"vertical"`  | Card layout direction (`vertical` or `horizontal`)                             |
+| `horizontalImagePosition` | String  | `"left"`      | Image position in horizontal layout (`left` or `right`)                        |
+| `horizontalImageSize`     | String  | `"one-third"` | Image size in horizontal layout (`one-third` or `one-fourth`)                  |
+| `hasDescription`          | Boolean | `false`       | Whether the card has description content (enables slot)                        |
+| `className`               | String  | -             | Additional CSS classes                                                         |
 
-#### Usage Example
+#### Usage Example - Vertical Card
 
 ```html
 <c-sf-gps-ds-ca-on-card-lwr
-  title="Apply for Benefits"
-  description="Learn about available benefits and how to apply."
+  heading="Apply for Benefits"
+  image="/resource/images/benefits.jpg"
   url="/benefits"
+  heading-level="h2"
 >
+</c-sf-gps-ds-ca-on-card-lwr>
+```
+
+#### Usage Example - Horizontal Card (Service/Feature Style)
+
+For horizontal cards with images (similar to feature cards), use the `layoutDirection` property:
+
+```html
+<c-sf-gps-ds-ca-on-card-lwr
+  heading="Pre-screening"
+  image="/resource/images/pre-screening.jpg"
+  url="/pre-screening"
+  layout-direction="horizontal"
+  horizontal-image-position="left"
+  horizontal-image-size="one-third"
+  heading-level="h2"
+  has-description
+>
+  Find out what environmental permissions you or your business requires.
 </c-sf-gps-ds-ca-on-card-lwr>
 ```
 
@@ -1034,36 +1059,6 @@ See [FORMREVIEW_TROUBLESHOOTING_GUIDE.md](./FORMREVIEW_TROUBLESHOOTING_GUIDE.md)
 - Schema compatibility across OmniStudio versions
 - Performance optimization
 - Self-healing mechanisms
-
----
-
-### sfGpsDsCaOnFeatureCard
-
-A horizontal card with image, heading, and description for service navigation on home pages.
-
-#### Properties
-
-| Property       | Type   | Default | Description                                  |
-| -------------- | ------ | ------- | -------------------------------------------- |
-| `heading`      | String | -       | The heading/title of the feature card        |
-| `description`  | String | -       | Description text below the heading           |
-| `url`          | String | `"#"`   | URL to navigate to when the card is clicked  |
-| `image`        | String | -       | Image URL to display on the left side        |
-| `imageAltText` | String | -       | Alt text for the image (defaults to heading) |
-| `headingLevel` | String | `"h2"`  | Heading level for accessibility (h2, h3, h4) |
-| `className`    | String | -       | Additional CSS classes                       |
-
-#### Usage Example
-
-```html
-<c-sf-gps-ds-ca-on-feature-card-lwr
-  heading="Pre-screening"
-  description="Find out what environmental permissions you or your business requires."
-  image="/resource/sfGpsDsCaOnGlobalStyles/images/pre-screening.jpg"
-  url="/pre-screening"
-  heading-level="h2"
-></c-sf-gps-ds-ca-on-feature-card-lwr>
-```
 
 ---
 
