@@ -10,6 +10,8 @@ playwright/.cache/
 *.png
 *.webm
 *.zip
+screenshots/*.html
+test-results.json
 
 # IDE
 .idea/

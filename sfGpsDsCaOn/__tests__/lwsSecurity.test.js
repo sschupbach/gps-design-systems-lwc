@@ -25,8 +25,7 @@ const COMPONENT_PATHS = {
   FormImage: 'main/default/lwc/omnistudio-standard-runtime-forms/lwc/sfGpsDsCaOnFormImage/sfGpsDsCaOnFormImage.js',
   Search: 'main/default/lwc/sfGpsDsCaOnSearch/lwc/sfGpsDsCaOnSearch/sfGpsDsCaOnSearch.ts',
   DebugUtils: 'main/default/lwc/sfGpsDsCaOnDebugUtils/sfGpsDsCaOnDebugUtils.js',
-  FormReview: 'main/default/lwc/sfGpsDsCaOnFormReview/lwc/sfGpsDsCaOnFormReview/sfGpsDsCaOnFormReview.ts',
-  FormReviewLwr: 'main/default/lwc/sfGpsDsCaOnFormReview/lwc/sfGpsDsCaOnFormReviewLwr/sfGpsDsCaOnFormReviewLwr.ts'
+  FormFormReviewOmni: 'main/default/lwc/sfGpsDsCaOnFormFormReviewOmni/sfGpsDsCaOnFormFormReviewOmni.js'
 };
 
 // Read source file helper
