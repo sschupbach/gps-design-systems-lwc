@@ -765,7 +765,6 @@ Here's a complete example implementing an eligibility check question page:
 | Radio groups         | `sfGpsDsCaOnRadioGroup`             | name, options, value                       |
 | Checkbox groups      | `sfGpsDsCaOnCheckboxGroup`          | name, options, values                      |
 | Date inputs          | `sfGpsDsCaOnDateInput`              | label, value                               |
-| Dropdowns            | `sfGpsDsCaOnDropdown`               | label, options, value                      |
 | Back to top          | `sfGpsDsCaOnBackToTop`              | (none)                                     |
 | Modal dialogs        | `sfGpsDsCaOnModal`                  | heading, is-open                           |
 

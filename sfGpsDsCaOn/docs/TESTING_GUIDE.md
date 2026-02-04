@@ -445,46 +445,6 @@ For components with dynamic updates (Site Selector, Discharge Point Selector):
 
 ---
 
-### Selectable Card Component (sfGpsDsCaOnSelectableCard)
-
-- [ ] **Rendering**
-  - [ ] Label displays correctly
-  - [ ] Description displays correctly
-  - [ ] Multi-line descriptions preserve newlines
-  - [ ] Checkbox input present
-
-- [ ] **Selection**
-  - [ ] Checked state reflects correctly
-  - [ ] Select event fires on click
-  - [ ] Event detail contains value and checked
-  - [ ] Disabled state prevents selection
-
-- [ ] **Badge**
-  - [ ] Badge renders when provided
-  - [ ] Badge hidden when not provided
-  - [ ] Success variant applies green background
-  - [ ] Info variant applies blue background (default)
-  - [ ] Warning variant applies appropriate styling
-  - [ ] Error variant applies red background
-
-- [ ] **Link**
-  - [ ] Link renders when linkLabel and linkUrl provided
-  - [ ] Link not rendered when either is missing
-  - [ ] Link click does not toggle selection
-
-- [ ] **Accessibility**
-  - [ ] Checkbox has associated label
-  - [ ] Checkbox disabled when card disabled
-  - [ ] Focus indicator visible
-  - [ ] Badge has sufficient color contrast (4.5:1)
-
-- [ ] **Ontario DS Compliance**
-  - [ ] Uses ontario-checkboxes styling
-  - [ ] 3px focus outline
-  - [ ] Proper checkbox indicator
-
----
-
 ### Site Selector Tool Component (sfGpsDsCaOnSiteSelectorTool)
 
 - [ ] **Rendering**
@@ -742,7 +702,6 @@ The project includes Jest-based unit tests in `sfGpsDsCaOn/__tests__/`:
 | ------------------------------------------- | ------------------------ | ------------------------------------------------------ |
 | `sfGpsDsCaOnModal.test.js`                  | Modal                    | Rendering, keyboard, unique IDs, aria-describedby      |
 | `sfGpsDsCaOnCoordinateInput.test.js`        | Coordinate Input         | Formats, validation, fieldset/legend, aria-describedby |
-| `sfGpsDsCaOnSelectableCard.test.js`         | Selectable Card          | Selection, badge, link                                 |
 | `sfGpsDsCaOnSiteSelectorTool.test.js`       | Site Selector            | Tabs, arrow keys, live regions, postMessage            |
 | `sfGpsDsCaOnDischargePointSelector.test.js` | Discharge Point Selector | Tabs, arrow keys, coordinates, live regions            |
 | `sfGpsDsCaOnTextInput.test.js`              | Text Input               | Input handling, validation                             |

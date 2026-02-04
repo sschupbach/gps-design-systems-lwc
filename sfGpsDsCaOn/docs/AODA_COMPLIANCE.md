@@ -68,7 +68,6 @@ Form controls use proper structure:
 
 - sfGpsDsCaOnTextInput
 - sfGpsDsCaOnTextArea
-- sfGpsDsCaOnDropdown
 - sfGpsDsCaOnCheckboxGroup
 - sfGpsDsCaOnRadioGroup
 - sfGpsDsCaOnDateInput
@@ -420,14 +419,12 @@ These CSS keywords automatically adapt to the user's high contrast theme:
 | ---------------------------- | ------ | ---------------------------- |
 | sfGpsDsCaOnTextInput         | ✅     | Full support                 |
 | sfGpsDsCaOnTextArea          | ✅     | Full support                 |
-| sfGpsDsCaOnDropdown          | ✅     | Including dropdown icon      |
 | sfGpsDsCaOnCheckboxGroup     | ✅     | Custom checkbox styling      |
 | sfGpsDsCaOnRadioGroup        | ✅     | Custom radio styling         |
 | sfGpsDsCaOnModal             | ✅     | Header, close button, dialog |
 | sfGpsDsCaOnAccordion         | ✅     | Buttons and borders          |
 | sfGpsDsCaOnSearch            | ✅     | Input, submit, suggestions   |
 | sfGpsDsCaOnBackToTop         | ✅     | Button and icon              |
-| sfGpsDsCaOnSelectableCard    | ✅     | Card, badge, expand button   |
 | sfGpsDsCaOnCallout           | ✅     | Previously implemented       |
 | sfGpsDsCaOnDecisionExplainer | ✅     | Previously implemented       |
 

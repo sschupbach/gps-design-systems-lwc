@@ -61,15 +61,15 @@ Custom components use a distinct prefix to differentiate from standard ODS class
 
 ### Decision Matrix
 
-| Scenario                        | Component Choice                     |
-| ------------------------------- | ------------------------------------ |
-| Simple navigation card          | `sfGpsDsCaOnCard` (Standard)         |
-| Card with primary action button | `sfGpsDsCaOnActionCard` (Custom)     |
-| Single-select option            | `sfGpsDsCaOnRadioGroup` (Standard)   |
-| Visual card-based selection     | `sfGpsDsCaOnSelectableCard` (Custom) |
-| Display key-value data          | `sfGpsDsCaOnSummaryList` (Standard)  |
-| Track task completion           | `sfGpsDsCaOnTaskList` (Standard)     |
-| Site-specific tasks with status | `sfGpsDsCaOnSiteTaskCard` (Custom)   |
+| Scenario                        | Component Choice                              |
+| ------------------------------- | --------------------------------------------- |
+| Simple navigation card          | `sfGpsDsCaOnCard` (Standard)                  |
+| Card with primary action button | `sfGpsDsCaOnActionCard` (Custom)              |
+| Single-select option            | `sfGpsDsCaOnRadioGroup` (Standard)            |
+| Visual card-based selection     | `sfGpsDsCaOnFormSelectableCards` (OmniScript) |
+| Display key-value data          | `sfGpsDsCaOnSummaryList` (Standard)           |
+| Track task completion           | `sfGpsDsCaOnTaskList` (Standard)              |
+| Site-specific tasks with status | `sfGpsDsCaOnSiteTaskCard` (Custom)            |
 
 ---
 
@@ -122,41 +122,6 @@ A card component with a colored header bar, icon, heading, description, primary 
   link-url="/about-permits"
 ></c-sf-gps-ds-ca-on-action-card-lwr>
 ```
-
----
-
-### Selectable Card
-
-**Component:** `sfGpsDsCaOnSelectableCard`
-
-An interactive card that can be selected/deselected, similar to a large checkbox or radio button. Used for visual option selection.
-
-#### Properties
-
-| Property        | Type    | Description              |
-| --------------- | ------- | ------------------------ |
-| `heading`       | String  | Card heading             |
-| `description`   | String  | Card description         |
-| `value`         | String  | Selection value          |
-| `selected`      | Boolean | Whether card is selected |
-| `disabled`      | Boolean | Whether card is disabled |
-| `selectionMode` | String  | `single` or `multiple`   |
-
-#### CSS Classes
-
-```css
-.sfgpsdscaon-selectable-card           /* Container */
-.sfgpsdscaon-selectable-card--selected /* Selected state */
-.sfgpsdscaon-selectable-card--disabled /* Disabled state */
-.sfgpsdscaon-selectable-card__checkbox /* Checkbox indicator */
-.sfgpsdscaon-selectable-card__content  /* Content area */
-```
-
-#### Events
-
-| Event    | Detail                | Description                  |
-| -------- | --------------------- | ---------------------------- |
-| `select` | `{ value, selected }` | Fired when selection changes |
 
 ---
 

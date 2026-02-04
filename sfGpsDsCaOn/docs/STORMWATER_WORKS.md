@@ -149,9 +149,9 @@ The Stormwater Management Works activity is a multi-step registration process wi
 
 ### Getting Started Dashboard
 
-| UI Element                    | Component                                 | Status     |
-| ----------------------------- | ----------------------------------------- | ---------- |
-| Page Title                    | HTML/Callout                              | **Exists** |
+| UI Element                    | Component                                | Status     |
+| ----------------------------- | ---------------------------------------- | ---------- |
+| Page Title                    | HTML/Callout                             | **Exists** |
 | Task List (Getting started)   | `sfGpsDsCaOnTaskListLwr`                 | **Exists** |
 | Task List (Before you submit) | `sfGpsDsCaOnTaskListLwr`                 | **Exists** |
 | Add site(s) button            | `sfGpsDsCaOnButtonLwr` (icon: add)       | **Exists** |
@@ -162,14 +162,14 @@ The Stormwater Management Works activity is a multi-step registration process wi
 
 | UI Element                 | Component                        | Status         |
 | -------------------------- | -------------------------------- | -------------- |
-| Step Indicator             | `sfGpsDsCaOnStepIndicatorLwr`   | **Exists**     |
-| Back link                  | `sfGpsDsCaOnBackButtonLwr`      | **Exists**     |
+| Step Indicator             | `sfGpsDsCaOnStepIndicatorLwr`    | **Exists**     |
+| Back link                  | `sfGpsDsCaOnBackButtonLwr`       | **Exists**     |
 | Text Input                 | `sfGpsDsCaOnFormText`            | **Exists**     |
 | Dropdown (Select)          | `sfGpsDsCaOnFormSelect`          | **Exists**     |
 | **Cascading NAICS Picker** | `sfGpsDsCaOnFormNaicsCodePicker` | ✅ **Created** |
-| Summary List               | `sfGpsDsCaOnSummaryListLwr`     | **Exists**     |
+| Summary List               | `sfGpsDsCaOnSummaryListLwr`      | **Exists**     |
 | Checkbox                   | `sfGpsDsCaOnFormCheckbox`        | **Exists**     |
-| Back to Top                | `sfGpsDsCaOnBackToTopLwr`       | **Exists**     |
+| Back to Top                | `sfGpsDsCaOnBackToTopLwr`        | **Exists**     |
 | Primary Button             | OmniScript Step navigation       | **Exists**     |
 | Secondary Button           | OmniScript Save for Later        | **Exists**     |
 
@@ -497,7 +497,7 @@ The Edit Block uses Table mode with `sfGpsDsCaOnFormEditBlock` which provides On
 
 **Selectable Cards Configuration for Contacts:**
 
-The `sfGpsDsCaOnSelectableCard` component now supports multi-line descriptions using `white-space: pre-line`. Use newline characters (`\n`) to format contact details:
+The `sfGpsDsCaOnFormSelectableCards` component supports multi-line descriptions using `white-space: pre-line`. Use newline characters (`\n`) to format contact details:
 
 ```json
 {
@@ -632,8 +632,8 @@ The `sfGpsDsCaOnFormEditBlock` component already provides Ontario DS styling for
 
 | Component       | Configuration                                                   |
 | --------------- | --------------------------------------------------------------- |
-| **Header**      | `sfGpsDsCaOnHeaderLwr` (type: application)                     |
-| **Back Button** | `sfGpsDsCaOnBackButtonLwr`                                     |
+| **Header**      | `sfGpsDsCaOnHeaderLwr` (type: application)                      |
+| **Back Button** | `sfGpsDsCaOnBackButtonLwr`                                      |
 | **Page Title**  | HTML: `<h1 class="ontario-h1">Stormwater management works</h1>` |
 
 ### Getting Started Task List
@@ -903,18 +903,18 @@ Options can be loaded dynamically via:
 
 ### Component Mapping
 
-| UI Element                       | Component                                                      | Status          |
-| -------------------------------- | -------------------------------------------------------------- | --------------- |
-| Info Callout                     | `sfGpsDsCaOnCalloutLwr`                                       | ✅ **Exists**   |
-| Site Checkbox Cards              | `sfGpsDsCaOnSelectableCard` / `sfGpsDsCaOnFormSelectableCards` | ✅ **Enhanced** |
-| Status badges (NEW, IN PROGRESS) | `badge` / `badgeVariant` properties                            | ✅ **Added**    |
-| "More details" link              | `linkLabel` / `linkUrl` properties                             | ✅ **Added**    |
-| "Create a new site" button       | `sfGpsDsCaOnButtonLwr` (icon: add)                            | ✅ **Exists**   |
-| "Add selected site(s)" button    | `sfGpsDsCaOnButtonLwr`                                        | ✅ **Exists**   |
+| UI Element                       | Component                           | Status          |
+| -------------------------------- | ----------------------------------- | --------------- |
+| Info Callout                     | `sfGpsDsCaOnCalloutLwr`             | ✅ **Exists**   |
+| Site Checkbox Cards              | `sfGpsDsCaOnFormSelectableCards`    | ✅ **Enhanced** |
+| Status badges (NEW, IN PROGRESS) | `badge` / `badgeVariant` properties | ✅ **Added**    |
+| "More details" link              | `linkLabel` / `linkUrl` properties  | ✅ **Added**    |
+| "Create a new site" button       | `sfGpsDsCaOnButtonLwr` (icon: add)  | ✅ **Exists**   |
+| "Add selected site(s)" button    | `sfGpsDsCaOnButtonLwr`              | ✅ **Exists**   |
 
 ### Selectable Card Link Support
 
-The `sfGpsDsCaOnSelectableCard` component now supports optional links below the description:
+The `sfGpsDsCaOnFormSelectableCards` component supports optional links below the description:
 
 **New Properties:**
 
@@ -923,7 +923,7 @@ The `sfGpsDsCaOnSelectableCard` component now supports optional links below the 
 
 ### Selectable Card Badge Support (Status Indicators)
 
-The `sfGpsDsCaOnSelectableCard` component supports status badges displayed next to the title (e.g., "NEW", "IN PROGRESS").
+The `sfGpsDsCaOnFormSelectableCards` component supports status badges displayed next to the title (e.g., "NEW", "IN PROGRESS").
 
 **New Properties:**
 
@@ -977,10 +977,10 @@ The `sfGpsDsCaOnSelectableCard` component supports status badges displayed next 
 
 ### Component Mapping
 
-| UI Element                | Component                    | Status        |
-| ------------------------- | ---------------------------- | ------------- |
+| UI Element                | Component                   | Status        |
+| ------------------------- | --------------------------- | ------------- |
 | Section with Edit link    | `sfGpsDsCaOnSummaryListLwr` | ✅ **Exists** |
-| Field display (key-value) | Summary List items           | ✅ **Exists** |
+| Field display (key-value) | Summary List items          | ✅ **Exists** |
 | Continue button           | `sfGpsDsCaOnButtonLwr`      | ✅ **Exists** |
 
 ### Summary List Configuration

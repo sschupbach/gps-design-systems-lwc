@@ -25,7 +25,6 @@ These components are foundational building blocks used across multiple other com
 | Component                | Usage Pattern                                   | Test Coverage |
 | ------------------------ | ----------------------------------------------- | ------------- |
 | sfGpsDsCaOnTextInput     | Every form with text entry                      | ✅ 12 tests   |
-| sfGpsDsCaOnDropdown      | Selection fields across all forms               | ✅ 45 tests   |
 | sfGpsDsCaOnCheckboxGroup | Multi-select scenarios                          | ✅ 42 tests   |
 | sfGpsDsCaOnRadioGroup    | Single-select scenarios                         | ✅ 40 tests   |
 | sfGpsDsCaOnDateInput     | Date collection (3-field format per Ontario DS) | ✅ 38 tests   |
@@ -108,7 +107,6 @@ Risk is assessed based on: (1) external dependencies, (2) security surface area,
 | ----------------------------------------- | ----- | ----------------------------- |
 | sfGpsDsCaOnTextInput.test.js              | 12    | Form input pattern validation |
 | sfGpsDsCaOnTextArea.test.js               | 28    | Multi-line text entry         |
-| sfGpsDsCaOnDropdown.test.js               | 45    | Select/dropdown functionality |
 | sfGpsDsCaOnCheckboxGroup.test.js          | 42    | Multi-select checkbox groups  |
 | sfGpsDsCaOnRadioGroup.test.js             | 40    | Single-select radio groups    |
 | sfGpsDsCaOnDateInput.test.js              | 38    | 3-field date input            |
@@ -125,7 +123,6 @@ Risk is assessed based on: (1) external dependencies, (2) security surface area,
 | sfGpsDsCaOnModal.test.js                  | 34    | Modal dialog                  |
 | sfGpsDsCaOnCallout.test.js                | 18    | Alerts/callouts               |
 | sfGpsDsCaOnActionCard.test.js             | 15    | Action card                   |
-| sfGpsDsCaOnSelectableCard.test.js         | 12    | Selectable card               |
 | sfGpsDsCaOnCoordinateInput.test.js        | 18    | Coordinate input              |
 | sfGpsDsCaOnSiteSelectorTool.test.js       | 27    | Map site selector             |
 | sfGpsDsCaOnDischargePointSelector.test.js | 23    | Discharge point selector      |

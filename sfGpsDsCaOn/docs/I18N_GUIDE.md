@@ -234,7 +234,7 @@ Labels follow this pattern: `sfGpsDsCaOn_[Category]_[Name]`
 
 | Category         | Description              |
 | ---------------- | ------------------------ |
-| `Lwron`         | Shared UI elements       |
+| `Lwron`          | Shared UI elements       |
 | `Error`          | Error messages           |
 | `SiteSelector`   | Site Selector Tool       |
 | `DischargePoint` | Discharge Point Selector |
@@ -267,7 +267,6 @@ Labels follow this pattern: `sfGpsDsCaOn_[Category]_[Name]`
 | `sfGpsDsCaOnUserMessages`           | ✅ Implemented |
 | `sfGpsDsCaOnDischargePointSelector` | ✅ Implemented |
 | `sfGpsDsCaOnTaskList`               | ✅ Implemented |
-| `sfGpsDsCaOnDropdown`               | ✅ Implemented |
 | `sfGpsDsCaOnSearch`                 | ✅ Implemented |
 | `sfGpsDsCaOnLoadingIndicator`       | ✅ Implemented |
 

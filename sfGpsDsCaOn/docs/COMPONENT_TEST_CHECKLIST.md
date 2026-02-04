@@ -72,28 +72,6 @@ This checklist provides specific test cases for each sfGpsDsCaOn component. Use 
 | TA-011  | Responsive | Resizes appropriately           | Fits container width               |        |
 | TA-012  | ODS        | Matches Ontario DS textarea     | Compare to designsystem.ontario.ca |        |
 
-### sfGpsDsCaOnDropdown
-
-| Test ID | Category | Test Case                     | Expected Result                    | Status |
-| ------- | -------- | ----------------------------- | ---------------------------------- | ------ |
-| DD-001  | Visual   | Dropdown arrow displays       | Chevron icon on right              |        |
-| DD-002  | Visual   | Options list appears on click | Dropdown opens                     |        |
-| DD-003  | Visual   | Selected option highlighted   | Visual indication of selection     |        |
-| DD-004  | Visual   | Placeholder text shows        | Placeholder when no selection      |        |
-| DD-005  | A11y     | role="combobox" set           | Correct ARIA role                  |        |
-| DD-006  | A11y     | aria-expanded updates         | true when open, false when closed  |        |
-| DD-007  | A11y     | aria-activedescendant set     | Points to focused option           |        |
-| DD-008  | A11y     | Options have role="option"    | Correct role on list items         |        |
-| DD-009  | Keyboard | Space/Enter opens dropdown    | Dropdown expands                   |        |
-| DD-010  | Keyboard | Arrow keys navigate options   | Focus moves through list           |        |
-| DD-011  | Keyboard | Enter selects option          | Selection made, dropdown closes    |        |
-| DD-012  | Keyboard | Escape closes dropdown        | Dropdown collapses                 |        |
-| DD-013  | Keyboard | Type-ahead finds option       | Typing jumps to matching option    |        |
-| DD-014  | Func     | Selection updates value       | Value property changes             |        |
-| DD-015  | Func     | Change event fires            | Handler called on selection        |        |
-| DD-016  | Func     | Required validation works     | Error if no selection              |        |
-| DD-017  | ODS      | Matches Ontario DS dropdown   | Compare to designsystem.ontario.ca |        |
-
 ### sfGpsDsCaOnCheckboxGroup
 
 | Test ID | Category | Test Case                     | Expected Result                    | Status |

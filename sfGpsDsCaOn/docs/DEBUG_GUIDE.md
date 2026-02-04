@@ -392,8 +392,7 @@ The following components have been enhanced with debug logging:
 | `sfGpsDsCaOnFormTypeahead`       | Keyboard navigation, option selection, initialization |
 | `sfGpsDsCaOnFormPlacesTypeahead` | Google Places selection, place details retrieval      |
 | `sfGpsDsCaOnFormLookup`          | Dropdown open/close, option selection, ARIA focus     |
-| `sfGpsDsCaOnSearchLwr`          | Search queries, suggestions, errors                   |
-| `sfGpsDsCaOnDropdown`            | Value changes, events                                 |
+| `sfGpsDsCaOnSearchLwr`           | Search queries, suggestions, errors                   |
 
 ---
 

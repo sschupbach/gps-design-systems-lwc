@@ -31,18 +31,16 @@ The `sfGpsDsCaOn` component library is a Salesforce LWC (Lightning Web Component
 | ODS Component      | Implementation                                           | Status    |
 | ------------------ | -------------------------------------------------------- | --------- |
 | Accordion          | `sfGpsDsCaOnAccordion`, `sfGpsDsCaOnAccordionGroup`      | Compliant |
-| Alerts/Callouts    | `sfGpsDsCaOnCallout`, `sfGpsDsCaOnPageAlertLwr`         | Compliant |
+| Alerts/Callouts    | `sfGpsDsCaOnCallout`, `sfGpsDsCaOnPageAlertLwr`          | Compliant |
 | Back Button        | `sfGpsDsCaOnBackButton`                                  | Compliant |
 | Back to Top        | `sfGpsDsCaOnBackToTop`                                   | Compliant |
-| Badges             | `sfGpsDsCaOnBadgeLwr`                                   | Compliant |
-| Blockquote         | `sfGpsDsCaOnBlockquoteLwr`                              | Compliant |
+| Badges             | `sfGpsDsCaOnBadgeLwr`                                    | Compliant |
+| Blockquote         | `sfGpsDsCaOnBlockquoteLwr`                               | Compliant |
 | Breadcrumbs        | `sfGpsDsCaOnBreadcrumbs`                                 | Compliant |
-| Buttons            | `sfGpsDsCaOnButtonLwr`                                  | Compliant |
-| Cards              | `sfGpsDsCaOnCard`, `sfGpsDsCaOnCardLwr`                 | Compliant |
+| Buttons            | `sfGpsDsCaOnButtonLwr`                                   | Compliant |
+| Cards              | `sfGpsDsCaOnCard`, `sfGpsDsCaOnCardLwr`                  | Compliant |
 | Checkboxes         | `sfGpsDsCaOnCheckboxGroup`                               | Compliant |
 | Date Input         | `sfGpsDsCaOnDateInput`                                   | Compliant |
-| Dropdown           | `sfGpsDsCaOnDropdown`                                    | Compliant |
-| Fieldset           | `sfGpsDsCaOnFieldset`                                    | Compliant |
 | Footer             | `sfGpsDsCaOnFooter` (uses ontario-footer web component)  | Compliant |
 | Form Review        | `sfGpsDsCaOnFormReview`                                  | Compliant |
 | Header             | `sfGpsDsCaOnHeader` (uses ontario-header web component)  | Compliant |
@@ -74,7 +72,6 @@ These components extend ODS patterns for Salesforce-specific needs:
 | `sfGpsDsCaOnNaicsCodePicker`        | Industry code selector             | Custom            |
 | `sfGpsDsCaOnNotificationCard`       | Notification display               | Extends Card      |
 | `sfGpsDsCaOnSearchEinstein`         | Einstein-integrated search         | Extends Search    |
-| `sfGpsDsCaOnSelectableCard`         | Interactive selection cards        | Extends Card      |
 | `sfGpsDsCaOnSiteTaskCard`           | Site-specific tasks                | Extends Card      |
 | `sfGpsDsCaOnTaskListSalesforce`     | Salesforce task integration        | Extends Task List |
 
@@ -298,8 +295,6 @@ sfGpsDsCaOn/main/default/lwc/
 ├── sfGpsDsCaOnCard/
 ├── sfGpsDsCaOnCheckboxGroup/
 ├── sfGpsDsCaOnDateInput/
-├── sfGpsDsCaOnDropdown/
-├── sfGpsDsCaOnFieldset/
 ├── sfGpsDsCaOnFooter/
 ├── sfGpsDsCaOnFormReview/          # NEW
 ├── sfGpsDsCaOnHeader/

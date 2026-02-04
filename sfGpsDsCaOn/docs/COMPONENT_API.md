@@ -186,61 +186,6 @@ A text input field styled with Ontario Design System.
 
 ---
 
-### sfGpsDsCaOnDropdown
-
-A dropdown select field styled with Ontario Design System.
-
-#### Properties
-
-| Property             | Type    | Default    | Description                         |
-| -------------------- | ------- | ---------- | ----------------------------------- |
-| `label`              | String  | -          | Label text                          |
-| `name`               | String  | -          | Select name attribute               |
-| `value`              | String  | `""`       | Currently selected value            |
-| `options`            | Array   | `[]`       | Array of `{ value, label }` objects |
-| `defaultOptionLabel` | String  | `"Select"` | Placeholder option text             |
-| `hintText`           | String  | -          | Help text                           |
-| `required`           | Boolean | `false`    | Shows "(required)" flag             |
-| `optional`           | Boolean | `false`    | Shows "(optional)" flag             |
-| `disabled`           | Boolean | `false`    | Disables the dropdown               |
-| `errorMessage`       | String  | -          | Error message                       |
-| `className`          | String  | -          | Additional CSS classes              |
-
-#### Options Format
-
-```javascript
-options = [
-  { value: "on", label: "Ontario" },
-  { value: "bc", label: "British Columbia" },
-  { value: "ab", label: "Alberta" }
-];
-```
-
-#### Events
-
-| Event    | Detail              | Description                     |
-| -------- | ------------------- | ------------------------------- |
-| `change` | `{ value: string }` | Fired when selection changes    |
-| `blur`   | `{ value: string }` | Fired when dropdown loses focus |
-| `focus`  | `{ value: string }` | Fired when dropdown gains focus |
-
-#### Usage Example
-
-```html
-<c-sf-gps-ds-ca-on-dropdown
-  label="Province"
-  name="province"
-  options="{provinceOptions}"
-  value="{selectedProvince}"
-  required
-  default-option-label="Select a province"
-  onchange="{handleProvinceChange}"
->
-</c-sf-gps-ds-ca-on-dropdown>
-```
-
----
-
 ### sfGpsDsCaOnCheckboxGroup
 
 A group of checkboxes styled with Ontario Design System.
@@ -875,8 +820,8 @@ An OmniStudio-integrated Form Review component that automatically generates a su
 | `showSubmitWarning`    | Boolean | `false`                               | Show warning callout before submit                |
 | `submitWarningMessage` | String  | `"You cannot change your answers..."` | Warning message text                              |
 | `autoGenerate`         | Boolean | `true`                                | Auto-generate sections from OmniScript data       |
-| `excludeSteps`         | String  | -                                     | Lwra-separated list of step names to exclude     |
-| `excludeFields`        | String  | -                                     | Lwra-separated list of field paths to exclude    |
+| `excludeSteps`         | String  | -                                     | Lwra-separated list of step names to exclude      |
+| `excludeFields`        | String  | -                                     | Lwra-separated list of field paths to exclude     |
 | `fieldMapping`         | String  | -                                     | JSON object mapping field paths to display labels |
 | `labelSchema`          | String  | -                                     | JSON object mapping raw values to display labels  |
 | `sectionsJson`         | String  | -                                     | Manual sections JSON (overrides auto-generate)    |
@@ -1192,13 +1137,13 @@ An action card component for displaying service/action options with icon, title,
 
 #### Properties
 
-| Property      | Type   | Default | Description                                          |
-| ------------- | ------ | ------- | ---------------------------------------------------- |
-| `heading`     | String | -       | The card heading/title                               |
+| Property      | Type   | Default | Description                                         |
+| ------------- | ------ | ------- | --------------------------------------------------- |
+| `heading`     | String | -       | The card heading/title                              |
 | `description` | String | -       | Description text (supports Markdown in Lwr version) |
-| `url`         | String | `"#"`   | URL to navigate to when clicked                      |
-| `icon`        | String | -       | Icon identifier (e.g., "document", "calendar")       |
-| `className`   | String | -       | Additional CSS classes                               |
+| `url`         | String | `"#"`   | URL to navigate to when clicked                     |
+| `icon`        | String | -       | Icon identifier (e.g., "document", "calendar")      |
+| `className`   | String | -       | Additional CSS classes                              |
 
 #### Usage Example
 
@@ -1243,102 +1188,6 @@ A responsive grid collection of action cards for Experience Builder.
   }
 ]
 ```
-
----
-
-### sfGpsDsCaOnSelectableCard
-
-A selectable card component with checkbox functionality, expandable content, and optional badge/link.
-
-#### Properties
-
-| Property          | Type    | Default  | Description                                        |
-| ----------------- | ------- | -------- | -------------------------------------------------- |
-| `value`           | String  | -        | The value when selected                            |
-| `label`           | String  | -        | Card label/title                                   |
-| `description`     | String  | -        | Description text (supports multi-line with `\n`)   |
-| `expandedContent` | String  | -        | HTML content shown when expanded                   |
-| `checked`         | Boolean | `false`  | Whether the card is selected                       |
-| `disabled`        | Boolean | `false`  | Disables the card                                  |
-| `name`            | String  | -        | Group name for radio/checkbox behavior             |
-| `badge`           | String  | -        | Badge text (e.g., "NEW", "IN PROGRESS")            |
-| `badgeVariant`    | String  | `"info"` | Badge style: `success`, `info`, `warning`, `error` |
-| `linkLabel`       | String  | -        | Optional link text                                 |
-| `linkUrl`         | String  | -        | Optional link URL                                  |
-
-#### Events
-
-| Event    | Detail               | Description                       |
-| -------- | -------------------- | --------------------------------- |
-| `select` | `{ value, checked }` | Fired when card selection changes |
-
-#### Badge Variants
-
-| Variant   | Background       | Use Case                  |
-| --------- | ---------------- | ------------------------- |
-| `success` | Green (#118847)  | Completed, approved       |
-| `info`    | Blue (#0066CC)   | New, informational        |
-| `warning` | Yellow (#1A1A1A) | Pending, attention needed |
-| `error`   | Red (#CD0000)    | Error, rejected           |
-
-#### Usage Example
-
-```html
-<c-sf-gps-ds-ca-on-selectable-card
-  value="stormwater"
-  label="Stormwater Management Works"
-  description="Activities related to stormwater management."
-  badge="NEW"
-  badge-variant="info"
-  link-label="View details"
-  link-url="/details/stormwater"
-  checked="{isSelected}"
-  onselect="{handleSelect}"
-></c-sf-gps-ds-ca-on-selectable-card>
-```
-
----
-
-### sfGpsDsCaOnSelectableCardGroup
-
-A group of selectable cards with single or multi-select behavior.
-
-#### Properties
-
-| Property      | Type    | Default | Description                  |
-| ------------- | ------- | ------- | ---------------------------- |
-| `name`        | String  | -       | Group name                   |
-| `options`     | Array   | `[]`    | Array of card option objects |
-| `value`       | Array   | `[]`    | Currently selected values    |
-| `disabled`    | Boolean | `false` | Disables all cards           |
-| `multiSelect` | Boolean | `true`  | Allow multiple selections    |
-
-#### Options Format
-
-```javascript
-options = [
-  {
-    value: "air",
-    label: "Air Emissions",
-    description: "Activities that release emissions.",
-    badge: "NEW",
-    badgeVariant: "success",
-    linkLabel: "More info",
-    linkUrl: "/air-details"
-  },
-  {
-    value: "water",
-    label: "Water Discharge",
-    description: "Activities involving water discharge."
-  }
-];
-```
-
-#### Events
-
-| Event    | Detail                | Description                  |
-| -------- | --------------------- | ---------------------------- |
-| `change` | `{ value: string[] }` | Fired when selection changes |
 
 ---
 

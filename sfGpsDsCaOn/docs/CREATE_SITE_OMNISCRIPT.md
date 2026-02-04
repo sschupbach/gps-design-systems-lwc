@@ -561,7 +561,7 @@ Display available sites from profile using selectable cards:
 | `sfGpsDsCaOnFormSiteSelectorTool` | ESRI address selection |
 | `sfGpsDsCaOnCallout`              | Info/success messages  |
 | `sfGpsDsCaOnSummaryList`          | Review sections        |
-| `sfGpsDsCaOnSelectableCardGroup`  | Site/contact selection |
+| `sfGpsDsCaOnFormSelectableCards`  | Site/contact selection |
 | `sfGpsDsCaOnButton`               | Action buttons         |
 
 ### Visualforce Pages

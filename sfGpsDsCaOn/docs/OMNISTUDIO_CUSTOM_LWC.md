@@ -173,8 +173,8 @@ export default class SfGpsDsCaOnMyComponentOmni extends LightningElement {
 
 The following **38 Lwr components** extend `SfGpsDsLwc` and use Light DOM - they will NOT work as OmniStudio Custom LWC elements:
 
-| Component                           | Issue                  |
-| ----------------------------------- | ---------------------- |
+| Component                          | Issue                  |
+| ---------------------------------- | ---------------------- |
 | sfGpsDsCaOnAccordionLwr            | Light DOM + SfGpsDsLwc |
 | sfGpsDsCaOnAccordionGroupLwr       | Light DOM + SfGpsDsLwc |
 | sfGpsDsCaOnActionCardCollectionLwr | Light DOM + SfGpsDsLwc |
@@ -191,9 +191,7 @@ The following **38 Lwr components** extend `SfGpsDsLwc` and use Light DOM - they
 | sfGpsDsCaOnCriticalAlertLwr        | Light DOM + SfGpsDsLwc |
 | sfGpsDsCaOnDateInputLwr            | Light DOM + SfGpsDsLwc |
 | sfGpsDsCaOnDecisionExplainerLwr    | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnDropdownLwr             | Light DOM + SfGpsDsLwc |
 | sfGpsDsCaOnFeatureCardLwr          | Light DOM + SfGpsDsLwc |
-| sfGpsDsCaOnFieldsetLwr             | Light DOM + SfGpsDsLwc |
 | sfGpsDsCaOnFooterExpandedLwr       | Light DOM + SfGpsDsLwc |
 | sfGpsDsCaOnFooterSimpleLwr         | Light DOM + SfGpsDsLwc |
 | sfGpsDsCaOnFormReviewLwr           | Light DOM + SfGpsDsLwc |

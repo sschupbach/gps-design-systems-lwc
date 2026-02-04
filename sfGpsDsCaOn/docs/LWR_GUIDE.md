@@ -6,15 +6,15 @@ This document covers Lightning Web Runtime (LWR) compatibility analysis and best
 
 ## Executive Summary
 
-| Category          | Status        | Notes                                                             |
-| ----------------- | ------------- | ----------------------------------------------------------------- |
+| Category          | Status        | Notes                                                           |
+| ----------------- | ------------- | --------------------------------------------------------------- |
 | Component Targets | ✅ Compatible | Uses `lightningLwrunity__Page` and `lightningLwrunity__Default` |
-| Render Mode       | ✅ Compatible | Uses Light DOM (`renderMode = "light"`) where needed              |
-| Navigation        | ✅ Compatible | Uses `NavigationMixin` correctly                                  |
-| Web Components    | ✅ Compatible | Uses `lwc:external` for Ontario DS web components                 |
-| Slots             | ✅ Compatible | Named slots configured for LWR                                    |
-| CSS Scoping       | ✅ Compatible | Uses Light DOM for CSS inheritance                                |
-| Wire Adapters     | ✅ N/A        | No problematic wire adapters used                                 |
+| Render Mode       | ✅ Compatible | Uses Light DOM (`renderMode = "light"`) where needed            |
+| Navigation        | ✅ Compatible | Uses `NavigationMixin` correctly                                |
+| Web Components    | ✅ Compatible | Uses `lwc:external` for Ontario DS web components               |
+| Slots             | ✅ Compatible | Named slots configured for LWR                                  |
+| CSS Scoping       | ✅ Compatible | Uses Light DOM for CSS inheritance                              |
+| Wire Adapters     | ✅ N/A        | No problematic wire adapters used                               |
 
 **Overall Status: ✅ LWR Compatible**
 
@@ -48,7 +48,6 @@ All components use Light DOM rendering (`static renderMode = "light"`), which is
 | sfGpsDsCaOnSiteSelectorTool       | Light       | iframe embedding, postMessage |
 | sfGpsDsCaOnCoordinateInput        | Light       | Multi-format input, CSS       |
 | sfGpsDsCaOnDischargePointSelector | Light       | Modal integration, tabs       |
-| sfGpsDsCaOnSelectableCard         | Light       | Badge/link support, CSS       |
 | sfGpsDsCaOnActionCard             | Light       | CSS styling, slot support     |
 | sfGpsDsCaOnActivityStatusCard     | Light       | Progress indicators, CSS      |
 | sfGpsDsCaOnSiteTaskCard           | Light       | Task list integration, CSS    |
@@ -525,21 +524,21 @@ All exposed components use appropriate targets for Experience Cloud sites:
 
 **Components Reviewed:**
 
-| Component                           | API Version | Targets              |
-| ----------------------------------- | ----------- | -------------------- |
+| Component                          | API Version | Targets             |
+| ---------------------------------- | ----------- | ------------------- |
 | sfGpsDsCaOnAsideLwr                | 65.0        | ✅ Lwrunity targets |
 | sfGpsDsCaOnBadgeLwr                | 65.0        | ✅ Lwrunity targets |
 | sfGpsDsCaOnBlockquoteLwr           | 65.0        | ✅ Lwrunity targets |
 | sfGpsDsCaOnButtonLwr               | 65.0        | ✅ Lwrunity targets |
 | sfGpsDsCaOnCalloutLwr              | 65.0        | ✅ Lwrunity targets |
 | sfGpsDsCaOnCardLwr                 | 64.0        | ✅ Lwrunity targets |
-| sfGpsDsCaOnCardCollectionLwr        | 65.0        | ✅ Lwrunity targets |
+| sfGpsDsCaOnCardCollectionLwr       | 65.0        | ✅ Lwrunity targets |
 | sfGpsDsCaOnCriticalAlertLwr        | 65.0        | ✅ Lwrunity targets |
 | sfGpsDsCaOnPageAlertLwr            | 65.0        | ✅ Lwrunity targets |
 | sfGpsDsCaOnActionCardCollectionLwr | 65.0        | ✅ Lwrunity targets |
 | sfGpsDsCaOnModalLwr                | 65.0        | ✅ Lwrunity targets |
-| sfGpsDsCaOnSiteSelectorTool         | 65.0        | ✅ Lwrunity targets |
-| sfGpsDsCaOnDischargePointSelector   | 65.0        | ✅ Lwrunity targets |
+| sfGpsDsCaOnSiteSelectorTool        | 65.0        | ✅ Lwrunity targets |
+| sfGpsDsCaOnDischargePointSelector  | 65.0        | ✅ Lwrunity targets |
 | sfGpsDsCaOnActivityStatusCardLwr   | 65.0        | ✅ Lwrunity targets |
 | sfGpsDsCaOnSiteTaskCardLwr         | 65.0        | ✅ Lwrunity targets |
 
@@ -549,10 +548,10 @@ All exposed components use appropriate targets for Experience Cloud sites:
 
 | Component                    | Slots                                | Notes                      |
 | ---------------------------- | ------------------------------------ | -------------------------- |
-| sfGpsDsCaOnCardLwr          | `Card-Description`                   | Named slot                 |
+| sfGpsDsCaOnCardLwr           | `Card-Description`                   | Named slot                 |
 | sfGpsDsCaOnCardCollectionLwr | `Cards`                              | Named slot for child cards |
-| sfGpsDsCaOnCalloutLwr       | `Callout-Heading`, `Callout-Content` | Multiple named slots       |
-| sfGpsDsCaOnAsideLwr         | `Aside-Heading`, `Aside-Content`     | Multiple named slots       |
+| sfGpsDsCaOnCalloutLwr        | `Callout-Heading`, `Callout-Content` | Multiple named slots       |
+| sfGpsDsCaOnAsideLwr          | `Aside-Heading`, `Aside-Content`     | Multiple named slots       |
 
 **LWR Slot Compatibility:**
 
