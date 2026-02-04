@@ -166,7 +166,8 @@ npm run prep-caon
 1. Copies the component library to `sfGpsDsCaOnComponents/dist/`
 2. Copies global styles to `sfGpsDsCaOnGlobalStyles/`
 3. Removes duplicate font files to keep static resources under Salesforce's 5MB limit
-4. Creates the `sfGpsDsCaOnFull` directory placeholder
+4. Removes source map files (`.map`) to reduce static resource size
+5. Creates the `sfGpsDsCaOnFull` directory placeholder
 
 ### Step 2: Compile TypeScript
 
@@ -490,8 +491,8 @@ npx sass --no-source-map \
 
 The Ontario Design System Component Library includes these web components:
 
-| Web Component              | LWC Wrapper                    | Description           |
-| -------------------------- | ------------------------------ | --------------------- |
+| Web Component              | LWC Wrapper                   | Description           |
+| -------------------------- | ----------------------------- | --------------------- |
 | `<ontario-button>`         | `sfGpsDsCaOnButtonLwr`        | Interactive button    |
 | `<ontario-badge>`          | `sfGpsDsCaOnBadgeLwr`         | Status badge          |
 | `<ontario-blockquote>`     | `sfGpsDsCaOnBlockquoteLwr`    | Styled blockquote     |
