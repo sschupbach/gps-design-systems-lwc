@@ -17,7 +17,7 @@
   - WCAG 2.1 AA: Proper heading hierarchy, keyboard accessible links/buttons
 -->
 <template lwc:render-mode="light">
-  <li class={computedCardClassName}>
+  <div class={computedCardClassName} role="article">
     <!-- Header Bar with Icon and Title -->
     <div class={computedHeaderClassName}>
       <!-- Meaningful icon (has alt text) -->
@@ -67,5 +67,5 @@
         {linkLabel}
       </a>
     </div>
-  </li>
+  </div>
 </template>

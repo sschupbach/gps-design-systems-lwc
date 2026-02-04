@@ -1,5 +1,5 @@
 <template lwc:render-mode="light">
-  <li class={computedClassName}>
+  <div class={computedClassName} role="article">
     <div lwc:if={image} class="ontario-card__image-container">
       <img class="ontario-card__image" src={image} alt={computedImageAltText} />
     </div>
@@ -29,5 +29,5 @@
         <slot></slot>
       </div>
     </div>
-  </li>
+  </div>
 </template>

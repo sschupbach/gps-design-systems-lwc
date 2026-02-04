@@ -41,7 +41,6 @@ All components use Light DOM rendering (`static renderMode = "light"`), which is
 | Component                         | Render Mode | Purpose                       |
 | --------------------------------- | ----------- | ----------------------------- |
 | sfGpsDsCaOnCard                   | Light       | CSS styling, slot support     |
-| sfGpsDsCaOnCardCollectionLwr      | Light       | Slot support for cards        |
 | sfGpsDsCaOnCallout                | Light       | CSS styling, slot support     |
 | sfGpsDsCaOnAside                  | Light       | CSS styling, slot support     |
 | sfGpsDsCaOnModal                  | Light       | Focus trapping, ARIA, slots   |
@@ -524,34 +523,31 @@ All exposed components use appropriate targets for Experience Cloud sites:
 
 **Components Reviewed:**
 
-| Component                          | API Version | Targets             |
-| ---------------------------------- | ----------- | ------------------- |
-| sfGpsDsCaOnAsideLwr                | 65.0        | ✅ Lwrunity targets |
-| sfGpsDsCaOnBadgeLwr                | 65.0        | ✅ Lwrunity targets |
-| sfGpsDsCaOnBlockquoteLwr           | 65.0        | ✅ Lwrunity targets |
-| sfGpsDsCaOnButtonLwr               | 65.0        | ✅ Lwrunity targets |
-| sfGpsDsCaOnCalloutLwr              | 65.0        | ✅ Lwrunity targets |
-| sfGpsDsCaOnCardLwr                 | 64.0        | ✅ Lwrunity targets |
-| sfGpsDsCaOnCardCollectionLwr       | 65.0        | ✅ Lwrunity targets |
-| sfGpsDsCaOnCriticalAlertLwr        | 65.0        | ✅ Lwrunity targets |
-| sfGpsDsCaOnPageAlertLwr            | 65.0        | ✅ Lwrunity targets |
-| sfGpsDsCaOnActionCardCollectionLwr | 65.0        | ✅ Lwrunity targets |
-| sfGpsDsCaOnModalLwr                | 65.0        | ✅ Lwrunity targets |
-| sfGpsDsCaOnSiteSelectorTool        | 65.0        | ✅ Lwrunity targets |
-| sfGpsDsCaOnDischargePointSelector  | 65.0        | ✅ Lwrunity targets |
-| sfGpsDsCaOnActivityStatusCardLwr   | 65.0        | ✅ Lwrunity targets |
-| sfGpsDsCaOnSiteTaskCardLwr         | 65.0        | ✅ Lwrunity targets |
+| Component                         | API Version | Targets             |
+| --------------------------------- | ----------- | ------------------- |
+| sfGpsDsCaOnAsideLwr               | 65.0        | ✅ Lwrunity targets |
+| sfGpsDsCaOnBadgeLwr               | 65.0        | ✅ Lwrunity targets |
+| sfGpsDsCaOnBlockquoteLwr          | 65.0        | ✅ Lwrunity targets |
+| sfGpsDsCaOnButtonLwr              | 65.0        | ✅ Lwrunity targets |
+| sfGpsDsCaOnCalloutLwr             | 65.0        | ✅ Lwrunity targets |
+| sfGpsDsCaOnCardLwr                | 64.0        | ✅ Lwrunity targets |
+| sfGpsDsCaOnCriticalAlertLwr       | 65.0        | ✅ Lwrunity targets |
+| sfGpsDsCaOnPageAlertLwr           | 65.0        | ✅ Lwrunity targets |
+| sfGpsDsCaOnModalLwr               | 65.0        | ✅ Lwrunity targets |
+| sfGpsDsCaOnSiteSelectorTool       | 65.0        | ✅ Lwrunity targets |
+| sfGpsDsCaOnDischargePointSelector | 65.0        | ✅ Lwrunity targets |
+| sfGpsDsCaOnActivityStatusCardLwr  | 65.0        | ✅ Lwrunity targets |
+| sfGpsDsCaOnSiteTaskCardLwr        | 65.0        | ✅ Lwrunity targets |
 
 ---
 
 ## Slot Usage
 
-| Component                    | Slots                                | Notes                      |
-| ---------------------------- | ------------------------------------ | -------------------------- |
-| sfGpsDsCaOnCardLwr           | `Card-Description`                   | Named slot                 |
-| sfGpsDsCaOnCardCollectionLwr | `Cards`                              | Named slot for child cards |
-| sfGpsDsCaOnCalloutLwr        | `Callout-Heading`, `Callout-Content` | Multiple named slots       |
-| sfGpsDsCaOnAsideLwr          | `Aside-Heading`, `Aside-Content`     | Multiple named slots       |
+| Component             | Slots                                | Notes                |
+| --------------------- | ------------------------------------ | -------------------- |
+| sfGpsDsCaOnCardLwr    | `Card-Description`                   | Named slot           |
+| sfGpsDsCaOnCalloutLwr | `Callout-Heading`, `Callout-Content` | Multiple named slots |
+| sfGpsDsCaOnAsideLwr   | `Aside-Heading`, `Aside-Content`     | Multiple named slots |
 
 **LWR Slot Compatibility:**
 

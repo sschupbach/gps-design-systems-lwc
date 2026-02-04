@@ -18,14 +18,15 @@ The "Apply or Register" page allows users to select which environmental permissi
 
 ## Component Mapping
 
-| Section      | Component                             | Experience Builder Name           |
-| ------------ | ------------------------------------- | --------------------------------- |
-| Header       | `sfGpsDsCaOnHeaderLwr`               | Ontario DS Header                 |
-| Page Title   | `sfGpsDsCaOnCalloutLwr`              | Ontario DS Callout                |
-| Action Cards | `sfGpsDsCaOnActionCardCollectionLwr` | Ontario DS Action Card Collection |
-| Each Card    | `sfGpsDsCaOnActionCardLwr`           | Ontario DS Action Card            |
-| Back to Top  | `sfGpsDsCaOnBackToTopLwr`            | Ontario DS Back To Top            |
-| Footer       | `sfGpsDsCaOnFooterExpandedLwr`       | Ontario DS Footer Expanded        |
+| Section      | Component                      | Experience Builder Name    |
+| ------------ | ------------------------------ | -------------------------- |
+| Header       | `sfGpsDsCaOnHeaderLwr`         | Ontario DS Header          |
+| Page Title   | `sfGpsDsCaOnCalloutLwr`        | Ontario DS Callout         |
+| Action Cards | `sfGpsDsCaOnActionCardLwr`     | Ontario DS Action Card     |
+| Back to Top  | `sfGpsDsCaOnBackToTopLwr`      | Ontario DS Back To Top     |
+| Footer       | `sfGpsDsCaOnFooterExpandedLwr` | Ontario DS Footer Expanded |
+
+> **Note:** Use Experience Builder's column layout to arrange multiple Action Cards in a grid.
 
 ---
 

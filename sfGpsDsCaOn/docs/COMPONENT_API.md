@@ -26,7 +26,6 @@ This document provides the API reference for all Ontario Design System UI compon
    - [Notification Card](#sfgpsdscaonnotificationcard)
    - [Link Card](#sfgpsdscaonlinkcard)
    - [Action Card](#sfgpsdscaonactioncard)
-   - [Action Card Collection](#sfgpsdscaonactioncardcollectioncomm)
    - [Selectable Card](#sfgpsdscaonselectablecard)
    - [Selectable Card Group](#sfgpsdscaonselectablecardgroup)
    - [Activity Status Card](#sfgpsdscaonactivitystatuscard)
@@ -1149,39 +1148,6 @@ An action card component for displaying service/action options with icon, title,
   url="/apply"
   icon="document"
 ></c-sf-gps-ds-ca-on-action-card-lwr>
-```
-
----
-
-### sfGpsDsCaOnActionCardCollectionLwr
-
-A responsive grid collection of action cards for Experience Builder.
-
-#### Properties
-
-| Property    | Type          | Default | Description                    |
-| ----------- | ------------- | ------- | ------------------------------ |
-| `cards`     | String (JSON) | `"[]"`  | JSON array of card objects     |
-| `columns`   | String        | `"2"`   | Number of columns (1, 2, 3, 4) |
-| `className` | String        | -       | Additional CSS classes         |
-
-#### Cards JSON Format
-
-```json
-[
-  {
-    "heading": "Apply for a new activity",
-    "description": "Start a new registration.",
-    "url": "/apply",
-    "icon": "document"
-  },
-  {
-    "heading": "Register for an existing activity",
-    "description": "Update an existing registration.",
-    "url": "/register",
-    "icon": "edit"
-  }
-]
 ```
 
 ---
