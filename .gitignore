@@ -81,3 +81,7 @@ sfGpsDsUkGovFull/*
 # Generated scoped CSS (from SCSS sources via cssgen)
 # Components with .scss files should generate .scoped.css at build time
 **/lwc/**/*.scoped.css
+
+# Local-only documentation (not tracked in repo)
+sfGpsDsCaOn/docs/EASR_GUIDE.md
+sfGpsDsCaOn/docs/STAKEHOLDER_BRIEFING.md
