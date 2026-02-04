@@ -1674,10 +1674,136 @@ if (result.success) {
 
 ---
 
+## Custom vs Standard Components
+
+### When to Use Standard ODS Components
+
+- The component matches an ODS specification exactly
+- No Salesforce integration is required
+- Standard styling and behavior are sufficient
+
+### When to Use Custom Components
+
+- Additional functionality is needed (e.g., icons, actions)
+- Salesforce data integration is required
+- Domain-specific features are needed
+- The use case is unique to your application
+
+### Decision Matrix
+
+| Scenario                        | Component Choice                              |
+| ------------------------------- | --------------------------------------------- |
+| Simple navigation card          | `sfGpsDsCaOnCard` (Standard)                  |
+| Card with primary action button | `sfGpsDsCaOnActionCard` (Custom)              |
+| Single-select option            | `sfGpsDsCaOnRadioGroup` (Standard)            |
+| Visual card-based selection     | `sfGpsDsCaOnFormSelectableCards` (OmniScript) |
+| Display key-value data          | `sfGpsDsCaOnSummaryList` (Standard)           |
+| Track task completion           | `sfGpsDsCaOnTaskList` (Standard)              |
+| Site-specific tasks with status | `sfGpsDsCaOnSiteTaskCard` (Custom)            |
+
+---
+
+## Extending Components
+
+### Creating a New Custom Component
+
+Follow this pattern when creating new custom components:
+
+1. **Extend the base class:**
+
+```typescript
+import SfGpsDsLwc from "c/sfGpsDsLwc";
+
+export default class SfGpsDsCaOnMyCustomComponent extends SfGpsDsLwc {
+  static renderMode = "light";
+
+  connectedCallback() {
+    super.connectedCallback?.();
+    this.classList.add("caon-scope");
+  }
+}
+```
+
+2. **Use Light DOM:**
+
+```html
+<template lwc:render-mode="light">
+  <!-- Component content -->
+</template>
+```
+
+3. **Create Experience Builder wrapper:**
+
+```typescript
+// sfGpsDsCaOnMyCustomComponentLwr.ts
+export default class SfGpsDsCaOnMyCustomComponentLwr extends SfGpsDsLwc {
+  // Accept JSON strings for complex properties
+  @api propertiesJson?: string;
+
+  get parsedProperties() {
+    // Parse and validate JSON
+  }
+}
+```
+
+4. **Follow CSS naming conventions:**
+
+```css
+.sfgpsdscaon-my-custom-component {
+}
+.sfgpsdscaon-my-custom-component__element {
+}
+.sfgpsdscaon-my-custom-component--modifier {
+}
+```
+
+---
+
+## CSS Class Naming Conventions
+
+### Standard ODS Classes
+
+```css
+/* Block */
+.ontario-{component}
+
+/* Element */
+.ontario-{component}__{element}
+
+/* Modifier */
+.ontario-{component}--{modifier}
+```
+
+### Custom Extension Classes
+
+```css
+/* Block */
+.sfgpsdscaon-{component}
+
+/* Element */
+.sfgpsdscaon-{component}__{element}
+
+/* Modifier */
+.sfgpsdscaon-{component}--{modifier}
+```
+
+### Mixing Standard and Custom
+
+When extending ODS components, use standard classes for base styling and custom classes for extensions:
+
+```html
+<div class="ontario-card sfgpsdscaon-action-card">
+  <div class="ontario-card__heading sfgpsdscaon-action-card__heading">
+    <!-- Content -->
+  </div>
+</div>
+```
+
+---
+
 ## Related Documentation
 
-- [OMNISTUDIO_FORMS.md](./OMNISTUDIO_FORMS.md) - OmniStudio forms overview
-- [OMNISCRIPT_SETUP.md](./OMNISCRIPT_SETUP.md) - OmniScript configuration
+- [OMNISTUDIO_GUIDE.md](./OMNISTUDIO_GUIDE.md) - OmniStudio forms and configuration
 - [GIS_GUIDE.md](./GIS_GUIDE.md) - GIS components (Site Selector, Discharge Point, ESRI integration)
 - [LWR_GUIDE.md](./LWR_GUIDE.md) - LWR compatibility and best practices
 - [DECISION_EXPLAINER_SETUP.md](./DECISION_EXPLAINER_SETUP.md) - Decision Explainer setup (Connected App, permissions)

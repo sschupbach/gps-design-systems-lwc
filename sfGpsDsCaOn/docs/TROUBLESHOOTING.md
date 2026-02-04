@@ -922,9 +922,142 @@ System.debug(LoggingLevel.DEBUG, 'Your debug message');
 
 ---
 
+## FormReview Component Issues
+
+### Issue: No Sections Displayed
+
+**Symptoms:**
+
+- Review page shows "No answers to review"
+- Data exists in the OmniScript but isn't visible
+
+**Causes & Solutions:**
+
+| Cause                | Solution                                                                          |
+| -------------------- | --------------------------------------------------------------------------------- |
+| Ghost Data Detection | Steps may be conditionally hidden. Check diagnostic panel for "Ghost Data" status |
+| All Steps Excluded   | Check `excludeSteps` configuration                                                |
+| Internal Fields Only | OmniScript data may only contain system fields                                    |
+
+**Enable Debug Mode:**
+
+```json
+{
+  "debugMode": true,
+  "debugPanel": true,
+  "logLevel": "debug"
+}
+```
+
+Or add `?formReviewDebug=true` to the URL.
+
+### Issue: Wrong Labels Shown
+
+**Symptoms:**
+
+- Field labels show raw API names (e.g., "firstName" instead of "First Name")
+- Dropdown values show codes instead of display text
+
+**Solution:**
+
+Configure the `labelSchema` property:
+
+```json
+{
+  "labelSchema": {
+    "PersonalInfo:shippingMethod": {
+      "std_ship": "Standard Shipping (3-5 days)",
+      "exp_ship": "Express Shipping (1-2 days)"
+    }
+  }
+}
+```
+
+Configure the `fieldMapping` property for custom labels:
+
+```json
+{
+  "fieldMapping": {
+    "PersonalInfo:firstName": "Your First Name",
+    "PersonalInfo:lastName": "Your Last Name"
+  }
+}
+```
+
+### Issue: Edit Button Goes to Wrong Step
+
+**Symptoms:**
+
+- Clicking "Change" navigates to an unexpected step
+- Navigation seems off by one or more steps
+
+**Cause:** Conditional steps shift the visual index.
+
+**Solution:**
+
+1. Ensure you're using the latest component version
+2. Check the diagnostic panel for navigation resolution logs
+3. Verify step names in your OmniScript match the data keys
+
+### Issue: Values Showing as [Object object]
+
+**Symptoms:**
+
+- Complex field values display as `[Object object]` or raw JSON
+
+**Solution:**
+
+Use `excludeFields` to hide problematic fields:
+
+```json
+{
+  "excludeFields": "Step1:complexField,Step2:legacyData"
+}
+```
+
+### Issue: File Names Not Showing
+
+**Symptoms:**
+
+- File uploads show "Uploaded file" instead of the actual filename
+
+**Solution:**
+The component checks these fallback paths in order:
+
+1. `fileName`, `FileName`, `name`, `Name`
+2. `Title`, `title`, `PathOnClient`
+
+Ensure your File Upload element includes filename in the response.
+
+### FormReview Debug Panel
+
+The diagnostic panel provides real-time troubleshooting information:
+
+| Section        | Information                                 |
+| -------------- | ------------------------------------------- |
+| Status Bar     | Version, Schema status, Warnings, Fallbacks |
+| Statistics     | Sections, Fields, Null Gaps                 |
+| Warnings       | Warning codes with context                  |
+| Data Structure | Step status (Active/Ghost), field counts    |
+| Recent Logs    | Last 10 log entries                         |
+
+### FormReview Log Events
+
+| Event                 | Description                          |
+| --------------------- | ------------------------------------ |
+| `INIT_COMPLETE`       | Component ready with section count   |
+| `STEP_SKIPPED`        | Step filtered (ghost data, excluded) |
+| `FIELD_EXTRACTED`     | Individual field added to output     |
+| `LABEL_LOOKUP`        | Label resolution from labelSchema    |
+| `FALLBACK_USED`       | Primary property path failed         |
+| `NULL_GAP_FILTERED`   | Deleted row filtered                 |
+| `NAVIGATION_RESOLVED` | Navigation target calculated         |
+
+---
+
 ## Related Documentation
 
 - [DEBUG_GUIDE.md](./DEBUG_GUIDE.md) - Detailed logging setup, Logger utility, and debug tools
 - [LWR_GUIDE.md](./LWR_GUIDE.md) - LWR/LWS compatibility and best practices
-- [AODA_COMPLIANCE.md](./AODA_COMPLIANCE.md) - Accessibility requirements
+- [COMPLIANCE.md](./COMPLIANCE.md) - Accessibility requirements
 - [GIS_GUIDE.md](./GIS_GUIDE.md) - GIS component setup

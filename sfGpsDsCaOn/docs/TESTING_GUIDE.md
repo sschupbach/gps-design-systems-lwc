@@ -1,18 +1,20 @@
-# Ontario Design System Compliance Testing Guide
+# Ontario Design System Testing Guide
 
-This guide outlines the tools, processes, and checklists for testing sfGpsDsCaOn components for compliance with the Ontario Design System (ODS) and AODA accessibility requirements.
-
-> **Related Guide:** For detailed per-component test cases with specific test IDs, see [COMPONENT_TEST_CHECKLIST.md](./COMPONENT_TEST_CHECKLIST.md).
+This comprehensive guide covers all aspects of testing sfGpsDsCaOn components for compliance with the Ontario Design System (ODS), AODA accessibility requirements, and functional correctness.
 
 ## Table of Contents
 
 1. [Testing Tools](#testing-tools)
-2. [Visual Compliance Checklist](#visual-compliance-checklist)
-3. [Accessibility Testing Checklist](#accessibility-testing-checklist)
-4. [Functional Testing Checklist](#functional-testing-checklist)
-5. [Responsive Design Checklist](#responsive-design-checklist)
-6. [Browser Compatibility Checklist](#browser-compatibility-checklist)
-7. [OmniScript Integration Checklist](#omniscript-integration-checklist)
+2. [Pattern-Based Testing](#pattern-based-testing)
+3. [Visual Compliance Checklist](#visual-compliance-checklist)
+4. [Accessibility Testing Checklist](#accessibility-testing-checklist)
+5. [Functional Testing Checklist](#functional-testing-checklist)
+6. [Responsive Design Checklist](#responsive-design-checklist)
+7. [Browser Compatibility Checklist](#browser-compatibility-checklist)
+8. [OmniScript Integration Checklist](#omniscript-integration-checklist)
+9. [Component-Specific Tests](#component-specific-tests)
+10. [Testing Schedule](#testing-schedule)
+11. [Test Execution Workflow](#test-execution-workflow)
 
 ---
 
@@ -66,23 +68,112 @@ This guide outlines the tools, processes, and checklists for testing sfGpsDsCaOn
 
 ---
 
+## Pattern-Based Testing
+
+Pattern-based testing validates shared implementation patterns by thoroughly testing one representative component. When the representative passes, the pattern is validated for all components sharing that pattern.
+
+**Benefits:**
+
+- Reduces testing time by 60-70%
+- Ensures consistency across component families
+- Identifies pattern-level defects affecting multiple components
+
+### Pattern Summary
+
+| Pattern             | Representative | Components | Tests |
+| ------------------- | -------------- | ---------- | ----- |
+| A: Form Inputs      | TextInput      | 14         | 32    |
+| B: Lwr Variants     | CardLwr        | 30+        | 7     |
+| C: OmniStudio Forms | FormText       | 40+        | 8     |
+| D: Cards            | Card           | 8          | 9     |
+| E: Navigation       | Breadcrumbs    | 5          | 7     |
+
+**Total**: 63 unique tests validate 97+ components.
+
+### Pattern A: Form Input Components
+
+**Representative**: sfGpsDsCaOnTextInput  
+**Components Covered**: TextInput, TextArea, DateInput, Dropdown, CheckboxGroup, RadioGroup, CoordinateInput, NaicsCodePicker (14 total with variants)
+
+**Shared Pattern Elements:**
+
+1. Label association (`<label for="">` matches input `id`)
+2. Required/Optional indicators
+3. Hint text linked via `aria-describedby`
+4. Error state (3px red border, `aria-invalid="true"`)
+5. Focus state (3px cyan outline)
+6. Validation integration
+
+### Pattern B: Lwr Variant Components
+
+**Representative**: sfGpsDsCaOnCardLwr  
+**Components Covered**: All 30+ `*Lwr` components
+
+**Shared Pattern Elements:**
+
+1. Base class extension (`SfGpsDsLwc`)
+2. Light DOM rendering (`static renderMode = "light"`)
+3. Scope class application (`caon-scope`)
+4. JSON string property parsing
+5. CSS variable fallback
+
+### Pattern C: OmniStudio Form Components
+
+**Representative**: sfGpsDsCaOnFormText  
+**Components Covered**: All 40+ components in `omnistudio-standard-runtime-forms/lwc/`
+
+**Shared Pattern Elements:**
+
+1. OmniScript base extension
+2. Property resolution (`@api` then `jsonDef`)
+3. Data binding via `applyCallResp`
+4. Designer registration
+5. Validation integration
+
+### Pattern D: Card Components
+
+**Representative**: sfGpsDsCaOnCard  
+**Components Covered**: Card, ActionCard, FeatureCard, LinkCard, SelectableCard, ActivityStatusCard, SiteTaskCard, NotificationCard (8 total)
+
+**Shared Pattern Elements:**
+
+1. Image handling with alt text
+2. Configurable heading level
+3. CTA/Link configuration
+4. Slot content support
+5. Responsive layout
+
+### Pattern E: Navigation Components
+
+**Representative**: sfGpsDsCaOnBreadcrumbs  
+**Components Covered**: Breadcrumbs, InPageNav, StepIndicator, BackButton, BackToTop (5 total)
+
+**Shared Pattern Elements:**
+
+1. `<nav>` semantic element with `aria-label`
+2. `aria-current="page"` on active item
+3. Keyboard navigation
+4. Standard link handling
+
+---
+
 ## Visual Compliance Checklist
 
 ### Typography
 
 - [ ] **Font Family**: Uses Open Sans (body) and Raleway (headings) from Ontario DS
 - [ ] **Font Sizes**: Match Ontario DS type scale
-  - [ ] H1: 2.5rem (40px)
-  - [ ] H2: 2rem (32px)
-  - [ ] H3: 1.5rem (24px)
-  - [ ] H4: 1.25rem (20px)
-  - [ ] Body: 1rem (16px)
+  - H1: 2.5rem (40px)
+  - H2: 2rem (32px)
+  - H3: 1.5rem (24px)
+  - H4: 1.25rem (20px)
+  - Body: 1rem (16px)
 - [ ] **Line Height**: 1.5 for body text, 1.2-1.3 for headings
 - [ ] **Font Weight**: 400 regular, 600 semi-bold, 700 bold
 
 ### Colors
 
-> **Note**: All colors should be implemented using CSS variables with fallbacks (e.g., `var(--ontario-colour-link, #0066cc)`). When testing, verify the computed color matches the expected value below.
+All colors should be implemented using CSS variables with fallbacks (e.g., `var(--ontario-colour-link, #0066cc)`).
 
 - [ ] **Primary Blue**: #1a5a96 (Ontario Blue) - `--ontario-colour-primary`
 - [ ] **Focus Color**: #009ADB (Cyan) - `--ontario-colour-focus`
@@ -101,8 +192,6 @@ This guide outlines the tools, processes, and checklists for testing sfGpsDsCaOn
 - [ ] Proper spacing between form elements (24px minimum)
 
 ### Components Match Ontario DS
-
-For each component, verify visual match:
 
 | Component  | Check Against                                                  |
 | ---------- | -------------------------------------------------------------- |
@@ -195,25 +284,7 @@ For each component, test with VoiceOver (Mac) or NVDA (Windows):
 | Escape     | Close modals, dropdowns                   |
 | Home/End   | Jump to first/last item in lists          |
 
-### Tab Pattern Testing (WCAG 2.1)
-
-For components using the ARIA tab pattern (Site Selector, Discharge Point Selector):
-
-| Requirement                 | Expected Behavior                                     |
-| --------------------------- | ----------------------------------------------------- |
-| **role="tablist"**          | Container has tablist role                            |
-| **role="tab"**              | Each tab has tab role                                 |
-| **aria-selected**           | Active tab has `aria-selected="true"`                 |
-| **aria-controls**           | Each tab references its panel via aria-controls       |
-| **aria-label**              | Tablist has descriptive aria-label                    |
-| **Roving tabindex**         | Active tab has `tabindex="0"`, others `tabindex="-1"` |
-| **Arrow navigation**        | Left/Right arrows move between tabs                   |
-| **Home/End**                | Jump to first/last tab                                |
-| **Focus follows selection** | Focus moves to newly selected tab                     |
-
 ### Modal Accessibility Testing
-
-For modal dialogs (sfGpsDsCaOnModal):
 
 | Requirement           | Expected Behavior                       |
 | --------------------- | --------------------------------------- |
@@ -228,29 +299,6 @@ For modal dialogs (sfGpsDsCaOnModal):
 | **Body scroll lock**  | Background scroll disabled when open    |
 | **Focus restoration** | Focus returns to trigger on close       |
 
-### Form Input Accessibility Testing
-
-For grouped form inputs (Coordinate Input):
-
-| Requirement          | Expected Behavior                    |
-| -------------------- | ------------------------------------ |
-| **fieldset/legend**  | Related inputs grouped with fieldset |
-| **aria-describedby** | Inputs linked to hint text           |
-| **aria-required**    | Required state announced             |
-| **role="alert"**     | Errors use alert role                |
-| **aria-live**        | Dynamic errors announced             |
-| **aria-hidden**      | Decorative symbols hidden            |
-
-### Live Region Testing
-
-For components with dynamic updates (Site Selector, Discharge Point Selector):
-
-| Requirement               | Expected Behavior                       |
-| ------------------------- | --------------------------------------- |
-| **aria-live="assertive"** | Important updates announced immediately |
-| **aria-atomic="true"**    | Entire region announced                 |
-| **Screen reader**         | Updates announced without focus change  |
-
 ---
 
 ## Functional Testing Checklist
@@ -258,62 +306,62 @@ For components with dynamic updates (Site Selector, Discharge Point Selector):
 ### Form Components
 
 - [ ] **Text Input**
-  - [ ] Value updates on input
-  - [ ] Blur event fires correctly
-  - [ ] Validation triggers appropriately
-  - [ ] Character count updates (if enabled)
-  - [ ] Read-only state prevents editing
+  - Value updates on input
+  - Blur event fires correctly
+  - Validation triggers appropriately
+  - Character count updates (if enabled)
+  - Read-only state prevents editing
 
 - [ ] **Textarea**
-  - [ ] Multi-line input works
-  - [ ] Character limit enforced
-  - [ ] Auto-resize works (if enabled)
+  - Multi-line input works
+  - Character limit enforced
+  - Auto-resize works (if enabled)
 
 - [ ] **Dropdown/Select**
-  - [ ] Options display correctly
-  - [ ] Selection updates value
-  - [ ] Placeholder shows when empty
-  - [ ] Disabled state prevents interaction
+  - Options display correctly
+  - Selection updates value
+  - Placeholder shows when empty
+  - Disabled state prevents interaction
 
 - [ ] **Checkbox/Radio**
-  - [ ] Click toggles state
-  - [ ] Keyboard selection works
-  - [ ] Group validation works
-  - [ ] Required validation enforced
+  - Click toggles state
+  - Keyboard selection works
+  - Group validation works
+  - Required validation enforced
 
 - [ ] **Date Input**
-  - [ ] Date format matches Ontario standard (YYYY-MM-DD)
-  - [ ] Invalid dates rejected
-  - [ ] Min/max dates enforced
+  - Date format matches Ontario standard (YYYY-MM-DD)
+  - Invalid dates rejected
+  - Min/max dates enforced
 
 - [ ] **Typeahead/Lookup**
-  - [ ] Search triggers on input
-  - [ ] Options filter correctly
-  - [ ] Selection populates field
-  - [ ] Loading state displays
-  - [ ] No results message shows
+  - Search triggers on input
+  - Options filter correctly
+  - Selection populates field
+  - Loading state displays
+  - No results message shows
 
 ### Navigation Components
 
 - [ ] **Accordion**
-  - [ ] Expand/collapse works
-  - [ ] Multiple expand mode works (if configured)
-  - [ ] Animation smooth
-  - [ ] State persists (if configured)
+  - Expand/collapse works
+  - Multiple expand mode works (if configured)
+  - Animation smooth
+  - State persists (if configured)
 
 - [ ] **Breadcrumbs**
-  - [ ] Links navigate correctly
-  - [ ] Current page not linked
-  - [ ] Truncation works on long paths
+  - Links navigate correctly
+  - Current page not linked
+  - Truncation works on long paths
 
 - [ ] **Back Button**
-  - [ ] Navigates to previous page
-  - [ ] URL override works
+  - Navigates to previous page
+  - URL override works
 
 - [ ] **Step Indicator**
-  - [ ] Shows current step
-  - [ ] Progress percentage accurate
-  - [ ] Step count correct
+  - Shows current step
+  - Progress percentage accurate
+  - Step count correct
 
 ---
 
@@ -373,212 +421,6 @@ For components with dynamic updates (Site Selector, Discharge Point Selector):
 
 ---
 
-## New Component Testing Checklists
-
-### Modal Component (sfGpsDsCaOnModal)
-
-- [ ] **Rendering**
-  - [ ] Modal hidden when isOpen is false
-  - [ ] Modal visible when isOpen is true
-  - [ ] Title renders in header
-  - [ ] Header hidden when hideHeader is true
-  - [ ] Footer hidden when hideFooter is true
-  - [ ] Close button hidden when hideCloseButton is true
-  - [ ] Size classes apply correctly (small, medium, large, full)
-
-- [ ] **Keyboard Navigation**
-  - [ ] Escape key closes modal
-  - [ ] Tab key cycles through focusable elements
-  - [ ] Shift+Tab cycles backwards
-  - [ ] Focus trapped within modal
-
-- [ ] **Accessibility**
-  - [ ] role="dialog" present
-  - [ ] aria-modal="true" present
-  - [ ] aria-labelledby points to title
-  - [ ] Close button has aria-label
-  - [ ] Body scroll locked when open
-  - [ ] Focus returns to trigger on close
-
-- [ ] **Ontario DS Compliance**
-  - [ ] Dark header background (#1a5a96 or similar)
-  - [ ] 3px focus outline on focusable elements
-  - [ ] White text on dark header
-
----
-
-### Coordinate Input Component (sfGpsDsCaOnCoordinateInput)
-
-- [ ] **Format Rendering**
-  - [ ] DMS format renders by default
-  - [ ] UTM format renders when format="utm"
-  - [ ] Decimal format renders when format="decimal"
-  - [ ] Format switches dynamically
-
-- [ ] **UTM Validation**
-  - [ ] Zone validates 1-60 range
-  - [ ] East validates numeric
-  - [ ] North validates numeric
-  - [ ] Valid coordinates accepted
-
-- [ ] **DMS Validation**
-  - [ ] Degrees validate 0-90 (lat) / 0-180 (lng)
-  - [ ] Minutes validate 0-59
-  - [ ] Seconds validate 0-59
-  - [ ] Direction (N/S/E/W) handled correctly
-
-- [ ] **Decimal Validation**
-  - [ ] Latitude validates -90 to 90
-  - [ ] Longitude validates -180 to 180
-  - [ ] Decimal precision preserved
-
-- [ ] **Conversion**
-  - [ ] DMS to Decimal accurate
-  - [ ] Negative longitude (West) handled
-  - [ ] toDecimal() returns correct values
-
-- [ ] **Accessibility**
-  - [ ] All inputs have labels
-  - [ ] Error messages have role="alert"
-  - [ ] Required fields marked with aria-required
-  - [ ] Disabled state applied correctly
-
----
-
-### Site Selector Tool Component (sfGpsDsCaOnSiteSelectorTool)
-
-- [ ] **Rendering**
-  - [ ] Trigger button renders
-  - [ ] Modal opens on button click
-  - [ ] Modal has correct title
-  - [ ] Iframe renders when vfPageUrl provided
-  - [ ] Placeholder shows when vfPageUrl missing
-
-- [ ] **Tab Navigation**
-  - [ ] Tab bar renders
-  - [ ] Search tab active by default
-  - [ ] Tabs switch on click
-  - [ ] aria-selected updates correctly
-
-- [ ] **Search**
-  - [ ] Search input renders
-  - [ ] Search button renders
-  - [ ] Clear button renders
-
-- [ ] **postMessage**
-  - [ ] Origin validated on incoming messages
-  - [ ] Invalid origins rejected
-  - [ ] Address data received correctly
-  - [ ] goTo messages handled
-
-- [ ] **Save Action**
-  - [ ] Save button renders
-  - [ ] addressselected event fires on save
-  - [ ] Modal closes after save
-
-- [ ] **Accessibility**
-  - [ ] Tab bar has role="tablist"
-  - [ ] Tabs have role="tab"
-  - [ ] aria-selected on active tab
-  - [ ] Search input has label/aria-label
-
-- [ ] **LWR/LWS Compatibility**
-  - [ ] Uses computed properties (not template negation)
-  - [ ] Event listeners cleaned up on disconnect
-
----
-
-### Discharge Point Selector Component (sfGpsDsCaOnDischargePointSelector)
-
-- [ ] **Rendering**
-  - [ ] Trigger button renders with correct label
-  - [ ] Modal opens with "Source" title
-  - [ ] Search method dropdown renders
-  - [ ] Coordinate format dropdown renders when coordinates selected
-  - [ ] Coordinate input renders
-
-- [ ] **Coordinate Formats**
-  - [ ] UTM format selectable
-  - [ ] DMS format selectable
-  - [ ] Decimal format selectable
-  - [ ] Format switch preserves entered data (if possible)
-
-- [ ] **Continue Action**
-  - [ ] Continue button renders
-  - [ ] Validation runs before continue
-  - [ ] continue event fires with coordinate data
-  - [ ] Modal closes after continue
-
-- [ ] **postMessage**
-  - [ ] Coordinates sent to map on search
-  - [ ] Marker placed on map
-  - [ ] Reverse geocode triggered
-
----
-
-### Activity Status Card Component (sfGpsDsCaOnActivityStatusCard)
-
-- [ ] **Rendering**
-  - [ ] Activity name displays
-  - [ ] Activity type displays
-  - [ ] Status badge displays
-  - [ ] Progress indicator displays (X of Y)
-  - [ ] Last updated displays
-
-- [ ] **Remove Action**
-  - [ ] Remove link hidden when allowRemove is false
-  - [ ] Remove link visible when allowRemove is true
-  - [ ] remove event fires on click
-  - [ ] Event detail contains activityId and activityName
-
-- [ ] **Accessibility**
-  - [ ] Status announced to screen readers
-  - [ ] Remove link has accessible name
-  - [ ] Progress uses role="status"
-
----
-
-### NAICS Code Picker Component (sfGpsDsCaOnNaicsCodePicker)
-
-- [ ] **Cascading Selection**
-  - [ ] Level 1 (Sector) loads on init
-  - [ ] Level 2 loads when Level 1 selected
-  - [ ] Level 3 loads when Level 2 selected
-  - [ ] Level 4 loads when Level 3 selected
-  - [ ] Level 5 loads when Level 4 selected
-
-- [ ] **Selection**
-  - [ ] Change event fires with full code
-  - [ ] Clear resets all levels
-  - [ ] Output includes code and label
-
-- [ ] **Accessibility**
-  - [ ] Each dropdown has label
-  - [ ] Loading state announced
-  - [ ] Selection announced
-
----
-
-### Site Task Card Component (sfGpsDsCaOnSiteTaskCard)
-
-- [ ] **Rendering**
-  - [ ] Site name displays in header
-  - [ ] Site address displays
-  - [ ] Tasks list renders
-  - [ ] Progress summary displays (X of Y completed)
-
-- [ ] **Task Status**
-  - [ ] Complete tasks show checkmark
-  - [ ] In-progress tasks show appropriate indicator
-  - [ ] Not-started tasks show empty indicator
-
-- [ ] **Remove Action**
-  - [ ] Remove link hidden when allowRemove is false
-  - [ ] Remove link visible when allowRemove is true
-  - [ ] remove event fires on click
-
----
-
 ## OmniScript Integration Checklist
 
 ### Component Registration
@@ -610,77 +452,113 @@ For components with dynamic updates (Site Selector, Discharge Point Selector):
 - [ ] Custom CSS overrides work
 - [ ] Light DOM compatibility (LWR)
 
-### New OmniStudio Form Components
+---
 
-#### sfGpsDsCaOnFormSelectableCards
+## Component-Specific Tests
 
-- [ ] Multi-select options render as cards
-- [ ] Extended options (JSON) apply correctly
-- [ ] Badges display with correct variants
-- [ ] Links render and navigate correctly
-- [ ] Selection updates OmniScript data
-- [ ] Required validation works
+### Form Input Components (TextInput Pattern)
 
-#### sfGpsDsCaOnFormNaicsCodePicker
+| Test ID | Category | Test Case                           | Expected Result                    |
+| ------- | -------- | ----------------------------------- | ---------------------------------- |
+| TI-001  | Visual   | Label displays above input          | Label visible, properly positioned |
+| TI-002  | Visual   | Required indicator shows asterisk   | Red asterisk or "(required)" flag  |
+| TI-003  | Visual   | Optional flag displays "(optional)" | Text shows when optional=true      |
+| TI-004  | Visual   | Hint text displays below label      | Gray hint text visible             |
+| TI-005  | Visual   | Error state shows red border        | 3px red border on input            |
+| TI-006  | Visual   | Error message shows with icon       | SVG icon + error text              |
+| TI-007  | Visual   | Focus state shows blue outline      | 3px cyan outline on focus          |
+| TI-008  | A11y     | Label associated with input         | `for` matches input `id`           |
+| TI-009  | A11y     | aria-required set when required     | `aria-required="true"`             |
+| TI-010  | A11y     | aria-invalid set on error           | `aria-invalid="true"`              |
+| TI-011  | A11y     | aria-describedby links hint/error   | IDs match hint and error elements  |
+| TI-012  | A11y     | Screen reader announces label       | VoiceOver/NVDA reads label         |
+| TI-013  | A11y     | Screen reader announces error       | Error announced on blur            |
+| TI-014  | Keyboard | Tab focuses input                   | Input receives focus               |
+| TI-015  | Keyboard | Can type in input                   | Characters appear                  |
+| TI-016  | Keyboard | Tab moves to next element           | Focus leaves input                 |
+| TI-017  | Func     | Value updates on input              | `value` property changes           |
+| TI-018  | Func     | Blur event fires                    | `onblur` handler called            |
+| TI-019  | Func     | Change event fires                  | `onchange` handler called          |
+| TI-020  | Func     | maxLength enforced                  | Cannot type beyond limit           |
 
-- [ ] Cascading dropdowns load correctly
-- [ ] Selection updates OmniScript data
-- [ ] Clear action resets picker
-- [ ] Required validation works
-- [ ] DataRaptor integration works
+### Navigation Components (Breadcrumbs Pattern)
 
-#### sfGpsDsCaOnFormSiteSelectorTool
+| Test ID | Category | Test Case                      | Expected Result                    |
+| ------- | -------- | ------------------------------ | ---------------------------------- |
+| BC-001  | Visual   | Trail displays horizontally    | Links in a row                     |
+| BC-002  | Visual   | Separator between items        | Visual separator                   |
+| BC-003  | Visual   | Current page not linked        | Last item is text                  |
+| BC-004  | A11y     | nav element with aria-label    | Breadcrumb navigation              |
+| BC-005  | A11y     | aria-current on current        | "page" on last item                |
+| BC-006  | Keyboard | Links focusable                | Tab through links                  |
+| BC-007  | Func     | Links navigate correctly       | URLs work                          |
+| BC-008  | ODS      | Matches Ontario DS breadcrumbs | Compare to designsystem.ontario.ca |
 
-- [ ] Button triggers modal
-- [ ] ESRI map loads in iframe
-- [ ] Address search works
-- [ ] Address selection updates OmniScript data
-- [ ] Flattened fields output correctly
-- [ ] Required validation works
+### Card Components
 
-#### sfGpsDsCaOnFormDischargePointSelector
-
-- [ ] Button triggers modal
-- [ ] Coordinate format selection works
-- [ ] Coordinate entry validates
-- [ ] Selection updates OmniScript data
-- [ ] UTM coordinates output correctly
-- [ ] Required validation works
+| Test ID | Category | Test Case                        | Expected Result                    |
+| ------- | -------- | -------------------------------- | ---------------------------------- |
+| CD-001  | Visual   | Card container displays          | Styled box                         |
+| CD-002  | Visual   | Image displays (if set)          | Image visible                      |
+| CD-003  | Visual   | Title displays                   | Heading visible                    |
+| CD-004  | Visual   | Description displays             | Body text visible                  |
+| CD-005  | Visual   | Link/button displays             | CTA visible                        |
+| CD-006  | A11y     | Card is focusable (if clickable) | Tab focuses card                   |
+| CD-007  | A11y     | Image has alt text               | Describes image                    |
+| CD-008  | A11y     | Heading structure correct        | Proper heading level               |
+| CD-009  | Keyboard | Card keyboard activatable        | Enter activates link               |
+| CD-010  | ODS      | Matches Ontario DS card          | Compare to designsystem.ontario.ca |
 
 ---
 
-## Apex Test Coverage
+## Testing Schedule
 
-### Required Test Classes
+### Phase 1: Critical Priority (Test First)
 
-| Apex Class                          | Test Class                              | Coverage Goal |
-| ----------------------------------- | --------------------------------------- | ------------- |
-| `sfGpsDsCaOnSiteSelectorCtr`        | `sfGpsDsCaOnSiteSelectorCtrTest`        | 85%+          |
-| `SfGpsDsCaOnNotificationController` | `SfGpsDsCaOnNotificationControllerTest` | 85%+          |
-| `SfGpsDsCaOnSearchController`       | `SfGpsDsCaOnSearchControllerTest`       | 85%+          |
-| `SfGpsDsCaOnTaskController`         | `SfGpsDsCaOnTaskControllerTest`         | 85%+          |
+| Component              | Est. Time | Key Test Areas                                |
+| ---------------------- | --------- | --------------------------------------------- |
+| SiteSelectorTool       | 4-6 hours | Address search, coordinates, tab navigation   |
+| DischargePointSelector | 3-4 hours | UTM/DMS/Decimal formats, map integration      |
+| FormFormReview         | 4-5 hours | Auto-generation, ghost data, sensitive fields |
+| Modal                  | 2-3 hours | Focus trap, escape key, screen reader         |
 
-### sfGpsDsCaOnSiteSelectorCtr Test Cases
+### Phase 2: High Priority (Test Second)
 
-- [ ] Constructor with default values
-- [ ] Constructor with URL parameters
-- [ ] Constructor with partial URL parameters
-- [ ] fetchLwrunityURL returns valid URL
-- [ ] fetchVFDomainURL returns VF domain
-- [ ] Missing custom metadata handled gracefully
-- [ ] Empty URL parameters handled
-- [ ] checkResourceExists works correctly
+| Component           | Est. Time | Key Test Areas                           |
+| ------------------- | --------- | ---------------------------------------- |
+| NaicsCodePicker     | 2-3 hours | Cascading selection, code reconstruction |
+| CoordinateInput     | 2 hours   | UTM/DMS/Decimal, format switching        |
+| FormPlacesTypeahead | 2 hours   | Google API, address selection            |
+| Search              | 1-2 hours | Autocomplete, keyboard navigation        |
+| TaskListSalesforce  | 2 hours   | Data loading, permission filtering       |
+
+### Phase 3: Medium Priority (Test Third)
+
+| Component     | Est. Time  | Key Test Areas                    |
+| ------------- | ---------- | --------------------------------- |
+| FormLookup    | 1-2 hours  | Remote search, multi-select       |
+| FormRange     | 1 hour     | Slider, keyboard, bounds          |
+| FormStep      | 1-2 hours  | Navigation, skip link, validation |
+| FormStepChart | 30 minutes | Progress display, screen reader   |
+
+### Phase 4: Pattern Validation
+
+| Pattern      | Representative | Est. Time |
+| ------------ | -------------- | --------- |
+| Form Inputs  | TextInput      | 1-2 hours |
+| Cards        | Card           | 1 hour    |
+| Navigation   | Breadcrumbs    | 1 hour    |
+| Lwr Variants | CardLwr        | 1-2 hours |
+
+**Total Estimated Testing Time**: 29-41 hours (4-5 days)
 
 ---
 
-## Testing Workflow
+## Test Execution Workflow
 
 ### 1. Component Development Testing
 
 ```bash
-# Run local dev server (if available)
-npm run start
-
 # Run unit tests
 npm run test
 
@@ -694,7 +572,7 @@ npm run test -- --coverage
 npm run lint
 ```
 
-### 1b. LWC Unit Tests
+### 2. LWC Unit Tests
 
 The project includes Jest-based unit tests in `sfGpsDsCaOn/__tests__/`:
 
@@ -704,19 +582,16 @@ The project includes Jest-based unit tests in `sfGpsDsCaOn/__tests__/`:
 | `sfGpsDsCaOnCoordinateInput.test.js`        | Coordinate Input         | Formats, validation, fieldset/legend, aria-describedby |
 | `sfGpsDsCaOnSiteSelectorTool.test.js`       | Site Selector            | Tabs, arrow keys, live regions, postMessage            |
 | `sfGpsDsCaOnDischargePointSelector.test.js` | Discharge Point Selector | Tabs, arrow keys, coordinates, live regions            |
-| `sfGpsDsCaOnTextInput.test.js`              | Text Input               | Input handling, validation                             |
-| `sfGpsDsCaOnFormTypeahead.test.js`          | Typeahead                | Autocomplete, selection                                |
 
 ```bash
 # Run all sfGpsDsCaOn tests
-cd sfGpsDsCaOn
-npm run test
+npm run test-caon
 
 # Run with watch mode
-npm run test -- --watch
+npm run test-caon -- --watch
 ```
 
-### 1c. Apex Unit Tests
+### 3. Apex Unit Tests
 
 ```bash
 # Deploy and run tests
@@ -724,12 +599,9 @@ sf apex run test --class-names sfGpsDsCaOnSiteSelectorCtrTest --result-format hu
 
 # Run all tests with coverage
 sf apex run test --test-level RunLocalTests --code-coverage --result-format human
-
-# Get test results
-sf apex get test --test-run-id <testRunId>
 ```
 
-### 2. Accessibility Audit
+### 4. Accessibility Audit
 
 ```bash
 # Run axe-core on page
@@ -737,22 +609,9 @@ npx axe <url>
 
 # Run Pa11y
 npx pa11y <url> --standard WCAG2AA
-
-# Run Lighthouse
-# Use Chrome DevTools > Lighthouse
 ```
 
-### 3. Visual Regression
-
-```bash
-# If using Percy
-npx percy exec -- npm run test:visual
-
-# If using Chromatic (Storybook)
-npx chromatic --project-token=<token>
-```
-
-### 4. Manual Testing Checklist
+### 5. Manual Testing
 
 1. Open component in browser
 2. Run axe DevTools extension
@@ -763,6 +622,33 @@ npx chromatic --project-token=<token>
 7. Test at 320px width
 8. Test in each required browser
 9. Compare visually to Ontario DS docs
+
+---
+
+## Test Execution Log Template
+
+### Component: ******\_\_\_******
+
+### Date: ******\_\_\_******
+
+### Tester: ******\_\_\_******
+
+| Test ID | Result | Notes |
+| ------- | ------ | ----- |
+|         |        |       |
+
+### Summary
+
+- Total Tests: \_\_\_
+- Passed: \_\_\_
+- Failed: \_\_\_
+- Blocked: \_\_\_
+
+### Issues Found
+
+1.
+2.
+3.
 
 ---
 
@@ -781,15 +667,20 @@ When reporting compliance issues, include:
 
 ---
 
+## Prerequisites Checklist
+
+Before starting testing:
+
+- [ ] Access to Salesforce org with components deployed
+- [ ] Screen reader installed (VoiceOver on Mac, NVDA on Windows)
+- [ ] Google Places API key configured (for FormPlacesTypeahead)
+- [ ] ESRI map VF page deployed (for SiteSelectorTool, DischargePointSelector)
+- [ ] Sample OmniScript with form components
+- [ ] Browser dev tools for console monitoring
+
+---
+
 ## Resources
-
-### Internal Documentation
-
-- [COMPONENT_TEST_CHECKLIST.md](./COMPONENT_TEST_CHECKLIST.md) - Detailed per-component test cases
-- [COMPONENT_API.md](./COMPONENT_API.md) - Component properties reference
-- [GIS_GUIDE.md](./GIS_GUIDE.md) - GIS components (Site Selector, Discharge Point)
-- [OMNISTUDIO_FORMS.md](./OMNISTUDIO_FORMS.md) - OmniStudio form components
-- [LWR_GUIDE.md](./LWR_GUIDE.md) - LWR/LWS patterns and best practices
 
 ### External Documentation
 
@@ -801,3 +692,22 @@ When reporting compliance issues, include:
 - [Salesforce LWC Accessibility](https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.accessibility)
 - [Salesforce Apex Testing](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_testing.htm)
 - [LWC Jest Testing](https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.testing)
+
+### Quick Visual Comparison URLs
+
+| Component      | Ontario DS Reference URL                                       |
+| -------------- | -------------------------------------------------------------- |
+| Buttons        | https://designsystem.ontario.ca/components/buttons.html        |
+| Text Inputs    | https://designsystem.ontario.ca/components/text-inputs.html    |
+| Textareas      | https://designsystem.ontario.ca/components/text-areas.html     |
+| Checkboxes     | https://designsystem.ontario.ca/components/checkboxes.html     |
+| Radio Buttons  | https://designsystem.ontario.ca/components/radio-buttons.html  |
+| Dropdown Lists | https://designsystem.ontario.ca/components/dropdown-lists.html |
+| Date Input     | https://designsystem.ontario.ca/components/date-input.html     |
+| Accordions     | https://designsystem.ontario.ca/components/accordions.html     |
+| Callouts       | https://designsystem.ontario.ca/components/callouts.html       |
+| Cards          | https://designsystem.ontario.ca/components/cards.html          |
+| Tables         | https://designsystem.ontario.ca/components/data-tables.html    |
+| Breadcrumbs    | https://designsystem.ontario.ca/components/breadcrumbs.html    |
+| Back to Top    | https://designsystem.ontario.ca/components/back-to-top.html    |
+| Step Indicator | https://designsystem.ontario.ca/components/step-indicator.html |
