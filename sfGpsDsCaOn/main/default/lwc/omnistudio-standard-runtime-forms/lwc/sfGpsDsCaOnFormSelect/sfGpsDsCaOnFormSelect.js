@@ -103,20 +103,59 @@ export default class SfGpsDsCaOnFormSelect extends SfGpsDsFormSelect {
 
   /**
    * Decorate options with selected state based on current value.
+   * Uses _realtimeOptions which is populated by the OmniScript runtime.
    */
   get decoratedOptions() {
-    if (!this._options || !Array.isArray(this._options)) {
+    if (!this._realtimeOptions || !Array.isArray(this._realtimeOptions)) {
       return [];
     }
-    return this._options.map((opt) => ({
+    return this._realtimeOptions.map((opt) => ({
       ...opt,
-      selected: opt.value === this.elementValue
+      // Use 'name' as the value identifier (OmniScript convention)
+      value: opt.name || opt.value,
+      // Use 'value' as the display label (OmniScript convention)
+      label: opt.value || opt.label || opt.name,
+      selected: (opt.name || opt.value) === this.elementValue
     }));
+  }
+
+  /* ========================================
+   * EVENT HANDLERS
+   * ======================================== */
+
+  /**
+   * Handles change events from the native select element.
+   * Updates the OmniScript data with the selected value.
+   * @param {Event} event - The change event from the select element
+   */
+  handleChange(event) {
+    const selectedValue = event.target.value;
+    this.applyCallResp(selectedValue);
+  }
+
+  /**
+   * Handles blur events from the native select element.
+   * Triggers validation when the field loses focus.
+   * @param {Event} event - The blur event from the select element
+   */
+  handleBlur() {
+    this.reportValidity();
   }
 
   /* ========================================
    * LIFECYCLE
    * ======================================== */
+
+  /**
+   * Initialize component variables.
+   * Sets the input selector for the parent validation framework.
+   */
+  initCompVariables() {
+    super.initCompVariables();
+    // Set the selector so the parent class can find our native select element
+    // This is used by the validation framework to get childInput
+    this._inputSelector = "select[data-omni-input]";
+  }
 
   render() {
     return tmpl;

@@ -22,6 +22,10 @@ export default class SfGpsDsCaOnFormCheckbox extends OmnistudioCheckboxGroup {
     });
   }
 
+  get computedAriaInvalid() {
+    return this.sfGpsDsIsError ? "true" : "false";
+  }
+
   get computedLegendClassName() {
     return {
       "ontario-fieldset__legend": true,
@@ -31,6 +35,16 @@ export default class SfGpsDsCaOnFormCheckbox extends OmnistudioCheckboxGroup {
 
   get computedDisabledOrReadOnly() {
     return this.disabled || this.readOnly;
+  }
+
+  /* event handlers */
+
+  /**
+   * Handles blur events from checkbox elements.
+   * Triggers validation when focus leaves.
+   */
+  handleBlur() {
+    this.reportValidity();
   }
 
   /* lifecycle */

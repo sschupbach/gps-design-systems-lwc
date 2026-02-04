@@ -42,6 +42,18 @@
       >
     </div>
 
+    <!-- Visually hidden input for validation - holds aggregated value -->
+    <!-- Uses text type (not hidden) so it participates in Constraint Validation -->
+    <input
+      type="text"
+      class="sfgpsdscaon-validation-input"
+      data-omni-input
+      value={elementValue}
+      required={_propSetMap.required}
+      aria-hidden="true"
+      tabindex="-1"
+    />
+
     <div class="ontario-checkboxes">
       <template for:each={inlineDecoratedOptions} for:item="opt">
         <div class="ontario-checkboxes__item" key={opt.value}>
@@ -53,8 +65,8 @@
             value={opt.value}
             checked={opt.checked}
             disabled={_propSetMap.readOnly}
-            data-omni-input
             onchange={handleCheckboxChange}
+            onblur={handleBlur}
           />
           <label class="ontario-checkboxes__label" for={opt.id}
             >{opt.label}</label

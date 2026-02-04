@@ -39,7 +39,7 @@ export default class SfGpsDsCaOnFormRadio extends OmnistudioRadioGroup {
   }
 
   get computedAriaInvalid() {
-    return this.sfGpsDsIsError;
+    return this.sfGpsDsIsError ? "true" : "false";
   }
 
   get computedAriaDescribedBy() {

@@ -32,6 +32,59 @@
   margin-top: 0;
 }
 
+/* HTML hint content support - lists */
+.ontario-hint ul,
+.ontario-hint ol {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.ontario-hint li {
+  margin-bottom: 0.25rem;
+  line-height: 1.5;
+}
+
+.ontario-hint li:last-child {
+  margin-bottom: 0;
+}
+
+/* Nested list styling */
+.ontario-hint ul ul,
+.ontario-hint ol ol,
+.ontario-hint ul ol,
+.ontario-hint ol ul {
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+}
+
+/* HTML hint content support - links */
+.ontario-hint a {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+.ontario-hint a:hover {
+  color: #00478f;
+}
+
+.ontario-hint a:focus {
+  outline: 4px solid #009ade;
+  outline-offset: 2px;
+}
+
+.ontario-hint a:visited {
+  color: #551a8b;
+}
+
+/* HTML hint content support - paragraphs */
+.ontario-hint p {
+  margin: 0 0 0.5rem 0;
+}
+
+.ontario-hint p:last-child {
+  margin-bottom: 0;
+}
+
 /* Dropdown container - positions the arrow icon */
 .ontario-dropdown__container {
   position: relative;
