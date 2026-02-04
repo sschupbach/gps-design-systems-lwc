@@ -13,7 +13,7 @@ interface DropdownOption {
   label: string;
 }
 
-export default class SfGpsDsCaOnDropdownLwr extends SfGpsDsLwc {
+export default class SfGpsDsCaOnDropdownComm extends SfGpsDsLwc {
   static renderMode = "light";
 
   // @ts-ignore

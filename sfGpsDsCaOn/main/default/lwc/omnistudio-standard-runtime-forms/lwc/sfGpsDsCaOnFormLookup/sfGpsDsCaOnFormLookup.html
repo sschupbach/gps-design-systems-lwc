@@ -76,12 +76,24 @@
             onmouseup={showLookup}
           />
 
-          <!-- Loading indicator -->
+          <!-- Loading indicator (inline) -->
           <template lwc:if={isPageLoading}>
             <div class="sfgpsdscaon-combobox__loader">
-              <c-sf-gps-ds-ca-on-loading-indicator
-                size="small"
-              ></c-sf-gps-ds-ca-on-loading-indicator>
+              <div
+                class="ontario-loading-indicator ontario-loading-indicator--small"
+                role="alert"
+                aria-live="assertive"
+                aria-busy="true"
+              >
+                <svg
+                  class="ontario-loading-indicator__spinner"
+                  viewBox="25 25 50 50"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <circle cx="50" cy="50" r="20" fill="none" stroke-width="4" />
+                </svg>
+              </div>
             </div>
           </template>
 

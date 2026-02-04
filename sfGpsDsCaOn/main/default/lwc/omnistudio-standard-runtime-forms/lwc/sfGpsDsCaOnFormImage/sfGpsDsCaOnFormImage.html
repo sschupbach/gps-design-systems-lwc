@@ -16,10 +16,24 @@
     - Screen reader announcements
 -->
 <template>
-  <!-- Loading indicator -->
+  <!-- Loading indicator (inline) -->
   <template lwc:if={isPageLoading}>
-    <c-sf-gps-ds-ca-on-loading-indicator label="Loading..." size="medium">
-    </c-sf-gps-ds-ca-on-loading-indicator>
+    <div
+      class="ontario-loading-indicator ontario-loading-indicator--inline"
+      role="alert"
+      aria-live="assertive"
+      aria-busy="true"
+    >
+      <svg
+        class="ontario-loading-indicator__spinner"
+        viewBox="25 25 50 50"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <circle cx="50" cy="50" r="20" fill="none" stroke-width="4" />
+      </svg>
+      <p>Loading...</p>
+    </div>
   </template>
 
   <div class={_containerClasses} aria-labelledby="imageUploadLabel">

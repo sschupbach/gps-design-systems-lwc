@@ -1,36 +1,63 @@
 <!-- sldsValidatorIgnore -->
-<!--
-  Ontario Design System - Currency Input for OmniStudio
-  
-  Uses TextInput inner component with currency prefix (CAD).
-  Follows two-level pattern: Form wrapper + inner UX component.
-  
-  Compliance:
-  - LWR: Compatible (uses Light DOM inner component)
-  - LWS: Compatible (no restricted APIs)
-  - Ontario DS: Uses TextInput with prefix slot
-  - WCAG 2.1 AA: Inherited from TextInput component
--->
 <template>
-  <c-sf-gps-ds-ca-on-text-input
-    type="text"
-    inputmode="decimal"
-    label={mergedLabel}
-    name={_name}
-    required={_propSetMap.required}
-    optional={_propSetMap.optional}
-    disabled={_propSetMap.disabled}
-    readonly={_propSetMap.readOnly}
-    hint-text={mergedHelpText}
-    placeholder={mergedPlaceholder}
-    error-message={sfGpsDsErrorMessage}
-    value={elementValue}
-    has-prefix
-    data-omni-input
-    onblur={handleBlur}
-    onchange={handleChange}
-    oninput={handleInput}
-  >
-    <span slot="prefix">{currencySymbol}</span>
-  </c-sf-gps-ds-ca-on-text-input>
+  <div class="ontario-form-group">
+    <label class="ontario-label" for={inputId}>
+      {mergedLabel}
+      <span lwc:if={showRequiredFlag} class="ontario-label__flag"
+        >(required)</span
+      >
+      <span lwc:if={showOptionalFlag} class="ontario-label__flag"
+        >(optional)</span
+      >
+    </label>
+
+    <p lwc:if={mergedHelpText} id={hintId} class="ontario-hint">
+      {mergedHelpText}
+    </p>
+
+    <div
+      lwc:if={sfGpsDsIsError}
+      id={errorId}
+      class="ontario-error-messaging"
+      role="alert"
+      aria-live="assertive"
+    >
+      <svg
+        class="ontario-icon"
+        aria-hidden="true"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
+        />
+      </svg>
+      <span class="ontario-error-messaging__content"
+        >{sfGpsDsErrorMessage}</span
+      >
+    </div>
+
+    <div class="ontario-input__wrapper ontario-input__wrapper--prefix">
+      <span class="ontario-input__prefix" aria-hidden="true">$</span>
+      <input
+        type="text"
+        inputmode="decimal"
+        id={inputId}
+        name={_name}
+        class={computedInputClassName}
+        value={elementValue}
+        placeholder={mergedPlaceholder}
+        disabled={_propSetMap.disabled}
+        readonly={_propSetMap.readOnly}
+        required={_propSetMap.required}
+        aria-required={computedAriaRequired}
+        aria-describedby={computedAriaDescribedBy}
+        aria-invalid={computedAriaInvalid}
+        data-omni-input
+        oninput={handleInput}
+        onchange={handleChange}
+        onblur={handleBlur}
+      />
+    </div>
+  </div>
 </template>

@@ -1,33 +1,66 @@
 <!-- sldsValidatorIgnore -->
-<!--
-  Ontario Design System - Multiselect for OmniStudio
-  
-  Uses checkbox group pattern from Ontario DS.
-  Allows multiple selections from a list of options.
-  
-  Compliance:
-  - LWR: Compatible (uses Light DOM parent)
-  - LWS: Compatible (no restricted APIs)
-  - Ontario DS: Uses Ontario checkbox group styling
-  - WCAG 2.1 AA: 
-    - Proper fieldset/legend structure
-    - Keyboard navigation
-    - Screen reader compatible
-    - Error messaging
--->
 <template>
-  <c-sf-gps-ds-ca-on-checkbox-group
-    legend={mergedLabel}
-    name={_name}
-    options={decoratedOptions}
-    value={elementValue}
-    required={_propSetMap.required}
-    optional={_propSetMap.optional}
-    disabled={_propSetMap.readOnly}
-    hint-text={mergedHelpText}
-    error-message={sfGpsDsErrorMessage}
-    data-omni-input
-    onchange={handleChange}
+  <fieldset
+    class={computedFieldsetClassName}
+    aria-describedby={computedAriaDescribedBy}
+    aria-invalid={computedAriaInvalid}
+    aria-required={computedAriaRequired}
   >
-  </c-sf-gps-ds-ca-on-checkbox-group>
+    <legend class="ontario-fieldset__legend">
+      {mergedLabel}
+      <span lwc:if={showRequiredFlag} class="ontario-label__flag"
+        >(required)</span
+      >
+      <span lwc:if={showOptionalFlag} class="ontario-label__flag"
+        >(optional)</span
+      >
+    </legend>
+
+    <p lwc:if={mergedHelpText} id={hintId} class="ontario-hint">
+      {mergedHelpText}
+    </p>
+
+    <div
+      lwc:if={sfGpsDsIsError}
+      id={errorId}
+      class="ontario-error-messaging"
+      role="alert"
+      aria-live="assertive"
+    >
+      <svg
+        class="ontario-icon"
+        aria-hidden="true"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
+        />
+      </svg>
+      <span class="ontario-error-messaging__content"
+        >{sfGpsDsErrorMessage}</span
+      >
+    </div>
+
+    <div class="ontario-checkboxes">
+      <template for:each={inlineDecoratedOptions} for:item="opt">
+        <div class="ontario-checkboxes__item" key={opt.value}>
+          <input
+            type="checkbox"
+            class="ontario-checkboxes__input"
+            id={opt.id}
+            name={_name}
+            value={opt.value}
+            checked={opt.checked}
+            disabled={_propSetMap.readOnly}
+            data-omni-input
+            onchange={handleCheckboxChange}
+          />
+          <label class="ontario-checkboxes__label" for={opt.id}
+            >{opt.label}</label
+          >
+        </div>
+      </template>
+    </div>
+  </fieldset>
 </template>

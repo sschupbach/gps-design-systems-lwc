@@ -1,53 +1,54 @@
 /*
  * Copyright (c) 2026, Shannon Schupbach, salesforce.com, inc.
- * All rights reserved.
  * Licensed under the BSD 3-Clause license.
- * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
 import SfGpsDsFormEmail from "c/sfGpsDsFormEmail";
+import { computeClass } from "c/sfGpsDsHelpers";
 import tmpl from "./sfGpsDsCaOnFormEmail.html";
 
-/**
- * @slot Email
- * @description Ontario Design System Email input for OmniStudio forms.
- * Extends the base form email class with Ontario DS styling.
- *
- * Compliance:
- * - LWR: Uses Light DOM parent component
- * - LWS: No eval(), proper namespace imports
- * - Ontario DS: Uses ontario-input styling via sfGpsDsCaOnTextInput
- * - WCAG 2.1 AA: Proper labeling, error messaging, keyboard support
- */
 export default class SfGpsDsCaOnFormEmail extends SfGpsDsFormEmail {
-  /* computed */
+  _uniqueId = `email-${Math.random().toString(36).substring(2, 11)}`;
 
-  /**
-   * Returns the autocomplete value for email input.
-   * Uses OmniScript configuration if set, otherwise defaults to "email".
-   * @returns {string} Autocomplete attribute value
-   */
-  get computedEmailAutocomplete() {
-    // Use OmniScript configured value if set
-    if (this._autocomplete) {
-      return this._autocomplete;
-    }
-    // Default to "email" for email inputs (WCAG/accessibility best practice)
-    return "email";
+  get inputId() {
+    return `${this._uniqueId}-input`;
   }
-
-  /* lifecycle */
+  get hintId() {
+    return `${this._uniqueId}-hint`;
+  }
+  get errorId() {
+    return `${this._uniqueId}-error`;
+  }
+  get showRequiredFlag() {
+    return this._propSetMap?.required === true;
+  }
+  get showOptionalFlag() {
+    return this._propSetMap?.optional === true && !this._propSetMap?.required;
+  }
+  get computedInputClassName() {
+    return computeClass({
+      "ontario-input": true,
+      "ontario-input__error": this.sfGpsDsIsError
+    });
+  }
+  get computedAriaDescribedBy() {
+    return computeClass({
+      [this.hintId]: this.mergedHelpText,
+      [this.errorId]: this.sfGpsDsIsError
+    });
+  }
+  get computedAriaInvalid() {
+    return this.sfGpsDsIsError ? "true" : "false";
+  }
+  get computedAriaRequired() {
+    return this._propSetMap?.required ? "true" : "false";
+  }
 
   render() {
     return tmpl;
   }
-
   connectedCallback() {
-    if (super.connectedCallback) {
-      super.connectedCallback();
-    }
-
-    this._readOnlyClass = "sfgpsdscaon-read-only";
+    if (super.connectedCallback) super.connectedCallback();
     this.classList.add("caon-scope");
   }
 }

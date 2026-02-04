@@ -6,53 +6,116 @@
  */
 
 import SfGpsDsFormSelect from "c/sfGpsDsFormSelect";
+import { omniGetMergedField } from "c/sfGpsDsOmniHelpers";
+import { computeClass, replaceInnerHtml } from "c/sfGpsDsHelpers";
 import tmpl from "./sfGpsDsCaOnFormSelect.html";
 
 /**
  * @slot Select
  * @description Ontario Design System Select/Dropdown component for OmniStudio forms.
+ * Renders inline (Shadow DOM) - does not use Light DOM child components.
+ *
+ * ## HTML Hint Support
+ * The help text field supports rich HTML content including:
+ * - Bullet lists (`<ul>`, `<li>`)
+ * - Links (`<a href="...">`)
+ * - Text formatting (`<strong>`, `<em>`)
+ * - Paragraphs (`<p>`)
+ *
+ * Configure in OmniScript Designer:
+ * - Set the "Help Text" field with HTML markup
+ * - Merge fields (e.g., %FieldName%) are supported within the HTML
  *
  * Compliance:
- * - WCAG 2.1 AA / AODA: Focus management for validation errors
+ * - LWR: Compatible (uses lwc:dom="manual" for dynamic HTML)
+ * - LWS: Compatible (uses replaceInnerHtml helper)
+ * - Ontario DS: Uses ontario-dropdown styling
+ * - WCAG 2.1 AA / AODA: Focus management, aria-describedby links hint to input
  */
 export default class SfGpsDsCaOnFormSelect extends SfGpsDsFormSelect {
   /* ========================================
-   * PRIVATE STATE - Re-render optimization
-   * ======================================== */
-
-  _previousErrorState = null;
-
-  /* ========================================
-   * PUBLIC METHODS - AODA Accessibility
+   * CONSTANTS
    * ======================================== */
 
   /**
-   * Moves focus to this select field.
-   * AODA: Focus should move to first error field on validation failure.
-   * @public
+   * CSS selector for the hint container element.
+   * Used to locate the element for HTML injection.
+   * @type {string}
    */
-  focusInput() {
-    try {
-      const select = this.template.querySelector("select");
-      if (select) {
-        select.focus();
-      }
-    } catch {
-      // Fail silently
+  static HINT_QUERY_SELECTOR = ".sfGpsDsCaOnHint";
+  /**
+   * Unique ID for this component instance.
+   * Used for element IDs to avoid duplicates in Shadow DOM.
+   * @private
+   */
+  _uniqueId = `select-${Math.random().toString(36).substring(2, 11)}`;
+
+  /* ========================================
+   * COMPUTED PROPERTIES
+   * ======================================== */
+
+  get inputId() {
+    return `${this._uniqueId}-input`;
+  }
+
+  get hintId() {
+    return `${this._uniqueId}-hint`;
+  }
+
+  get errorId() {
+    return `${this._uniqueId}-error`;
+  }
+
+  get showRequiredFlag() {
+    return this._propSetMap?.required === true;
+  }
+
+  get showOptionalFlag() {
+    return this._propSetMap?.optional === true && !this._propSetMap?.required;
+  }
+
+  get defaultOptionLabel() {
+    return this._defaultLabel || "Select";
+  }
+
+  get computedSelectClassName() {
+    return computeClass({
+      "ontario-input": true,
+      "ontario-dropdown": true,
+      "ontario-input__error": this.sfGpsDsIsError
+    });
+  }
+
+  get computedAriaDescribedBy() {
+    return computeClass({
+      [this.hintId]: this.mergedHelpText,
+      [this.errorId]: this.sfGpsDsIsError
+    });
+  }
+
+  get computedAriaInvalid() {
+    return this.sfGpsDsIsError ? "true" : "false";
+  }
+
+  get computedAriaRequired() {
+    return this._propSetMap?.required ? "true" : "false";
+  }
+
+  /**
+   * Decorate options with selected state based on current value.
+   */
+  get decoratedOptions() {
+    if (!this._options || !Array.isArray(this._options)) {
+      return [];
     }
-  }
-
-  /**
-   * Checks if this field has a validation error.
-   * @returns {boolean} True if field has error
-   * @public
-   */
-  hasValidationError() {
-    return this.sfGpsDsIsError || false;
+    return this._options.map((opt) => ({
+      ...opt,
+      selected: opt.value === this.elementValue
+    }));
   }
 
   /* ========================================
-   * LIFECYCLE HOOKS
+   * LIFECYCLE
    * ======================================== */
 
   render() {
@@ -63,30 +126,28 @@ export default class SfGpsDsCaOnFormSelect extends SfGpsDsFormSelect {
     if (super.connectedCallback) {
       super.connectedCallback();
     }
-
-    this._readOnlyClass = "sfgpsdscaon-read-only";
     this.classList.add("caon-scope");
   }
 
   /**
-   * Optimized: Only updates DOM when error state changes.
+   * Called after each render to inject HTML hint content.
+   * Uses replaceInnerHtml for LWS-compatible DOM manipulation.
    */
   renderedCallback() {
     if (super.renderedCallback) {
       super.renderedCallback();
     }
 
-    // Optimization: Only update DOM when error state changes
-    const currentErrorState = Boolean(this.sfGpsDsIsError);
-    if (currentErrorState !== this._previousErrorState) {
-      this._previousErrorState = currentErrorState;
+    const hintElement = this.template.querySelector(
+      SfGpsDsCaOnFormSelect.HINT_QUERY_SELECTOR
+    );
 
-      // Set data attribute for error state
-      if (currentErrorState) {
-        this.setAttribute("data-has-error", "true");
-      } else {
-        this.removeAttribute("data-has-error");
-      }
+    if (hintElement && this.mergedHelpText) {
+      // Get help text with merge fields resolved
+      const mergedContent = omniGetMergedField(this, this._handleHelpText);
+
+      // Safely inject the HTML content
+      replaceInnerHtml(hintElement, mergedContent);
     }
   }
 }

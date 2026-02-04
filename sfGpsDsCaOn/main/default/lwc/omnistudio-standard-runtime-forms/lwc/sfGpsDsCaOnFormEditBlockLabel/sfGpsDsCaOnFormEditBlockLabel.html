@@ -61,11 +61,23 @@
     </template>
   </div>
 
-  <!-- Spinner/Loader -->
-  <c-sf-gps-ds-ca-on-loading-indicator
-    lwc:if={isPageLoading}
-    label={scriptHeaderDef.allCustomLabelsUtil.OmniSpinnerTextLoading}
-    size="medium"
-  >
-  </c-sf-gps-ds-ca-on-loading-indicator>
+  <!-- Spinner/Loader (inline) -->
+  <template lwc:if={isPageLoading}>
+    <div
+      class="ontario-loading-indicator ontario-loading-indicator--inline"
+      role="alert"
+      aria-live="assertive"
+      aria-busy="true"
+    >
+      <svg
+        class="ontario-loading-indicator__spinner"
+        viewBox="25 25 50 50"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <circle cx="50" cy="50" r="20" fill="none" stroke-width="4" />
+      </svg>
+      <p>{scriptHeaderDef.allCustomLabelsUtil.OmniSpinnerTextLoading}</p>
+    </div>
+  </template>
 </template>

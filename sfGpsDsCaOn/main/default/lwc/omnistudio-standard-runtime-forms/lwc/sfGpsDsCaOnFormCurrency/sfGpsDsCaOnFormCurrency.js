@@ -1,47 +1,55 @@
 /*
  * Copyright (c) 2026, Shannon Schupbach, salesforce.com, inc.
- * All rights reserved.
  * Licensed under the BSD 3-Clause license.
- * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
 import SfGpsDsFormCurrency from "c/sfGpsDsFormCurrency";
+import { computeClass } from "c/sfGpsDsHelpers";
 import tmpl from "./sfGpsDsCaOnFormCurrency.html";
 
-/**
- * @slot Currency
- * @description Ontario Design System Currency input for OmniStudio forms.
- * Uses TextInput inner component with currency prefix.
- * 
- * Follows two-level pattern:
- * - This wrapper handles OmniScript integration
- * - sfGpsDsCaOnTextInput handles UX/styling
- *
- * Compliance:
- * - LWR: Uses Light DOM inner component
- * - LWS: No eval(), proper namespace imports
- * - Ontario DS: Inherits from TextInput component
- * - WCAG 2.1 AA: Inherited from TextInput
- */
 export default class SfGpsDsCaOnFormCurrency extends SfGpsDsFormCurrency {
-  /**
-   * Currency symbol to display as prefix.
-   * Default to CAD for Ontario.
-   */
-  get currencySymbol() {
-    return "$";
-  }
+  _uniqueId = `currency-${Math.random().toString(36).substring(2, 11)}`;
 
-  /* lifecycle */
+  get inputId() {
+    return `${this._uniqueId}-input`;
+  }
+  get hintId() {
+    return `${this._uniqueId}-hint`;
+  }
+  get errorId() {
+    return `${this._uniqueId}-error`;
+  }
+  get showRequiredFlag() {
+    return this._propSetMap?.required === true;
+  }
+  get showOptionalFlag() {
+    return this._propSetMap?.optional === true && !this._propSetMap?.required;
+  }
+  get computedInputClassName() {
+    return computeClass({
+      "ontario-input": true,
+      "ontario-input--prefixed": true,
+      "ontario-input__error": this.sfGpsDsIsError
+    });
+  }
+  get computedAriaDescribedBy() {
+    return computeClass({
+      [this.hintId]: this.mergedHelpText,
+      [this.errorId]: this.sfGpsDsIsError
+    });
+  }
+  get computedAriaInvalid() {
+    return this.sfGpsDsIsError ? "true" : "false";
+  }
+  get computedAriaRequired() {
+    return this._propSetMap?.required ? "true" : "false";
+  }
 
   render() {
     return tmpl;
   }
-
   connectedCallback() {
-    if (super.connectedCallback) {
-      super.connectedCallback();
-    }
+    if (super.connectedCallback) super.connectedCallback();
     this.classList.add("caon-scope");
   }
 }

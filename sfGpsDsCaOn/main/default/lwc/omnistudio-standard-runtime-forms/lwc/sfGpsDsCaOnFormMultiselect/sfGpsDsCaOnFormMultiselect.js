@@ -1,67 +1,103 @@
 /*
  * Copyright (c) 2026, Shannon Schupbach, salesforce.com, inc.
- * All rights reserved.
  * Licensed under the BSD 3-Clause license.
- * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
 import SfGpsDsFormMultiselect from "c/sfGpsDsFormMultiselect";
+import { computeClass } from "c/sfGpsDsHelpers";
 import tmpl from "./sfGpsDsCaOnFormMultiselect.html";
 
-/**
- * @slot Multiselect
- * @description Ontario Design System Multiselect for OmniStudio forms.
- * Uses checkbox group pattern from Ontario DS.
- * Allows multiple selections from a list of options.
- *
- * Compliance:
- * - LWR: Uses Light DOM parent component
- * - LWS: No eval(), proper namespace imports
- * - Ontario DS: Uses sfGpsDsCaOnCheckboxGroup component
- * - WCAG 2.1 AA: Proper fieldset/legend, keyboard navigation
- */
 export default class SfGpsDsCaOnFormMultiselect extends SfGpsDsFormMultiselect {
-  /* computed */
+  _uniqueId = `multiselect-${Math.random().toString(36).substring(2, 11)}`;
 
-  get decoratedOptions() {
+  /* IDs */
+  get hintId() {
+    return `${this._uniqueId}-hint`;
+  }
+  get errorId() {
+    return `${this._uniqueId}-error`;
+  }
+
+  /* Computed properties */
+  get showRequiredFlag() {
+    return this._propSetMap?.required === true;
+  }
+  get showOptionalFlag() {
+    return this._propSetMap?.optional === true && !this._propSetMap?.required;
+  }
+  get computedAriaRequired() {
+    return this._propSetMap?.required ? "true" : "false";
+  }
+  get computedAriaInvalid() {
+    return this.sfGpsDsIsError ? "true" : "false";
+  }
+
+  get computedAriaDescribedBy() {
+    return computeClass({
+      [this.hintId]: this.mergedHelpText,
+      [this.errorId]: this.sfGpsDsIsError
+    });
+  }
+
+  get computedFieldsetClassName() {
+    return computeClass({
+      "ontario-fieldset": true,
+      "ontario-fieldset--error": this.sfGpsDsIsError
+    });
+  }
+
+  get inlineDecoratedOptions() {
     const selected = Array.isArray(this.elementValue)
       ? this.elementValue
       : this.elementValue
         ? [this.elementValue]
         : [];
 
-    // NOTE: OmniStudio picklist options have a confusing naming convention:
-    // - opt.name = the identifier/value to store (e.g., "air-emissions")
-    // - opt.value = the display label (e.g., "Air emissions")
-    // We use opt.name as the identifier for selection tracking
     return (this._realtimeOptions || []).map((opt, index) => {
-      // Use opt.name as the identifier (this is what OmniStudio stores when selected)
-      // Fall back to opt.value or opt.label if name is not available
       const optIdentifier = opt.name || opt.value || opt.label;
-      // Use opt.value as the display label (OmniStudio's "value" is actually the label)
       const optDisplayLabel = opt.value || opt.label || opt.name;
 
       return {
         ...opt,
         value: optIdentifier,
         label: optDisplayLabel,
-        id: `${this._name}-opt-${index}`,
+        id: `${this._uniqueId}-opt-${index}`,
         checked: selected.includes(optIdentifier)
       };
     });
   }
 
-  /* lifecycle */
+  /* Event handlers */
+  handleCheckboxChange(event) {
+    const checkbox = event.target;
+    const value = checkbox.value;
+    const checked = checkbox.checked;
 
+    let currentValues = Array.isArray(this.elementValue)
+      ? [...this.elementValue]
+      : this.elementValue
+        ? [this.elementValue]
+        : [];
+
+    if (checked) {
+      if (!currentValues.includes(value)) {
+        currentValues.push(value);
+      }
+    } else {
+      currentValues = currentValues.filter((v) => v !== value);
+    }
+
+    // Update OmniScript data
+    this.applyCallResp(currentValues);
+  }
+
+  /* Lifecycle */
   render() {
     return tmpl;
   }
 
   connectedCallback() {
-    if (super.connectedCallback) {
-      super.connectedCallback();
-    }
-
+    if (super.connectedCallback) super.connectedCallback();
     this._readOnlyClass = "sfgpsdscaon-read-only";
     this.classList.add("caon-scope");
   }

@@ -1,92 +1,68 @@
 /*
  * Copyright (c) 2026, Shannon Schupbach, salesforce.com, inc.
- * All rights reserved.
  * Licensed under the BSD 3-Clause license.
- * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
 import SfGpsDsFormTextarea from "c/sfGpsDsFormTextarea";
+import { computeClass } from "c/sfGpsDsHelpers";
 import tmpl from "./sfGpsDsCaOnFormTextarea.html";
 
-/**
- * @slot Textarea
- * @description Ontario Design System Textarea component for OmniStudio forms.
- *
- * Compliance:
- * - WCAG 2.1 AA / AODA: Focus management for validation errors
- */
 export default class SfGpsDsCaOnFormTextarea extends SfGpsDsFormTextarea {
-  /* ========================================
-   * PRIVATE STATE - Re-render optimization
-   * ======================================== */
+  _uniqueId = `textarea-${Math.random().toString(36).substring(2, 11)}`;
 
-  _previousErrorState = null;
+  get inputId() {
+    return `${this._uniqueId}-input`;
+  }
+  get hintId() {
+    return `${this._uniqueId}-hint`;
+  }
+  get errorId() {
+    return `${this._uniqueId}-error`;
+  }
+  get showRequiredFlag() {
+    return this._propSetMap?.required === true;
+  }
+  get showOptionalFlag() {
+    return this._propSetMap?.optional === true && !this._propSetMap?.required;
+  }
 
-  /* ========================================
-   * PUBLIC METHODS - AODA Accessibility
-   * ======================================== */
+  get computedRows() {
+    return this._propSetMap?.rows || 5;
+  }
 
-  /**
-   * Moves focus to this textarea field.
-   * AODA: Focus should move to first error field on validation failure.
-   * @public
-   */
+  get computedInputClassName() {
+    return computeClass({
+      "ontario-textarea": true,
+      "ontario-textarea__error": this.sfGpsDsIsError
+    });
+  }
+  get computedAriaDescribedBy() {
+    return computeClass({
+      [this.hintId]: this.mergedHelpText,
+      [this.errorId]: this.sfGpsDsIsError
+    });
+  }
+  get computedAriaInvalid() {
+    return this.sfGpsDsIsError ? "true" : "false";
+  }
+  get computedAriaRequired() {
+    return this._propSetMap?.required ? "true" : "false";
+  }
+
   focusInput() {
     try {
       const textarea = this.template.querySelector("textarea");
-      if (textarea) {
-        textarea.focus();
-      }
+      if (textarea) textarea.focus();
     } catch {
-      // Fail silently
+      /* fail silently */
     }
   }
-
-  /**
-   * Checks if this field has a validation error.
-   * @returns {boolean} True if field has error
-   * @public
-   */
-  hasValidationError() {
-    return this.sfGpsDsIsError || false;
-  }
-
-  /* ========================================
-   * LIFECYCLE HOOKS
-   * ======================================== */
 
   render() {
     return tmpl;
   }
-
   connectedCallback() {
-    if (super.connectedCallback) {
-      super.connectedCallback();
-    }
-
-    this._readOnlyClass = "sfgpsdscaon-read-only";
+    if (super.connectedCallback) super.connectedCallback();
     this.classList.add("caon-scope");
-  }
-
-  /**
-   * Optimized: Only updates DOM when error state changes.
-   */
-  renderedCallback() {
-    if (super.renderedCallback) {
-      super.renderedCallback();
-    }
-
-    // Optimization: Only update DOM when error state changes
-    const currentErrorState = Boolean(this.sfGpsDsIsError);
-    if (currentErrorState !== this._previousErrorState) {
-      this._previousErrorState = currentErrorState;
-
-      // Set data attribute for error state
-      if (currentErrorState) {
-        this.setAttribute("data-has-error", "true");
-      } else {
-        this.removeAttribute("data-has-error");
-      }
-    }
   }
 }

@@ -1,38 +1,54 @@
 /*
  * Copyright (c) 2026, Shannon Schupbach, salesforce.com, inc.
- * All rights reserved.
  * Licensed under the BSD 3-Clause license.
- * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
 import SfGpsDsFormPassword from "c/sfGpsDsFormPassword";
+import { computeClass } from "c/sfGpsDsHelpers";
 import tmpl from "./sfGpsDsCaOnFormPassword.html";
 
-/**
- * @slot Password
- * @description Ontario Design System Password input for OmniStudio forms.
- * Extends the base form password class with Ontario DS styling.
- * Uses type="password" for secure input masking.
- *
- * Compliance:
- * - LWR: Uses Light DOM parent component
- * - LWS: No eval(), proper namespace imports
- * - Ontario DS: Uses ontario-input styling via sfGpsDsCaOnTextInput
- * - WCAG 2.1 AA: Proper labeling, error messaging, keyboard support
- */
 export default class SfGpsDsCaOnFormPassword extends SfGpsDsFormPassword {
-  /* lifecycle */
+  _uniqueId = `password-${Math.random().toString(36).substring(2, 11)}`;
+
+  get inputId() {
+    return `${this._uniqueId}-input`;
+  }
+  get hintId() {
+    return `${this._uniqueId}-hint`;
+  }
+  get errorId() {
+    return `${this._uniqueId}-error`;
+  }
+  get showRequiredFlag() {
+    return this._propSetMap?.required === true;
+  }
+  get showOptionalFlag() {
+    return this._propSetMap?.optional === true && !this._propSetMap?.required;
+  }
+  get computedInputClassName() {
+    return computeClass({
+      "ontario-input": true,
+      "ontario-input__error": this.sfGpsDsIsError
+    });
+  }
+  get computedAriaDescribedBy() {
+    return computeClass({
+      [this.hintId]: this.mergedHelpText,
+      [this.errorId]: this.sfGpsDsIsError
+    });
+  }
+  get computedAriaInvalid() {
+    return this.sfGpsDsIsError ? "true" : "false";
+  }
+  get computedAriaRequired() {
+    return this._propSetMap?.required ? "true" : "false";
+  }
 
   render() {
     return tmpl;
   }
-
   connectedCallback() {
-    if (super.connectedCallback) {
-      super.connectedCallback();
-    }
-
-    this._readOnlyClass = "sfgpsdscaon-read-only";
+    if (super.connectedCallback) super.connectedCallback();
     this.classList.add("caon-scope");
   }
 }
