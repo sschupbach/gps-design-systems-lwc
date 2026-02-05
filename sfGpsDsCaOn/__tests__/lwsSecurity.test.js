@@ -21,8 +21,8 @@ const COMPONENT_PATHS = {
   Modal: 'main/default/lwc/sfGpsDsCaOnModal/lwc/sfGpsDsCaOnModal/sfGpsDsCaOnModal.js',
   SiteSelectorTool: 'main/default/lwc/sfGpsDsCaOnSiteSelectorTool/lwc/sfGpsDsCaOnSiteSelectorTool/sfGpsDsCaOnSiteSelectorTool.js',
   DischargePointSelector: 'main/default/lwc/sfGpsDsCaOnDischargePointSelector/lwc/sfGpsDsCaOnDischargePointSelector/sfGpsDsCaOnDischargePointSelector.js',
-  FormEditBlock: 'main/default/lwc/omnistudio-standard-runtime-forms/lwc/sfGpsDsCaOnFormEditBlock/sfGpsDsCaOnFormEditBlock.js',
-  FormImage: 'main/default/lwc/omnistudio-standard-runtime-forms/lwc/sfGpsDsCaOnFormImage/sfGpsDsCaOnFormImage.js',
+  FormEditBlock: 'main/default/lwc/omnistudio-forms/lwc/sfGpsDsCaOnFormEditBlock/sfGpsDsCaOnFormEditBlock.js',
+  FormImage: 'main/default/lwc/omnistudio-forms/lwc/sfGpsDsCaOnFormImage/sfGpsDsCaOnFormImage.js',
   Search: 'main/default/lwc/sfGpsDsCaOnSearch/lwc/sfGpsDsCaOnSearch/sfGpsDsCaOnSearch.ts',
   DebugUtils: 'main/default/lwc/sfGpsDsCaOnDebugUtils/sfGpsDsCaOnDebugUtils.js',
   FormFormReviewOmni: 'main/default/lwc/sfGpsDsCaOnFormFormReviewOmni/sfGpsDsCaOnFormFormReviewOmni.js'

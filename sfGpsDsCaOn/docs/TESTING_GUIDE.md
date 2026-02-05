@@ -120,7 +120,7 @@ Pattern-based testing validates shared implementation patterns by thoroughly tes
 ### Pattern C: OmniStudio Form Components
 
 **Representative**: sfGpsDsCaOnFormText  
-**Components Covered**: All 40+ components in `omnistudio-standard-runtime-forms/lwc/`
+**Components Covered**: All 40+ components in `omnistudio-forms/lwc/`
 
 **Shared Pattern Elements:**
 

@@ -40,7 +40,7 @@ module.exports = {
     
     // OmniScript form components
     '^c/sfGpsDsCaOnForm(.*)$': 
-      '<rootDir>/sfGpsDsCaOn/main/default/lwc/omnistudio-standard-runtime-forms/lwc/sfGpsDsCaOnForm$1/sfGpsDsCaOnForm$1',
+      '<rootDir>/sfGpsDsCaOn/main/default/lwc/omnistudio-forms/lwc/sfGpsDsCaOnForm$1/sfGpsDsCaOnForm$1',
     
     // CSS mocks
     '\\.css$': '<rootDir>/__test__/jest-mocks/css.js',
