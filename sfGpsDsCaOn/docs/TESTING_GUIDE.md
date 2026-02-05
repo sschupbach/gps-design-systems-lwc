@@ -133,7 +133,7 @@ Pattern-based testing validates shared implementation patterns by thoroughly tes
 ### Pattern D: Card Components
 
 **Representative**: sfGpsDsCaOnCard  
-**Components Covered**: Card, ActionCard, LinkCard, SelectableCard, ActivityStatusCard, SiteTaskCard, NotificationCard (7 total)
+**Components Covered**: Card, SelectableCard, ActivityStatusCard, SiteTaskCard, NotificationCard (5 total)
 
 **Shared Pattern Elements:**
 

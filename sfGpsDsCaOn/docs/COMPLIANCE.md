@@ -62,19 +62,17 @@ The `sfGpsDsCaOn` component library is a Salesforce LWC (Lightning Web Component
 
 These components extend ODS patterns for Salesforce-specific needs:
 
-| Component                           | Purpose                            | ODS Alignment     |
-| ----------------------------------- | ---------------------------------- | ----------------- |
-| `sfGpsDsCaOnActionCard`             | Cards with header bars and actions | Extends Card      |
-| `sfGpsDsCaOnActivityStatusCard`     | Status display cards               | Extends Card      |
-| `sfGpsDsCaOnCoordinateInput`        | GIS coordinate input               | Extends Form      |
-| `sfGpsDsCaOnDecisionExplainer`      | Decision explanation               | Custom            |
-| `sfGpsDsCaOnDischargePointSelector` | Environmental selector             | Custom            |
-| `sfGpsDsCaOnLinkCard`               | Navigation link cards              | Extends Card      |
-| `sfGpsDsCaOnNaicsCodePicker`        | Industry code selector             | Custom            |
-| `sfGpsDsCaOnNotificationCard`       | Notification display               | Extends Card      |
-| `sfGpsDsCaOnSearchEinstein`         | Einstein-integrated search         | Extends Search    |
-| `sfGpsDsCaOnSiteTaskCard`           | Site-specific tasks                | Extends Card      |
-| `sfGpsDsCaOnTaskListSalesforce`     | Salesforce task integration        | Extends Task List |
+| Component                           | Purpose                     | ODS Alignment     |
+| ----------------------------------- | --------------------------- | ----------------- |
+| `sfGpsDsCaOnActivityStatusCard`     | Status display cards        | Extends Card      |
+| `sfGpsDsCaOnCoordinateInput`        | GIS coordinate input        | Extends Form      |
+| `sfGpsDsCaOnDecisionExplainer`      | Decision explanation        | Custom            |
+| `sfGpsDsCaOnDischargePointSelector` | Environmental selector      | Custom            |
+| `sfGpsDsCaOnNaicsCodePicker`        | Industry code selector      | Custom            |
+| `sfGpsDsCaOnNotificationCard`       | Notification display        | Extends Card      |
+| `sfGpsDsCaOnSearchEinstein`         | Einstein-integrated search  | Extends Search    |
+| `sfGpsDsCaOnSiteTaskCard`           | Site-specific tasks         | Extends Card      |
+| `sfGpsDsCaOnTaskListSalesforce`     | Salesforce task integration | Extends Task List |
 
 ---
 
@@ -496,7 +494,6 @@ npm run test-caon:a11y
 | ---------- | ------------------------------------------------ |
 | 2026-02    | Consolidated ODS and AODA compliance docs        |
 | 2026-01-28 | Initial AODA compliance audit                    |
-| 2026-01-28 | Fixed ActionCard image alt/aria-hidden conflict  |
 | 2026-01-28 | Added high contrast mode support (10 components) |
 | 2026-01-28 | Fixed keyboard accessibility on modal trigger    |
 

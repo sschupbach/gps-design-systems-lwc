@@ -47,7 +47,6 @@ All components use Light DOM rendering (`static renderMode = "light"`), which is
 | sfGpsDsCaOnSiteSelectorTool       | Light       | iframe embedding, postMessage |
 | sfGpsDsCaOnCoordinateInput        | Light       | Multi-format input, CSS       |
 | sfGpsDsCaOnDischargePointSelector | Light       | Modal integration, tabs       |
-| sfGpsDsCaOnActionCard             | Light       | CSS styling, slot support     |
 | sfGpsDsCaOnActivityStatusCard     | Light       | Progress indicators, CSS      |
 | sfGpsDsCaOnSiteTaskCard           | Light       | Task list integration, CSS    |
 

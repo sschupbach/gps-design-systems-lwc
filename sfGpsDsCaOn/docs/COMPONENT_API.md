@@ -1098,60 +1098,6 @@ A card for displaying notification categories with colored headers and unread co
 
 ---
 
-### sfGpsDsCaOnLinkCard
-
-A simple card with heading and description for external links (Related Links sections).
-
-#### Properties
-
-| Property      | Type    | Default | Description                         |
-| ------------- | ------- | ------- | ----------------------------------- |
-| `heading`     | String  | -       | The heading/title of the link card  |
-| `description` | String  | -       | Description text below the heading  |
-| `url`         | String  | `"#"`   | URL to navigate to                  |
-| `isExternal`  | Boolean | `false` | Whether the link opens in a new tab |
-| `className`   | String  | -       | Additional CSS classes              |
-
-#### Usage Example
-
-```html
-<c-sf-gps-ds-ca-on-link-card-lwr
-  heading="Access environment"
-  description="Search and view detailed information about environmental permissions across Ontario."
-  url="https://access.environment.ontario.ca"
-  is-external="true"
-></c-sf-gps-ds-ca-on-link-card-lwr>
-```
-
----
-
-### sfGpsDsCaOnActionCard
-
-An action card component for displaying service/action options with icon, title, description, and link.
-
-#### Properties
-
-| Property      | Type   | Default | Description                                         |
-| ------------- | ------ | ------- | --------------------------------------------------- |
-| `heading`     | String | -       | The card heading/title                              |
-| `description` | String | -       | Description text (supports Markdown in Lwr version) |
-| `url`         | String | `"#"`   | URL to navigate to when clicked                     |
-| `icon`        | String | -       | Icon identifier (e.g., "document", "calendar")      |
-| `className`   | String | -       | Additional CSS classes                              |
-
-#### Usage Example
-
-```html
-<c-sf-gps-ds-ca-on-action-card-lwr
-  heading="Apply for a new activity"
-  description="Start a new EASR registration for your business."
-  url="/apply"
-  icon="document"
-></c-sf-gps-ds-ca-on-action-card-lwr>
-```
-
----
-
 ### sfGpsDsCaOnActivityStatusCard
 
 A card displaying an activity's status, progress, and action options.
@@ -1655,7 +1601,6 @@ if (result.success) {
 | Scenario                        | Component Choice                              |
 | ------------------------------- | --------------------------------------------- |
 | Simple navigation card          | `sfGpsDsCaOnCard` (Standard)                  |
-| Card with primary action button | `sfGpsDsCaOnActionCard` (Custom)              |
 | Single-select option            | `sfGpsDsCaOnRadioGroup` (Standard)            |
 | Visual card-based selection     | `sfGpsDsCaOnFormSelectableCards` (OmniScript) |
 | Display key-value data          | `sfGpsDsCaOnSummaryList` (Standard)           |
