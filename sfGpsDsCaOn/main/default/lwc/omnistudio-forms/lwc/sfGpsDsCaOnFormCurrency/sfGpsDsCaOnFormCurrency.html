@@ -45,7 +45,7 @@
         id={inputId}
         name={_name}
         class={computedInputClassName}
-        value={elementValue}
+        value={displayValue}
         placeholder={mergedPlaceholder}
         disabled={_propSetMap.disabled}
         readonly={_propSetMap.readOnly}
@@ -54,8 +54,6 @@
         aria-describedby={computedAriaDescribedBy}
         aria-invalid={computedAriaInvalid}
         data-omni-input
-        oninput={handleInput}
-        onchange={handleChange}
         onblur={handleBlur}
       />
     </div>

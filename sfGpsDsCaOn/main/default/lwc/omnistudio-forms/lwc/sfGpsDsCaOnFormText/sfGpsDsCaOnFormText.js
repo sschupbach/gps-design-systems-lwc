@@ -70,6 +70,30 @@ export default class SfGpsDsCaOnFormText extends SfGpsDsFormText {
     return this._propSetMap?.required ? "true" : "false";
   }
 
+  /**
+   * Returns the display value for the input, converting undefined/null to empty string.
+   * This prevents "undefined" from appearing in the input field.
+   */
+  get displayValue() {
+    return this.elementValue ?? "";
+  }
+
+  /* ========================================
+   * EVENT HANDLERS
+   * ======================================== */
+
+  /**
+   * Handles blur events from the native input element.
+   * Updates the OmniScript data and triggers validation when the field loses focus.
+   * This matches the base OmniScript Text behavior which only commits on blur
+   * to avoid DOM conflicts during re-renders.
+   * @param {Event} event - The blur event from the input element
+   */
+  handleBlur(event) {
+    this.applyCallResp(event.target.value);
+    this.reportValidity();
+  }
+
   /* ========================================
    * PUBLIC METHODS - AODA Accessibility
    * ======================================== */
@@ -92,6 +116,16 @@ export default class SfGpsDsCaOnFormText extends SfGpsDsFormText {
   /* ========================================
    * LIFECYCLE HOOKS
    * ======================================== */
+
+  /**
+   * Initialize component variables.
+   * Sets the input selector for the parent validation framework.
+   */
+  initCompVariables() {
+    super.initCompVariables();
+    // Set the selector so the parent class can find our native input element
+    this._inputSelector = "input[data-omni-input]";
+  }
 
   render() {
     return tmpl;

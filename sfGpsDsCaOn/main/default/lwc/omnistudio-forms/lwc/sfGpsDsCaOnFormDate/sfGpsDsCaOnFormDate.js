@@ -3,6 +3,7 @@
  * Licensed under the BSD 3-Clause license.
  */
 
+import { api } from "lwc";
 import SfGpsDsFormDate from "c/sfGpsDsFormDate";
 import { computeClass } from "c/sfGpsDsHelpers";
 import tmpl from "./sfGpsDsCaOnFormDate.html";
@@ -14,6 +15,8 @@ export default class SfGpsDsCaOnFormDate extends SfGpsDsFormDate {
   _yearValue = "";
   _validationMessage = "";
   _isInvalid = false;
+  _showValidation = false;
+  _hasRendered = false;
 
   /* IDs */
   get groupId() {
@@ -119,6 +122,14 @@ export default class SfGpsDsCaOnFormDate extends SfGpsDsFormDate {
     const hasYear = !!this._yearValue;
     const hasAnyValue = hasDay || hasMonth || hasYear;
 
+    // Check required validation
+    if (!hasAnyValue && this._propSetMap?.required) {
+      this._validationMessage =
+        this.mergedMessageWhenValueMissing || "This field is required";
+      this._isInvalid = true;
+      return false;
+    }
+
     if (hasAnyValue && !(hasDay && hasMonth && hasYear)) {
       this._validationMessage = "Please enter a complete date";
       this._isInvalid = true;
@@ -189,16 +200,25 @@ export default class SfGpsDsCaOnFormDate extends SfGpsDsFormDate {
   }
 
   handleDateBlur() {
-    this._validateDate();
-    const isoDate = this._buildIsoDate();
-    if (isoDate || this._dayValue || this._monthValue || this._yearValue) {
+    const hasAnyValue = this._hasAnyValue();
+    const hasCompleteValue = this._hasCompleteValue();
+
+    // Only update OmniScript data when:
+    // 1. All fields are empty (user cleared the date) - send empty string
+    // 2. All fields are filled (complete date) - send ISO date
+    // For partial values, don't update - let user finish clearing or filling
+    if (!hasAnyValue) {
+      // User cleared all fields - update OmniScript with empty value
+      this.applyCallResp("");
+    } else if (hasCompleteValue) {
+      // User entered complete date - update OmniScript with ISO date
+      const isoDate = this._buildIsoDate();
       this.applyCallResp(isoDate);
     }
-    if (this.handleBlur) {
-      this.handleBlur({
-        target: this.template.querySelector(`#${this.dayId}`)
-      });
-    }
+    // For partial values: don't call applyCallResp, just show validation
+
+    // Trigger validation and show errors
+    this.reportValidity();
   }
 
   handleKeydown(event) {
@@ -219,6 +239,102 @@ export default class SfGpsDsCaOnFormDate extends SfGpsDsFormDate {
     }
   }
 
+  /* ========================================
+   * VALIDATION API
+   * OmniScript calls these methods when validating the step
+   * ======================================== */
+
+  /**
+   * Helper to check if we have a complete date value.
+   * @returns {boolean} True if all three date parts are filled
+   */
+  _hasCompleteValue() {
+    return !!this._dayValue && !!this._monthValue && !!this._yearValue;
+  }
+
+  /**
+   * Helper to check if we have any date value.
+   * @returns {boolean} True if any date part is filled
+   */
+  _hasAnyValue() {
+    return !!this._dayValue || !!this._monthValue || !!this._yearValue;
+  }
+
+  /**
+   * Checks if the date field is valid.
+   * Called by OmniScript when navigating between steps.
+   * @returns {boolean} True if valid, false if invalid
+   */
+  @api
+  checkValidity() {
+    const hasAnyValue = this._hasAnyValue();
+    const hasCompleteValue = this._hasCompleteValue();
+
+    let valid = true;
+
+    // If required and empty, invalid
+    if (this._propSetMap?.required && !hasAnyValue) {
+      valid = false;
+    }
+
+    // If partial value, invalid
+    if (valid && hasAnyValue && !hasCompleteValue) {
+      valid = false;
+    }
+
+    // If complete value, validate the actual date
+    if (valid && hasCompleteValue) {
+      const day = parseInt(this._dayValue, 10);
+      const month = parseInt(this._monthValue, 10);
+      const year = parseInt(this._yearValue, 10);
+
+      if (isNaN(day) || day < 1 || day > 31) valid = false;
+      else if (isNaN(month) || month < 1 || month > 12) valid = false;
+      else if (isNaN(year) || year < 1000 || year > 9999) valid = false;
+      else {
+        const testDate = new Date(year, month - 1, day);
+        if (
+          testDate.getFullYear() !== year ||
+          testDate.getMonth() !== month - 1 ||
+          testDate.getDate() !== day
+        ) {
+          valid = false;
+        }
+      }
+    }
+
+    // Set isValid to dispatch validation event to OmniScript
+    // This is critical for OmniScript to know the field's validity state
+    this.isValid = valid;
+
+    return valid;
+  }
+
+  /**
+   * Reports validity and shows error messages if invalid.
+   * Called by OmniScript when validating the step.
+   * @returns {boolean} True if valid, false if invalid
+   */
+  @api
+  reportValidity() {
+    const valid = this.checkValidity();
+
+    // Update error display state
+    this.isError = !valid;
+    this._showValidation = true;
+
+    // Run full validation to set error messages
+    this._validateDate();
+
+    // Set error message when invalid
+    if (!valid && !this._validationMessage) {
+      this._validationMessage =
+        this.mergedMessageWhenValueMissing || "This field is required";
+    }
+
+    return valid;
+  }
+
   /* Lifecycle */
   render() {
     return tmpl;
@@ -227,11 +343,15 @@ export default class SfGpsDsCaOnFormDate extends SfGpsDsFormDate {
   connectedCallback() {
     if (super.connectedCallback) super.connectedCallback();
     this.classList.add("caon-scope");
+    // Add data-omni-input to the HOST element so OmniScript can find and validate it
+    // This ensures OmniScript calls our @api checkValidity() directly
+    this.setAttribute("data-omni-input", "");
     this._parseValue();
   }
 
   renderedCallback() {
     if (super.renderedCallback) super.renderedCallback();
+
     // Re-parse value if it changed externally
     if (
       this.elementValue &&
@@ -240,6 +360,20 @@ export default class SfGpsDsCaOnFormDate extends SfGpsDsFormDate {
       !this._yearValue
     ) {
       this._parseValue();
+    }
+
+    // On first render, check validity to set initial validation state
+    // This ensures OmniScript knows if the field is initially invalid (e.g., required but empty)
+    if (!this._hasRendered) {
+      this._hasRendered = true;
+
+      // Defer to allow DOM to settle
+      // eslint-disable-next-line @lwc/lwc/no-async-operation
+      Promise.resolve().then(() => {
+        // Check validity without showing errors (user hasn't interacted yet)
+        // This dispatches the VALID/INVALID event to OmniScript
+        this.checkValidity();
+      });
     }
   }
 }
