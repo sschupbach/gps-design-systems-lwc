@@ -193,32 +193,11 @@
          ======================================== -->
     
     <labels>
-        <fullName>sfGpsDsCaOn_SiteSelector_Title</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Site selector default title</shortDescription>
-        <value>Site</value>
-    </labels>
-    <labels>
-        <fullName>sfGpsDsCaOn_SiteSelector_ButtonLabel</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Site selector trigger button</shortDescription>
-        <value>Site selector tool</value>
-    </labels>
-    <labels>
         <fullName>sfGpsDsCaOn_SiteSelector_SearchByParameters</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Search parameter dropdown label</shortDescription>
         <value>Search by other parameters</value>
-    </labels>
-    <labels>
-        <fullName>sfGpsDsCaOn_SiteSelector_SearchPlaceholder</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Search input placeholder</shortDescription>
-        <value>Enter address, coordinates, or lot/concession</value>
     </labels>
     <labels>
         <fullName>sfGpsDsCaOn_SiteSelector_ClearSearch</fullName>
@@ -311,20 +290,6 @@
          DISCHARGE POINT SELECTOR LABELS
          ======================================== -->
     
-    <labels>
-        <fullName>sfGpsDsCaOn_DischargePoint_Title</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Discharge point default title</shortDescription>
-        <value>Source</value>
-    </labels>
-    <labels>
-        <fullName>sfGpsDsCaOn_DischargePoint_ButtonLabel</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Discharge point trigger button</shortDescription>
-        <value>Add discharge point</value>
-    </labels>
     <labels>
         <fullName>sfGpsDsCaOn_DischargePoint_SearchMethod</fullName>
         <language>en_US</language>

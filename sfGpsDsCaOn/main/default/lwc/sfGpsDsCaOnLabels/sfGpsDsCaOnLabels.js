@@ -63,10 +63,7 @@ import Common_SkipOptions from "@salesforce/label/c.sfGpsDsCaOn_Common_SkipOptio
 // ========================================
 // SITE SELECTOR LABELS
 // ========================================
-import SiteSelector_Title from "@salesforce/label/c.sfGpsDsCaOn_SiteSelector_Title";
-import SiteSelector_ButtonLabel from "@salesforce/label/c.sfGpsDsCaOn_SiteSelector_ButtonLabel";
 import SiteSelector_SearchByParameters from "@salesforce/label/c.sfGpsDsCaOn_SiteSelector_SearchByParameters";
-import SiteSelector_SearchPlaceholder from "@salesforce/label/c.sfGpsDsCaOn_SiteSelector_SearchPlaceholder";
 import SiteSelector_ClearSearch from "@salesforce/label/c.sfGpsDsCaOn_SiteSelector_ClearSearch";
 import SiteSelector_SubmittedLocation from "@salesforce/label/c.sfGpsDsCaOn_SiteSelector_SubmittedLocation";
 import SiteSelector_SubmittedHint from "@salesforce/label/c.sfGpsDsCaOn_SiteSelector_SubmittedHint";
@@ -83,8 +80,6 @@ import SiteSelector_LotConcession from "@salesforce/label/c.sfGpsDsCaOn_SiteSele
 // ========================================
 // DISCHARGE POINT LABELS
 // ========================================
-import DischargePoint_Title from "@salesforce/label/c.sfGpsDsCaOn_DischargePoint_Title";
-import DischargePoint_ButtonLabel from "@salesforce/label/c.sfGpsDsCaOn_DischargePoint_ButtonLabel";
 import DischargePoint_SearchMethod from "@salesforce/label/c.sfGpsDsCaOn_DischargePoint_SearchMethod";
 import DischargePoint_LatLong from "@salesforce/label/c.sfGpsDsCaOn_DischargePoint_LatLong";
 import DischargePoint_UTM from "@salesforce/label/c.sfGpsDsCaOn_DischargePoint_UTM";
@@ -242,10 +237,7 @@ export const LABELS = {
   },
 
   SiteSelector: {
-    Title: SiteSelector_Title,
-    ButtonLabel: SiteSelector_ButtonLabel,
     SearchByParameters: SiteSelector_SearchByParameters,
-    SearchPlaceholder: SiteSelector_SearchPlaceholder,
     ClearSearch: SiteSelector_ClearSearch,
     SubmittedLocation: SiteSelector_SubmittedLocation,
     SubmittedHint: SiteSelector_SubmittedHint,
@@ -261,8 +253,6 @@ export const LABELS = {
   },
 
   DischargePoint: {
-    Title: DischargePoint_Title,
-    ButtonLabel: DischargePoint_ButtonLabel,
     SearchMethod: DischargePoint_SearchMethod,
     LatLong: DischargePoint_LatLong,
     UTM: DischargePoint_UTM,

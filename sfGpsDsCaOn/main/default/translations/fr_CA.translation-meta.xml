@@ -100,21 +100,8 @@
     
     <!-- SITE SELECTOR TOOL -->
     <customLabels>
-        <label>sfGpsDsCaOn_SiteSelector_Title</label>
-        <translation>Site</translation>
-    </customLabels>
-    <customLabels>
-        <label>sfGpsDsCaOn_SiteSelector_ButtonLabel</label>
-        <translation>Outil de sélection de site</translation>
-    </customLabels>
-    <customLabels>
         <label>sfGpsDsCaOn_SiteSelector_SearchByParameters</label>
         <translation>Rechercher par autres paramètres</translation>
-    </customLabels>
-    <customLabels>
-        <label>sfGpsDsCaOn_SiteSelector_SearchPlaceholder</label>
-        <translation
-    >Entrez l'adresse, les coordonnées ou le lot/concession</translation>
     </customLabels>
     <customLabels>
         <label>sfGpsDsCaOn_SiteSelector_ClearSearch</label>
@@ -168,14 +155,6 @@
     </customLabels>
     
     <!-- DISCHARGE POINT SELECTOR -->
-    <customLabels>
-        <label>sfGpsDsCaOn_DischargePoint_Title</label>
-        <translation>Source</translation>
-    </customLabels>
-    <customLabels>
-        <label>sfGpsDsCaOn_DischargePoint_ButtonLabel</label>
-        <translation>Ajouter un point de rejet</translation>
-    </customLabels>
     <customLabels>
         <label>sfGpsDsCaOn_DischargePoint_SearchMethod</label>
         <translation>Méthode de recherche</translation>
