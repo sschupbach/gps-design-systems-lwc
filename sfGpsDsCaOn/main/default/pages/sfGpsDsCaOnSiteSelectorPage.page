@@ -63,6 +63,15 @@
           parseFloat("{!JSENCODE(defaultLongitude)}") || -79.3832;
         var communityUrl = "{!JSENCODE(communityUrl)}";
 
+        // Get parent origin from URL parameter (passed by LWC)
+        // This allows the VF page to work when embedded from different domains
+        var urlParams = new URLSearchParams(window.location.search);
+        var parentOrigin = urlParams.get("parentOrigin");
+        // Use parentOrigin if provided, otherwise fall back to communityUrl
+        var targetOrigin = parentOrigin
+          ? decodeURIComponent(parentOrigin)
+          : communityUrl;
+
         // Parse mode from URL parameter (defaults to "search")
         var urlParams = new URLSearchParams(window.location.search);
         var initialMode = urlParams.get("mode") || "search";
@@ -599,11 +608,10 @@
           function sendToLWC(data) {
             console.log("VF Page - sendToLWC:", {
               data: data,
-              communityUrl: communityUrl,
-              targetOrigin: communityUrl || "*"
+              targetOrigin: targetOrigin || "*"
             });
-            if (communityUrl) {
-              parent.postMessage(data, communityUrl);
+            if (targetOrigin) {
+              parent.postMessage(data, targetOrigin);
             } else {
               // Fallback for development
               parent.postMessage(data, "*");
@@ -617,16 +625,16 @@
           window.addEventListener("message", function (event) {
             console.log("VF Page - Received message:", {
               origin: event.origin,
-              communityUrl: communityUrl,
+              targetOrigin: targetOrigin,
               data: event.data,
               dataType: typeof event.data
             });
 
-            // Validate origin if communityUrl is set
-            if (communityUrl && event.origin !== communityUrl) {
+            // Validate origin if targetOrigin is set
+            if (targetOrigin && event.origin !== targetOrigin) {
               console.warn("VF Page - Message rejected, origin mismatch:", {
                 eventOrigin: event.origin,
-                expectedOrigin: communityUrl
+                expectedOrigin: targetOrigin
               });
               return;
             }

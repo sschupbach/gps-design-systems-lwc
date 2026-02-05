@@ -453,7 +453,9 @@ export default class SfGpsDsCaOnSiteSelectorTool extends MapSelectorMixin(
     if (!this.vfPageUrl) return "";
     const lat = this._coordinates?.latitude || this.defaultLatitude;
     const lng = this._coordinates?.longitude || this.defaultLongitude;
-    return `${this.vfPageUrl}?latitude=${lat}&longitude=${lng}&mode=${this._activeTab}`;
+    // Pass parent origin so VF page knows where to send postMessage responses
+    const parentOrigin = encodeURIComponent(window.location.origin);
+    return `${this.vfPageUrl}?latitude=${lat}&longitude=${lng}&mode=${this._activeTab}&parentOrigin=${parentOrigin}`;
   }
 
   /**

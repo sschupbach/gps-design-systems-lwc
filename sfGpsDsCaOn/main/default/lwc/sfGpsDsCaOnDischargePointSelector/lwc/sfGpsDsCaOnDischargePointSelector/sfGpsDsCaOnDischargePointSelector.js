@@ -281,7 +281,10 @@ export default class SfGpsDsCaOnDischargePointSelector extends MapSelectorMixin(
   get computedVfPageUrl() {
     if (!this.vfPageUrl) return "";
     const separator = this.vfPageUrl.includes("?") ? "&" : "?";
-    return `${this.vfPageUrl}${separator}lat=${this.defaultLatitude}&lng=${this.defaultLongitude}&mode=discharge`;
+    // Pass parent origin so VF page knows where to send postMessage responses
+    const parentOrigin = encodeURIComponent(window.location.origin);
+    // Use latitude/longitude to match Apex controller parameter names
+    return `${this.vfPageUrl}${separator}latitude=${this.defaultLatitude}&longitude=${this.defaultLongitude}&mode=discharge&parentOrigin=${parentOrigin}`;
   }
 
   get hasVfPageUrl() {
@@ -412,6 +415,12 @@ export default class SfGpsDsCaOnDischargePointSelector extends MapSelectorMixin(
   }
 
   handleCoordinateChange(event) {
+    // Skip native input events (they don't have event.detail)
+    // Only process CustomEvents from c-sf-gps-ds-ca-on-coordinate-input
+    if (!event.detail || !event.detail.decimal) {
+      return;
+    }
+
     const { decimal } = event.detail;
 
     if (DEBUG) console.log(CLASS_NAME, "handleCoordinateChange", decimal);
@@ -427,7 +436,8 @@ export default class SfGpsDsCaOnDischargePointSelector extends MapSelectorMixin(
     this._errorMessage = "";
 
     if (this._searchMethod === "coordinates") {
-      const coordInput = this.template.querySelector(
+      // Use this.querySelector for Light DOM (this.template is null in Light DOM)
+      const coordInput = this.querySelector(
         "c-sf-gps-ds-ca-on-coordinate-input"
       );
       if (coordInput) {
