@@ -7,14 +7,84 @@
 
 import { LightningElement, api, track } from "lwc";
 import { OmniscriptBaseMixin } from "omnistudio/omniscriptBaseMixin";
-import {
-  parseOptionsJson,
-  decorateOptions,
-  filterByParentValue
-} from "c/sfGpsDsCaOnFormUtils";
 
 const DEBUG = false;
 const CLASS_NAME = "SfGpsDsCaOnNaicsCodePickerOmni";
+
+/* ========================================
+ * UTILITY FUNCTIONS
+ * ======================================== */
+
+/**
+ * Parse JSON input that may be escaped by OmniStudio.
+ * Handles: arrays, objects, strings, and double-escaped JSON.
+ * @param {string|Array|Object} input - The input to parse
+ * @returns {Array} Parsed options array
+ */
+function parseOptionsJson(input) {
+  if (!input) return [];
+
+  // Already an array - return directly
+  if (Array.isArray(input)) return input;
+
+  // Object (but not array) - wrap in array or return empty
+  if (typeof input === "object") {
+    return input.value !== undefined ? [input] : [];
+  }
+
+  // String - try to parse, handling OmniStudio double-escaping
+  if (typeof input === "string") {
+    let jsonStr = input;
+
+    // OmniStudio sometimes double-escapes JSON strings
+    if (
+      jsonStr.includes("\\[") ||
+      jsonStr.includes("\\{") ||
+      jsonStr.includes('\\"')
+    ) {
+      jsonStr = jsonStr
+        .replace(/\\\[/g, "[")
+        .replace(/\\\]/g, "]")
+        .replace(/\\\{/g, "{")
+        .replace(/\\\}/g, "}")
+        .replace(/\\"/g, '"')
+        .replace(/\\\\/g, "\\");
+    }
+
+    try {
+      const parsed = JSON.parse(jsonStr);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch {
+      return [];
+    }
+  }
+
+  return [];
+}
+
+/**
+ * Decorate options with selected state for dropdowns.
+ * @param {Array} options - Options array
+ * @param {string} selectedValue - Currently selected value
+ * @returns {Array} Options with selected boolean
+ */
+function decorateOptions(options, selectedValue) {
+  return options.map((opt) => ({
+    ...opt,
+    selected: opt.value === selectedValue
+  }));
+}
+
+/**
+ * Filter cascading options by parent value.
+ * @param {Array} options - Options array with parentValue property
+ * @param {string} parentValue - Parent value to filter by
+ * @returns {Array} Filtered options
+ */
+function filterByParentValue(options, parentValue) {
+  if (!parentValue) return [];
+  return options.filter((opt) => opt.parentValue === parentValue);
+}
 
 /**
  * NAICS Code Picker for OmniStudio Custom LWC
