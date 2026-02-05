@@ -89,3 +89,6 @@ sfGpsDsCaOn/docs/STAKEHOLDER_BRIEFING.md
 
 # Local-only components (not tracked in repo)
 sfGpsDsCaOn/main/default/lwc/sfGpsDsCaOnFeatureCard/
+sfGpsDsCaOn/main/default/lwc/sfGpsDsCaOnActionCard/
+sfGpsDsCaOn/main/default/lwc/sfGpsDsCaOnLinkCard/
+sfGpsDsCaOn/__tests__/sfGpsDsCaOnActionCard.test.js
