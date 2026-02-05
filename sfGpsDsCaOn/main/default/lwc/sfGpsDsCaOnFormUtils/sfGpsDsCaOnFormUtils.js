@@ -116,64 +116,6 @@ export function generateId(prefix = "id") {
 }
 
 /* ========================================
- * CSS CLASS COMPUTATION
- * ======================================== */
-
-/**
- * Compute CSS class for dropdown/select element.
- * @param {boolean} isInvalid - Whether the field is invalid
- * @param {string} errorMessage - Error message (if any)
- * @param {string} className - Additional class names
- * @returns {string} Computed CSS class string
- */
-export function computeSelectClassName(isInvalid, errorMessage, className) {
-  let classes = "ontario-input ontario-dropdown";
-  if (isInvalid || errorMessage) {
-    classes += " ontario-input__error";
-  }
-  if (className) {
-    classes += ` ${className}`;
-  }
-  return classes;
-}
-
-/**
- * Compute CSS class for text input element.
- * @param {boolean} isInvalid - Whether the field is invalid
- * @param {string} errorMessage - Error message (if any)
- * @param {string} className - Additional class names
- * @returns {string} Computed CSS class string
- */
-export function computeInputClassName(isInvalid, errorMessage, className) {
-  let classes = "ontario-input";
-  if (isInvalid || errorMessage) {
-    classes += " ontario-input__error";
-  }
-  if (className) {
-    classes += ` ${className}`;
-  }
-  return classes;
-}
-
-/**
- * Compute CSS class for textarea element.
- * @param {boolean} isInvalid - Whether the field is invalid
- * @param {string} errorMessage - Error message (if any)
- * @param {string} className - Additional class names
- * @returns {string} Computed CSS class string
- */
-export function computeTextareaClassName(isInvalid, errorMessage, className) {
-  let classes = "ontario-textarea";
-  if (isInvalid || errorMessage) {
-    classes += " ontario-textarea__error";
-  }
-  if (className) {
-    classes += ` ${className}`;
-  }
-  return classes;
-}
-
-/* ========================================
  * ACCESSIBILITY
  * ======================================== */
 
@@ -379,9 +321,6 @@ export function isValidDate(year, month, day) {
 export default {
   parseOptionsJson,
   generateId,
-  computeSelectClassName,
-  computeInputClassName,
-  computeTextareaClassName,
   computeAriaDescribedBy,
   getFlagText,
   decorateOptions,
