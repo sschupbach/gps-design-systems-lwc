@@ -1,0 +1,128 @@
+// Ontario Design System - Card (OmniStudio)
+// Shadow DOM compatible styles - Source SCSS
+//
+// This file imports the official Ontario Design System card styles.
+// To regenerate the CSS after modifying this file, run from project root:
+//
+//   npx sass --style=compressed --load-path=node_modules \
+//     sfGpsDsCaOn/main/default/lwc/sfGpsDsCaOnCardOmni/ontario-card-omni.scss | \
+//     (echo "/* sldsValidatorIgnore */" && cat) > \
+//     sfGpsDsCaOn/main/default/lwc/sfGpsDsCaOnCardOmni/sfGpsDsCaOnCardOmni.css
+
+// Import the official Ontario Design System card component styles
+@import "@ongov/ontario-design-system-component-library/src/components/ontario-card/ontario-card";
+
+// ========================================
+// FIXES
+// Dark accent heading link color
+// ========================================
+
+.ontario-card__heading--dark-accent a {
+  color: white;
+}
+
+.ontario-card:hover .ontario-card__heading.ontario-card__heading--dark-accent {
+  text-decoration-color: white;
+}
+
+// ========================================
+// BUTTON STYLES
+// Include button styles for card CTAs
+// ========================================
+
+.ontario-button {
+  border-radius: 4px;
+  box-sizing: border-box;
+  box-shadow: none;
+  display: inline-block;
+  font-size: 1.125rem;
+  font-weight: 600;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  min-width: 10rem;
+  padding: 0.625rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out;
+  position: relative;
+  z-index: 1;
+}
+
+.ontario-button--primary {
+  background-color: #1a1a1a;
+  border: 2px solid #1a1a1a;
+  color: #ffffff;
+}
+
+.ontario-button--primary:hover {
+  background-color: #4d4d4d;
+  border-color: #4d4d4d;
+  color: #ffffff;
+}
+
+.ontario-button--primary:focus {
+  outline: 4px solid #009ade;
+  outline-offset: 2px;
+}
+
+.ontario-button--primary:active {
+  background-color: #666666;
+  border-color: #666666;
+}
+
+// ========================================
+// HIGH CONTRAST MODE SUPPORT
+// WCAG 1.4.11: Non-text Contrast
+// ========================================
+
+@media (prefers-contrast: high) {
+  .ontario-card {
+    border: 2px solid CanvasText;
+  }
+
+  .ontario-card:focus-within {
+    outline: 3px solid Highlight;
+    outline-offset: 2px;
+    box-shadow: none;
+  }
+
+  .ontario-card__link {
+    color: LinkText;
+  }
+
+  .ontario-button--primary {
+    background-color: ButtonFace;
+    border-color: ButtonText;
+    color: ButtonText;
+  }
+
+  .ontario-button--primary:focus {
+    outline: 3px solid Highlight;
+  }
+}
+
+// Forced colors mode (Windows High Contrast)
+@media (forced-colors: active) {
+  .ontario-card {
+    border: 2px solid ButtonText;
+    forced-color-adjust: none;
+  }
+
+  .ontario-card:focus-within {
+    outline: 3px solid Highlight;
+  }
+
+  .ontario-card__link {
+    color: LinkText;
+  }
+
+  .ontario-button--primary {
+    background-color: ButtonFace;
+    border-color: ButtonText;
+    color: ButtonText;
+    forced-color-adjust: none;
+  }
+}
